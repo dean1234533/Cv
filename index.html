@@ -4,30 +4,31 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dean Burt - CV</title>
-
  <link rel="stylesheet" href="style.css">
+ 
 </head>
 <body>
 
   <div class="buttonContainer">
     <button class="print-button" id="saveBtn">Save as PDF</button>
   </div>
+
   <div class="container">
 
     <!-- HEADER -->
     <div class="header">
-
       <div class="img-container">
- <img class="cv-img" src="IMG_4997-removebg-preview.png" alt="Profile Picture">
-</div>
+        <div class="cv-img-wrapper">
+          <img class="cv-img" src="IMG_4997-removebg-preview.png" alt="Profile Picture">
+        </div>
+      </div>
       <h1>DEAN BURT</h1>
       <div class="contact-info">
         <p><strong>PHONE:</strong> 07752 300937</p>
         <p><strong>EMAIL:</strong> deanburt1308@gmail.com</p>
-        <p><strong>PORTFOLIO:</strong> your-portfolio-url.com</p>
-        <p><strong>GITHUB:</strong> github.com/your-profile</p>
+        <p><strong>PORTFOLIO:</strong> https://dean1234533.github.io/Project-Portfolio/</p>
+        <p><strong>GITHUB:</strong> https://github.com/dean1234533</p>
       </div>
-     
     </div>
 
     <!-- PROFESSIONAL SUMMARY -->
@@ -188,46 +189,11 @@
     </div>
   </div>
 
-  <!-- Scripts for PDF generation -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script>
-  document.getElementById('saveBtn').addEventListener('click', async function() {
-    const btn = this;
-    btn.textContent = 'Generating...';
-    btn.disabled = true;
-    
-    const buttonContainer = document.querySelector('.buttonContainer');
-    buttonContainer.style.display = 'none';
-    
-    try {
-      const container = document.querySelector('.container');
-      
-      const canvas = await html2canvas(container, {
-        scale: 3,
-        useCORS: true,
-        backgroundColor: '#ffffff',
-        logging: false
-      });
-      
-      const { jsPDF } = window.jspdf;
-      const pdf = new jsPDF('p', 'mm', 'a4');
-      const imgData = canvas.toDataURL('image/png', 1.0);
-      
-      // Fill entire A4 page (no margins)
-      pdf.addImage(imgData, 'PNG', 0, 0, 210, 297);
-      pdf.save('Dean_Burt_CV.pdf');
-      
-    } catch (error) {
-      console.error('Error generating PDF:', error);
-      alert('Error generating PDF. Please try again.');
-    }
-    
-    buttonContainer.style.display = 'block';
-    btn.textContent = 'Save as PDF';
-    btn.disabled = false;
-  });
-</script>
+  <script>
+    document.getElementById('saveBtn').addEventListener('click', function() {
+      window.print();
+    });
+  </script>
 
 </body>
 </html>

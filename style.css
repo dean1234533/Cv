@@ -215,7 +215,7 @@
     @media print {
       @page {
         size: A4 portrait;
-        margin: 10mm;
+        margin: 6mm;
       }
 
       body {
@@ -236,8 +236,10 @@
         width: 100%;
       }
 
+      .experience-item {margin-top: 10% !important;}
+
       .skills-grid{
-        gap: 25px;
+        gap: 20px;
       }
 
       .header {

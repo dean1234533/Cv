@@ -1,0 +1,20 @@
+const db = globalThis.__B44_DB__ || { auth:{ isAuthenticated: async()=>false, me: async()=>null }, entities:new Proxy({}, { get:()=>({ filter:async()=>[], get:async()=>null, create:async()=>({}), update:async()=>({}), delete:async()=>({}) }) }), integrations:{ Core:{ UploadFile:async()=>({ file_url:'' }) } } };
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="https://db.com/logo_v2.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="description" content="FitAI — Your AI Personal Trainer. Built by a qualified East London PT. Personalised workouts, meal plans, and progress tracking powered by AI." />
+    <meta property="og:title" content="FitAI — Your AI Personal Trainer" />
+    <meta property="og:description" content="Personalised workouts, meal plans, and progress tracking powered by AI. Built by a real PT." />
+    <meta name="theme-color" content="#0a0f1e" />
+    <title>FitAI — Your AI Personal Trainer | DB's Workouts</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

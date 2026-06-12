@@ -1,0 +1,485 @@
+* {
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+body {
+    color: white;
+    background-color: white;
+    font-family: "IBM Plex Serif", serif;
+   font-size: clamp(16px, 2.5vw, 20px);
+    font-weight: 400;
+    font-style: normal;
+}
+
+h1 {
+    overflow-y: hidden;
+    font-size: clamp(40px, 5vw, 48px);
+    font-weight: 700;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    overflow-y: hidden;
+    font-size: clamp(30px, 4vw, 36px);
+    font-weight: 600;
+   
+margin-top: 30px;
+
+    text-align: center;
+  padding: 10px;
+}
+
+h3 {
+     font-size: clamp(22px, 5vw, 26px);
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    overflow-y: hidden;
+}
+
+ol {
+    font-size: clamp(15px, 5vw, 17px);
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+ol li {
+    list-style: decimal inside;
+}
+
+ol li::marker {
+    color: #b30018;
+}
+
+p {
+    width: 90%;
+    line-height: 1.6rem;
+}
+
+.Page-content-container {
+    background-color: black;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 120px;
+}
+
+.content-container p {
+    display: flex;
+    justify-content: center;
+}
+
+.content-container img {
+    max-height: 600px;
+    width: 100%;
+}
+
+.whiteSection {
+    background-color: white;
+    color: black;
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.whiteSection p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.whiteSection.groupTraing {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.whiteSection.list {
+    border-radius: 20px;
+    padding-top: 50px;
+    max-width: 650px;
+    width: 90%;
+}
+
+.Sessions-Include li {
+    padding-bottom: 50px;
+    line-height: 1.6rem;
+}
+
+.carousel-progress-pics {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    overflow-y: hidden;
+    height: auto;
+    margin-top: 40px;
+    margin-bottom: 70px;
+}
+
+.carousel-inner,
+.carousel-item,
+.carousel-item img {
+    overflow: hidden;
+    object-fit: cover;
+    height: auto;
+}
+
+.custom-card {
+    border: 4px solid rgb(238, 241, 237);
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    margin: 20px auto;
+    background-color: #1f1e1e;
+    color: #fbf6f6;
+    max-width: 800px;
+    width: 90%;
+    text-align: left;
+   
+}
+
+.custom-card .text-uppercase{font-size: 28px;}
+
+.custom-card p {
+    width: 100% !important;
+    margin: 0 auto;
+    padding: 8px;
+   display: flex;
+   justify-content: flex-start;
+   overflow-y: hidden;
+  line-height: 1;
+   
+}
+
+.bookYourBlock, a{text-decoration-color: rgb(190, 13, 13);}
+
+.custom-card .bookYourBlook {
+    color:white;
+   font-weight: bold;
+
+}
+
+.custom-card span{margin-right: 4px;;}
+
+.custom-box {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    max-width: 500px;
+    width: 100%;
+   
+}
+
+.custom-box .card-value {
+    position: relative;
+    left: 72%;
+    top: 81px;
+    background-color: #b30018d1;
+    transform: rotate(40deg);
+    max-width: 33%;
+    border-radius: 5px;
+   
+}
+
+
+
+
+.custom-box .discount-text {
+    font-size: 52px;
+    font-weight: bolder;
+    color: white;
+    text-shadow: -1px -1px 0 black;
+    
+}
+
+.discountsContainer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.discountsContainer h3 {
+    margin-top: 25px;
+    
+}
+
+.discountsContainer p {
+    margin-top: 10px;
+
+}
+
+.Ready-to-start-your-fitness-journey {
+    display: flex;
+    flex-direction: column;
+}
+
+.Ready-to-start-your-fitness-journey a {
+    margin-block: 40px;
+}
+
+.Ready-to-start-your-fitness-journey p {
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.consultation-button:hover {
+    background-color: #9c1022;
+    padding: 13px;
+}
+
+.consultation-button {
+    display: inline-block;
+    margin: 0 auto;
+    padding: 12px 20px;
+    background-color: #c33e3e;
+    color: white;
+    border: 2px solid white;
+    border-radius: 5px;
+    font-size: clamp(12px, 3vw, 20px);
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+     width: clamp(240px, 65vw, 320px);
+    text-align: center;
+    height: auto;
+    
+}
+
+.servicesText{
+   display: flex;
+justify-content: center;
+max-width: 800px;
+text-align: center;
+margin-top: 20px;
+}
+
+.Personal-Training-Sessions h2,
+.Personal-Training-Sessions h3{
+    text-align: center;
+    padding: 10px;
+}
+
+
+.redText {
+    color: #b30018;
+}
+
+.whiteSpace {
+    padding: 1px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.182);
+    margin-top: 10px;
+}
+
+.your-discount p{
+    text-align: center;
+margin-top: 15px;
+}
+
+.achieve-your-fitness-goals-text span,
+.footer-links a:hover {
+    color: #b30018;
+}
+
+footer {
+    background-color: rgba(188, 173, 173, 0.348);
+    color:black;
+    padding: 40px 20px 20px 20px;
+    font-family: "Libre Baskerville", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer-col p {
+    padding: 0;
+    margin-block: 20px;
+    line-height: 2.6rem;
+}
+
+.footer-columns {
+    gap: 32px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.footer-heading {
+    font-size: clamp(14px, 2.5vw, 16px);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+footer p {
+    margin: 0 0 8px 0;
+    width: auto;
+    text-align: left;
+}
+
+footer a {
+    text-decoration: none;
+    color:black;
+    text-align: left;
+    margin-left: 0;
+    margin-top: 0;
+    display: block;
+    padding: 4px 0;
+    font-size: clamp(13px, 2vw, 15px);
+    transition: color 0.2s ease;
+}
+
+footer a:hover {
+    color: #b30018;
+}
+
+.footer-col a img {
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.footer-bottom {
+    max-width: 1100px;
+    margin: 20px auto 0;
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: clamp(10px, 2vw, 13px);
+    color: black;
+    margin: 0;
+    width: auto;
+}
+
+.footer-bottom a {
+    display: inline;
+    color: black;
+    margin-left: 12px;
+    font-size: inherit;
+}
+
+.footer-bottom a:hover {
+    color: #b30018;
+}
+
+.footerItems {
+    display: flex;
+    flex-direction: column;
+}
+
+.desktopOnly{display: none;}
+
+@media (max-width: 767px) {
+    .navbar {
+        margin: 0;
+    }
+
+    .Page-content-container {
+        margin: 0;
+        padding: 0;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (min-width: 768px) {
+    .footer-columns {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+p {
+        max-width: 800px;
+        width: 100%;
+        padding: 20px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .whiteSection,
+    .content-container img {
+        width: 60%;
+    }
+
+    .whiteSection.groupTraing,
+    .whiteSection.your-discount {
+        width: 100%;
+    }
+
+    p {
+        max-width: 800px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .navBar ul {
+        margin-left: 60%;
+    }
+
+
+.your-discount p{
+    margin-bottom: 15px;
+}
+ .desktopOnly{display: block;}   
+}
+/* ── FAQ SECTION (matches site: IBM Plex Serif + brand red) ──────── */
+.faq-section {
+  padding: 3.25rem 1.25rem;
+}
+.faq-heading {
+  text-align: center;
+  margin: 0 auto 2rem;
+}
+.faq-list {
+  max-width: 760px;
+  margin: 0 auto;
+}
+.faq-item {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 1.1rem 0.25rem;
+}
+.faq-item summary {
+  font-family: "IBM Plex Serif", serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1f1e1e;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+";
+  color: #b30018;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1;
+  transition: transform 0.25s ease;
+}
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item p {
+  margin: 0.85rem 0 0;
+  color: #444;
+  line-height: 1.65;
+  font-size: 0.97rem;
+}

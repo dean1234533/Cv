@@ -42,7 +42,7 @@
       "image": "https://dbworkouts.co.uk/pics/IMG_8101.JPG",
       "logo": "https://dbworkouts.co.uk/pics/IMG_8070-removebg-preview.png",
       "address": { "@type": "PostalAddress", "addressLocality": "East London", "addressRegion": "Greater London", "addressCountry": "GB" },
-      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "68", "bestRating": "5" },
+      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "69", "bestRating": "5" },
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+447752300937",
@@ -84,7 +84,7 @@
         <li><a href="/pricing">Services &amp; Pricing</a></li>
         <li><a href="/testimonials">Testimonials</a></li>
         <li><a href="/Active-Living-1">Blog</a></li>
-        <li><a href="https://pt-ai-helper-63y9umrdw-deans-projects-30127c36.vercel.app" target="_blank" rel="noopener noreferrer">AI Plans</a></li>
+        <li><a href="/ai-plans">AI Plans</a></li>
         <li><a href="/contact">Contact</a></li>
         <li>
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSe5r_P-zG-WqhoeYMaX1I1AGRDDh6bSO7NaPxZ3vrH1NwipWw/viewform" class="Nav-consultation-button">Book Now</a>
@@ -156,14 +156,18 @@
       <p class="contact-eyebrow">Send a Message</p>
       <h2 class="contact-heading">Let's <span class="redText">Talk</span></h2>
       <p class="contact-sub">Fill in your details and Dean will get back to you within 24 hours.</p>
-      <form class="contact-form" action="mailto:dbs-workouts@yahoo.com" method="post" enctype="text/plain">
+      <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" id="contactForm">
+        <input type="hidden" name="access_key" value="PASTE_YOUR_WEB3FORMS_KEY_HERE">
+        <input type="hidden" name="subject" value="New consultation enquiry – DB's Workouts">
+        <input type="hidden" name="redirect" value="https://dbworkouts.co.uk/contact?sent=true">
+        <input type="checkbox" name="botcheck" style="display:none">
         <div class="form-row">
-          <input type="text" name="Name" placeholder="Your Name *" required>
-          <input type="email" name="Email" placeholder="Your Email *" required>
+          <input type="text" name="name" placeholder="Your Name *" required>
+          <input type="email" name="email" placeholder="Your Email *" required>
         </div>
         <div class="form-row">
-          <input type="tel" name="Phone" placeholder="Phone Number">
-          <select name="PreferredTime">
+          <input type="tel" name="phone" placeholder="Phone Number">
+          <select name="preferred_time">
             <option value="">Preferred Session Time</option>
             <option value="Early Morning 6:30–8:00">Early Morning (6:30–8:00)</option>
             <option value="Morning 8:00–12:00">Morning (8:00–12:00)</option>
@@ -171,9 +175,21 @@
             <option value="Evening 17:00–20:00">Evening (17:00–20:00)</option>
           </select>
         </div>
-        <textarea name="Message" placeholder="Tell me about your goals..." maxlength="350" rows="5"></textarea>
+        <textarea name="message" placeholder="Tell me about your goals..." maxlength="350" rows="5"></textarea>
         <button type="submit" class="cta-submit-btn">SEND MESSAGE</button>
       </form>
+      <div id="formSuccess" style="display:none; color:#10b981; font-size:15px; margin-top:12px; text-align:center;">
+        ✓ Message sent! Dean will be in touch within 24 hours.
+      </div>
+      <script>
+        (function(){
+          var p = new URLSearchParams(window.location.search);
+          if(p.get('sent') === 'true') {
+            document.getElementById('contactForm').style.display = 'none';
+            document.getElementById('formSuccess').style.display = 'block';
+          }
+        })();
+      </script>
       <p class="form-alt">Prefer to talk? <a href="https://wa.me/447752300937" target="_blank" rel="noopener">WhatsApp Dean directly</a></p>
     </div>
   </section>
@@ -209,7 +225,7 @@
     <div class="footer-col">
       <p class="footer-brand">DB's Workouts</p>
       <p class="footer-tagline">Outdoor PT · East London</p>
-      <p class="footer-tagline">★★★★★&nbsp; 5.0 · 68 Reviews</p>
+      <p class="footer-tagline">★★★★★&nbsp; 5.0 · 69 Reviews</p>
     </div>
     <div class="footer-col">
       <p class="footer-heading">Pages</p>
@@ -219,7 +235,7 @@
       <a href="/testimonials">Testimonials</a>
       <a href="/contact">Contact</a>
       <a href="/Active-Living-1">Blog</a>
-      <a href="https://pt-ai-helper-63y9umrdw-deans-projects-30127c36.vercel.app" target="_blank" rel="noopener noreferrer">AI Plans</a>
+      <a href="/ai-plans">AI Plans</a>
     </div>
     <div class="footer-col">
       <p class="footer-heading">Contact</p>

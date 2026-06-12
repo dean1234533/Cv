@@ -13,7 +13,7 @@ const PLANS = {
   },
 }
 
-const GENERATOR_URL = 'https://dbworkouts.co.uk/ai-plans'
+const GENERATOR_URL = 'https://pt-ai-helper.pages.dev/#/register'
 
 module.exports = async function handler(req, res) {
   if (req.method !== 'POST') {

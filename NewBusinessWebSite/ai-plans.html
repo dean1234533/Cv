@@ -8,8 +8,14 @@
   <meta name="keywords" content="free workout plan generator, AI workout plans, personalised nutrition plan UK, East London personal trainer, DB's Workouts, Dean Burt, free meal plan">
   <meta name="author" content="Dean Burt">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#000000">
+  <meta name="theme-color" content="#b30018">
   <link rel="canonical" href="https://dbworkouts.co.uk/ai-plans">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="DB's AI Plans">
+  <link rel="apple-touch-icon" href="/pics/icon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="./pics/IMG_8070-removebg-preview.png">
   <link rel="icon" href="./pics/IMG_8101.JPG" type="image/png" sizes="128x128">
   <meta property="og:title" content="Free & AI Workout Plans | DB's Workouts">
@@ -1331,5 +1337,12 @@ async function startCheckout(planId, btn) {
 }
 </script>
 <script defer src="./Script/navbar.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('/sw.js');
+    });
+  }
+</script>
 </body>
 </html>

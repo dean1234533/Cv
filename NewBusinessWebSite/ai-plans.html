@@ -1344,5 +1344,47 @@ async function startCheckout(planId, btn) {
     });
   }
 </script>
+
+<!-- ── PLAY STORE BANNER (Android only, dismissible) ── -->
+<div id="play-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9000;background:#0d1322;border-top:1px solid rgba(179,0,24,0.3);padding:14px 16px;display:none;align-items:center;gap:14px;box-shadow:0 -4px 24px rgba(0,0,0,0.5);">
+  <img src="/pics/icon-192.png" alt="DB's Workouts" style="width:44px;height:44px;border-radius:10px;flex-shrink:0;">
+  <div style="flex:1;min-width:0;">
+    <div style="font-size:13px;font-weight:700;color:white;line-height:1.3;">DB's AI Plans</div>
+    <div style="font-size:11px;color:rgba(255,255,255,0.45);margin-top:2px;">Get the full app on Google Play</div>
+  </div>
+  <a id="play-btn" href="https://play.google.com/store/apps/details?id=uk.co.dbworkouts.aiplans" target="_blank" rel="noopener" style="background:#b30018;color:white;border-radius:10px;padding:9px 16px;font-size:13px;font-weight:700;text-decoration:none;white-space:nowrap;font-family:'IBM Plex Serif',serif;flex-shrink:0;">
+    Get App
+  </a>
+  <button onclick="dismissBanner()" style="background:none;border:none;color:rgba(255,255,255,0.35);font-size:20px;cursor:pointer;padding:4px;flex-shrink:0;line-height:1;">×</button>
+</div>
+
+<script>
+  // Suppress browser's own "Add to Home Screen" prompt on Android —
+  // we direct users to the Play Store instead.
+  window.addEventListener('beforeinstallprompt', function(e) {
+    e.preventDefault();
+  });
+
+  // Show Play Store banner on Android only, once per session
+  (function() {
+    var isAndroid = /Android/i.test(navigator.userAgent);
+    var dismissed = sessionStorage.getItem('play-banner-dismissed');
+    if (isAndroid && !dismissed) {
+      var banner = document.getElementById('play-banner');
+      if (banner) {
+        banner.style.display = 'flex';
+        // Nudge page content up so banner doesn't cover footer
+        document.body.style.paddingBottom = '80px';
+      }
+    }
+  })();
+
+  function dismissBanner() {
+    sessionStorage.setItem('play-banner-dismissed', '1');
+    var banner = document.getElementById('play-banner');
+    if (banner) banner.style.display = 'none';
+    document.body.style.paddingBottom = '';
+  }
+</script>
 </body>
 </html>

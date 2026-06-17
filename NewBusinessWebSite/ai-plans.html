@@ -118,15 +118,16 @@
     }
     .btn-primary {
       display: inline-flex; align-items: center; gap: 8px;
-      background: #10b981; color: white; border: none;
+      background: #b30018; color: white; border: none;
       border-radius: 12px; padding: 15px 30px;
       font-size: 15px; font-weight: 700;
       font-family: "IBM Plex Serif", serif;
       cursor: pointer; text-decoration: none;
-      transition: background 0.2s;
+      transition: background 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 32px rgba(179,0,24,0.3);
     }
-    .btn-primary:hover { background: #059669; color: white; }
-    .btn-outline-red {
+    .btn-primary:hover { background: #9c0015; color: white; box-shadow: 0 0 40px rgba(179,0,24,0.45); }
+    .btn-outline-free {
       display: inline-flex; align-items: center; gap: 8px;
       background: transparent; color: white;
       border: 1px solid rgba(255,255,255,0.2); border-radius: 12px;
@@ -135,7 +136,7 @@
       transition: border-color 0.2s, color 0.2s;
       cursor: pointer;
     }
-    .btn-outline-red:hover { border-color: #b30018; color: #ff7777; }
+    .btn-outline-free:hover { border-color: #10b981; color: #10b981; }
 
     /* ─── SHARED SECTION ─── */
     .section { padding: 80px 20px; }
@@ -586,7 +587,7 @@
     }
     @media (max-width: 600px) {
       .hero-btns { flex-direction: column; align-items: center; }
-      .btn-primary, .btn-outline-red { width: min(320px, 90vw); justify-content: center; }
+      .btn-primary, .btn-outline-free { width: min(320px, 90vw); justify-content: center; }
       .metrics-grid { grid-template-columns: 1fr; }
       .macro-tiles { grid-template-columns: repeat(3,1fr); }
       .footer-columns { grid-template-columns: 1fr; gap: 28px; }
@@ -623,15 +624,19 @@
 <section class="hero">
   <div class="hero-glow"></div>
   <div class="hero-inner">
-    <div class="hero-badge">⚡ Built by a REPs Certified East London PT</div>
-    <h1>Workout &amp; Nutrition Plans.<br><span style="color:#10b981;">Free to start.</span></h1>
-    <p class="hero-sub">Generate a personalised workout and nutrition plan right here — no account needed, completely free. Upgrade to AI Plans for weekly check-ins and progressive overload.</p>
+    <div class="hero-badge">⚡ Built by a REPs Certified East London PT · Powered by AI</div>
+    <h1>
+      Your AI Personal Trainer.
+      <span style="color:#b30018;display:block;">Always On.</span>
+      <span style="color:#10b981;display:block;">Always Personalised.</span>
+    </h1>
+    <p class="hero-sub">Personalised workout and nutrition plans, powered by AI — or generate a free one-off plan right now with no account needed. Designed by Dean Burt, DB's Workouts, East London.</p>
     <div class="hero-btns">
-      <a href="#generator" class="btn-primary" onclick="document.getElementById('generator').scrollIntoView({behavior:'smooth'});return false;">
-        ✨ Get My Free Plan →
-      </a>
-      <a href="#pricing" class="btn-outline-red" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'});return false;">
-        ⚡ See AI Plans
+      <button class="btn-primary" onclick="startCheckout('ai_personal', this)">
+        ⚡ Get AI Plans — £7.99/month →
+      </button>
+      <a href="#generator" class="btn-outline-free" onclick="document.getElementById('generator').scrollIntoView({behavior:'smooth'});return false;">
+        ✨ Try Free Plan Generator
       </a>
     </div>
   </div>

@@ -90,6 +90,30 @@
     .post-body h2 .red { color: #b30018; }
     .post-body strong { color: white; }
 
+    /* ── VIDEO REEL ── */
+    .lookbook-video-wrap {
+      margin: 40px 0;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.07);
+      background: #000;
+      position: relative;
+    }
+    .lookbook-video-wrap video {
+      width: 100%;
+      display: block;
+      max-height: 70vh;
+      object-fit: cover;
+    }
+    .lookbook-video-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 16px 20px;
+      background: linear-gradient(transparent, rgba(5,8,16,0.85));
+      font-size: 12px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: rgba(255,255,255,0.6);
+    }
+
     /* ── COLLECTION CARDS ── */
     .collection-grid {
       display: grid; grid-template-columns: 1fr 1fr;
@@ -287,6 +311,13 @@
   <p>
     It's wearable art. Designed to make people ask where you got it.
   </p>
+
+  <div class="lookbook-video-wrap">
+    <video autoplay muted loop playsinline>
+      <source src="./pics/video-output-515274E7-EB55-4083-B37C-495292CD2FB6-1-compressed.MP4" type="video/mp4">
+    </video>
+    <div class="lookbook-video-caption">Caution — DeanTBStudio Collection 2026</div>
+  </div>
 
   <div class="collection-grid">
     <div class="collection-card comic">

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dean Burt — Frontend Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="index.css">
+</head>
+<body>
+ 
+  <!-- ── MOBILE MENU ── -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home"     onclick="closeMobile()">Home</a>
+    <a href="#projects" onclick="closeMobile()">Work</a>
+    <a href="#about"    onclick="closeMobile()">About</a>
+    <a href="#skills"   onclick="closeMobile()">Skills</a>
+    <a href="#contact"  onclick="closeMobile()">Contact</a>
+  </div>
+ 
+  <!-- ── NAV ── -->
+  <nav id="mainNav">
+    <a class="nav-logo" href="#home">Dean<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#projects">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="burger" id="burger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+ 
+  <!-- ── HERO ── -->
+  <section id="home">
+    <div class="hero-grid"></div>
+    <div class="hero-accent-blob"></div>
+    <p class="hero-eyebrow">Frontend Developer · Available for work</p>
+    <h1 class="hero-name">Dean<br><span>Burt</span></h1>
+    <p class="hero-tagline">Building interactive web experiences with modern JavaScript, CSS, and responsive design — focused on performance and clarity.</p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="#projects">View My Work</a>
+      <a class="btn-outline" href="https://dean1234533.github.io/Cv/" target="_blank">Download CV</a>
+    </div>
+    <div class="hero-scroll">
+      <span class="scroll-line"></span>
+      Scroll to explore
+    </div>
+  </section>
+ 
+  <!-- ── PROJECTS ── -->
+  <section id="projects">
+    <div class="section-label">Selected Work</div>
+    <div class="section-title">Projects</div>
+    <div class="section-divider"></div>
+ 
+    <!-- PROJECT 1 -->
+    <article class="project-card reveal">
+      <div class="project-header">
+        <div>
+          <div class="project-number">01 — Website Redesign</div>
+          <h2 class="project-title">DB Workouts</h2>
+          <div class="project-tech">
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">HTML</span>
+            <span class="tech-tag">CSS</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">Vercel</span>
+          </div>
+        </div>
+      </div>
+      <p class="project-desc">Redesigned and rebuilt a fitness website for a personal training business — transforming a generic template into a modern, conversion-focused site with clear service presentation and a guided booking flow.</p>
+      <div class="project-media">
+        <div class="img-slider" id="slider1">
+          <div class="img-slider-track">
+            <img src="Screenshot 2025-11-21-at-23.05.48.jpg" alt="Old DB Workouts site">
+            <img src="Image 21-11-2025 at 23.03.jpg" alt="Old DB Workouts mobile">
+            <img src="Screenshot-2025-11-21-at-23.06.47.jpg" alt="Old DB Workouts page">
+          </div>
+        </div>
+        <div class="slider-btns">
+          <button class="slider-btn" onclick="slide('slider1', -1)">←</button>
+          <button class="slider-btn" onclick="slide('slider1', 1)">→</button>
+        </div>
+        <video src="./FullSizeRender-compressed-3.MOV" autoplay muted loop playsinline style="margin-top:0.75rem;"></video>
+      </div>
+      <div class="project-details">
+        <div class="detail-block">
+          <h4>Key Improvements</h4>
+          <ul>
+            <li>Modern hero with clear value proposition</li>
+            <li>Structured service sections</li>
+            <li>Stronger call-to-action throughout</li>
+            <li>Client testimonials for social proof</li>
+            <li>Responsive across all screen sizes</li>
+          </ul>
+        </div>
+        <div class="detail-block">
+          <h4>Problems Solved</h4>
+          <ul>
+            <li>Generic template replaced with branded layout</li>
+            <li>Weak CTAs strengthened into conversion flow</li>
+            <li>Poor visual hierarchy reorganised</li>
+            <li>No booking path — now clearly signposted</li>
+          </ul>
+        </div>
+      </div>
+      <div class="project-footer">
+        <a class="btn-outline" href="https://fitness-website-plum.vercel.app/" target="_blank">View Old Site</a>
+        <a class="btn-primary" href="https://dbworkouts.co.uk/" target="_blank">View Live Site ↗</a>
+      </div>
+    </article>
+ 
+    <!-- PROJECT 2 -->
+    <article class="project-card reveal reveal-delay-1">
+      <div class="project-header">
+        <div>
+          <div class="project-number">02 — Client Website</div>
+          <h2 class="project-title">Painting & Decorating</h2>
+          <div class="project-tech">
+            <span class="tech-tag">HTML5</span>
+            <span class="tech-tag">CSS3</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">Flexbox</span>
+            <span class="tech-tag">Grid</span>
+          </div>
+        </div>
+      </div>
+      <p class="project-desc">A clean, mobile-first website for a professional painter and decorator in South London. Features before & after portfolio shots, a customer review carousel, and a free quote CTA to drive enquiries.</p>
+      <div class="project-media">
+        <div class="img-slider" id="slider2">
+          <div class="img-slider-track">
+            <img src="./Screenshot 2026-03-29 at 10.22.05.png" alt="Painting website home">
+            <img src="./Screenshot 2026-03-29 at 10.23.00.png" alt="Painting website portfolio">
+            <img src="./Screenshot 2026-03-29 at 10.23.31.png" alt="Painting website contact">
+          </div>
+        </div>
+        <div class="slider-btns">
+          <button class="slider-btn" onclick="slide('slider2', -1)">←</button>
+          <button class="slider-btn" onclick="slide('slider2', 1)">→</button>
+        </div>
+        <video src="./FullSizeRender-compressed 5.MOV" autoplay muted loop playsinline style="margin-top:0.75rem;"></video>
+      </div>
+      <div class="project-details">
+        <div class="detail-block">
+          <h4>Features</h4>
+          <ul>
+            <li>Bold hero — South London's trusted painters</li>
+            <li>Before & after portfolio of completed jobs</li>
+            <li>5-star review carousel</li>
+            <li>Full services list with free quote CTAs</li>
+            <li>Mobile-first responsive design</li>
+          </ul>
+        </div>
+        <div class="detail-block">
+          <h4>Design Goals</h4>
+          <ul>
+            <li>Build trust with local homeowners</li>
+            <li>Visually demonstrate quality of work</li>
+            <li>Drive free quote enquiries</li>
+            <li>Fast, accessible on all devices</li>
+          </ul>
+        </div>
+      </div>
+      <div class="project-footer">
+        <a class="btn-outline" href="https://github.com/dean1234533/painting" target="_blank">View Code</a>
+        <a class="btn-primary" href="https://dean1234533.github.io/painting/" target="_blank">View Live Demo ↗</a>
+      </div>
+    </article>
+ 
+    <!-- PROJECT 3 -->
+    <article class="project-card reveal reveal-delay-2">
+      <div class="project-header">
+        <div>
+          <div class="project-number">03 — Full-Stack App</div>
+          <h2 class="project-title">Trainer Management Platform</h2>
+          <div class="project-tech">
+            <span class="tech-tag">HTML5</span>
+            <span class="tech-tag">CSS3</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">Firebase</span>
+            <span class="tech-tag">Supabase</span>
+          </div>
+        </div>
+      </div>
+      <p class="project-desc">A full-stack app for personal trainers to manage clients, build workout plans, track nutrition, message clients, and keep notes — all in one secure dashboard.</p>
+      <div class="project-media">
+        <div class="img-slider" id="slider3">
+          <div class="img-slider-track">
+            <img src="Screenshot-2025-11-21-at-23.33.56.jpg" alt="App dashboard">
+            <img src="Screenshot 2025-11-21-at-23.46.53.jpg" alt="App workout view">
+            <img src="Screenshot 2025-11-21-at-23.39.12.jpg" alt="App food diary">
+          </div>
+        </div>
+        <div class="slider-btns">
+          <button class="slider-btn" onclick="slide('slider3', -1)">←</button>
+          <button class="slider-btn" onclick="slide('slider3', 1)">→</button>
+        </div>
+        <video src="./video-output-42F0C88F-D5D2-43AE-AFA7-E58D64660961-1-4.MOV" autoplay muted loop playsinline style="margin-top:0.75rem;"></video>
+      </div>
+      <div class="project-details">
+        <div class="detail-block">
+          <h4>Core Features</h4>
+          <ul>
+            <li>Secure login with session management</li>
+            <li>Personalised trainer dashboard</li>
+            <li>Custom workout builder per client</li>
+            <li>Nutrition & food diary tracking</li>
+            <li>Direct client messaging</li>
+          </ul>
+        </div>
+        <div class="detail-block">
+          <h4>Technical Stack</h4>
+          <ul>
+            <li>Firebase auth with password hashing</li>
+            <li>Supabase database for all app data</li>
+            <li>Automatic session timeouts</li>
+            <li>Responsive, mobile-optimised UI</li>
+          </ul>
+        </div>
+      </div>
+      <div class="project-footer">
+        <a class="btn-outline" href="https://github.com/dean1234533/fitnessApp--4--2" target="_blank">View Code</a>
+        <a class="btn-primary" href="https://fitness-app-4-2.vercel.app/" target="_blank">View Live Demo ↗</a>
+      </div>
+    </article>
+  </section>
+ 
+  <!-- ── ABOUT ── -->
+  <section id="about">
+    <div class="about-text">
+      <div class="section-label reveal">About Me</div>
+      <h2 class="section-title reveal reveal-delay-1">Developer<br>& Designer</h2>
+      <p class="reveal reveal-delay-2">I'm a frontend developer passionate about creating interactive, user-friendly web interfaces. I focus on writing clean, efficient code and designing experiences that work seamlessly across all devices.</p>
+      <p class="reveal reveal-delay-3">My approach combines technical precision with attention to design — I care as much about how something looks as how it works.</p>
+      <div class="about-stats reveal reveal-delay-4">
+        <div class="stat-item">
+          <div class="stat-number">3+</div>
+          <div class="stat-label">Projects shipped</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">5</div>
+          <div class="stat-label">Technologies</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Responsive</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">∞</div>
+          <div class="stat-label">Curiosity</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-visual reveal">
+      <div class="about-img-wrap">
+        <img src="5CBC806A-25F9-4FF9-BD19-D96CACCD00B5_1_105_c-removebg-preview-2.png" alt="Dean Burt">
+      </div>
+      <div class="about-img-accent"></div>
+    </div>
+  </section>
+ 
+  <!-- ── SKILLS ── -->
+  <section id="skills">
+    <div class="section-label reveal">What I Use</div>
+    <h2 class="section-title reveal reveal-delay-1">Skills</h2>
+    <div class="section-divider"></div>
+    <div class="skills-grid reveal reveal-delay-2">
+      <div class="skill-cell">
+        <img src="html-5.png" alt="HTML5">
+        <span>HTML5</span>
+      </div>
+      <div class="skill-cell">
+        <img src="css-3 (2).png" alt="CSS3">
+        <span>CSS3</span>
+      </div>
+      <div class="skill-cell">
+        <img src="js.png" alt="JavaScript">
+        <span>JavaScript</span>
+      </div>
+      <div class="skill-cell">
+        <img src="react.png" alt="React">
+        <span>React</span>
+      </div>
+      <div class="skill-cell">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-plain-wordmark.svg" alt="Firebase">
+        <span>Firebase</span>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- ── CONTACT ── -->
+  <section id="contact">
+    <div class="contact-bg"></div>
+    <div class="section-label reveal">Get In Touch</div>
+    <h2 class="section-title reveal reveal-delay-1">Let's Work<br>Together</h2>
+    <p class="reveal reveal-delay-2" style="color:var(--muted);font-weight:300;max-width:440px;margin:1.5rem auto 0;">Interested in working together? I'd love to hear about your project. Send me an email or connect on LinkedIn.</p>
+    <a class="contact-email reveal reveal-delay-3" href="mailto:Deanburt1308@gmail.com">Deanburt1308<br>@gmail.com</a>
+    <div class="contact-links reveal reveal-delay-4">
+      <a class="contact-link" href="mailto:Deanburt1308@gmail.com">Email</a>
+      <a class="contact-link" href="https://www.linkedin.com/in/dbwebdev/" target="_blank">LinkedIn</a>
+      <a class="contact-link" href="https://dean1234533.github.io/Cv/" target="_blank">CV</a>
+    </div>
+  </section>
+ 
+  <!-- ── FOOTER ── -->
+  <footer>
+    <p>© 2026 Dean Burt. All rights reserved.</p>
+    <a href="#home">Back to top ↑</a>
+  </footer>
+
+<script src="index.js"></script>
+
+  </body>
+  </html>

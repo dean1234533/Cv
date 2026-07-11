@@ -26,3 +26,12 @@
 /blog                       /blog-post                  301
 /services                   /pricing                    301
 /fitness-tools              /tools                      301
+
+# Old nutrition store (previous site) → nutrition page
+/nutrition-store/*          /nutrition                  301
+/nutrition-store            /nutrition                  301
+
+# Old Blog.html (capital B, previous site) → blog-post
+/Blog.html                  /blog-post                  301
+/Blog.html/                 /blog-post                  301
+/Blog                       /blog-post                  301

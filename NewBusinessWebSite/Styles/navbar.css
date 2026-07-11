@@ -35,7 +35,8 @@ summary:focus-visible {
 /* ── Logo ── */
 .navBar .logoContainer {
   position: absolute;
-  top: 0;
+  top: 50%;
+  transform: translateY(-50%);
   opacity: 1;
   transition: opacity 1.5s ease;
 }
@@ -49,8 +50,8 @@ summary:focus-visible {
 }
 
 .navBar img {
-  width: clamp(60px, 8vw, 76px);
-  height: clamp(60px, 8vw, 76px);
+  width: clamp(60px, 8vw, 64px);
+  height: clamp(60px, 8vw, 64px);
   display: block;
 }
 
@@ -137,12 +138,18 @@ summary:focus-visible {
   transform: translateY(-50%);
   background: none;
   border: none;
+  padding: 0;
+  margin: 0;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 5px;
+  overflow: visible;
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .navBar .Navbtn,
@@ -151,18 +158,21 @@ summary:focus-visible {
   top: 36px;
 }
 
-.line1,
-.line2,
-.line3 {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background-color: rgba(0,0,0,0.75);
+.Navbtn .line1,
+.Navbtn .line2,
+.Navbtn .line3 {
+  display: block !important;
+  width: 26px !important;
+  height: 2px !important;
+  background-color: rgba(0,0,0,0.8) !important;
+  border-radius: 2px;
+  flex-shrink: 0;
+  overflow: visible;
   transition: all 0.3s;
 }
 
-.line2 {
-  background-color: #b30018;
+.Navbtn .line2 {
+  background-color: #b30018 !important;
 }
 
 /* ── Mobile menu (Active state) ── */
@@ -187,24 +197,24 @@ summary:focus-visible {
   to { width: 100%; }
 }
 
-.Active .line2 {
-  opacity: 0;
-  transform: scaleX(0);
+.Active .Navbtn .line2 {
+  opacity: 0 !important;
+  transform: scaleX(0) !important;
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-.Active .line1 {
-  transform: rotate(45deg) translate(5px, 5px);
+.Active .Navbtn .line1 {
+  transform: rotate(45deg) translate(5px, 5px) !important;
   transition: all 0.35s cubic-bezier(0.77, 0, 0.175, 1);
-  width: 22px;
-  background-color: #b30018;
+  width: 22px !important;
+  background-color: #b30018 !important;
 }
 
-.Active .line3 {
-  transform: rotate(-45deg) translate(5px, -5px);
+.Active .Navbtn .line3 {
+  transform: rotate(-45deg) translate(5px, -5px) !important;
   transition: all 0.35s cubic-bezier(0.77, 0, 0.175, 1);
-  width: 22px;
-  background-color: #b30018;
+  width: 22px !important;
+  background-color: #b30018 !important;
 }
 
 .Active ul {
@@ -223,7 +233,7 @@ summary:focus-visible {
   width: 100%;
 }
 
-.Active ul li a {
+.Active ul > li > a {
   font-weight: 700;
   font-size: clamp(18px, 5vw, 26px) !important;
   color: rgba(0,0,0,0.0);
@@ -236,9 +246,36 @@ summary:focus-visible {
   display: inline-block;
 }
 
-.Active ul li a:hover {
+.Active ul > li > a:hover {
   color: #b30018 !important;
 }
+
+/* ── Blog dropdown ── */
+.nav-dropdown { position: relative; }
+.nav-dropdown-toggle::after { content: ' ▾'; font-size: 0.75em; vertical-align: middle; }
+.nav-dropdown.open .nav-dropdown-toggle::after { content: ' ▴'; }
+
+.nav-dropdown-menu {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 6px 0 2px;
+}
+.nav-dropdown.open .nav-dropdown-menu { display: flex; }
+.nav-dropdown-menu a {
+  font-family: "IBM Plex Serif", serif;
+  font-size: clamp(13px, 3.5vw, 16px);
+  font-weight: 600;
+  color: rgba(0,0,0,0.45);
+  text-decoration: none;
+  padding: 3px 10px;
+  letter-spacing: 0.03em;
+  transition: color 0.2s;
+  white-space: nowrap;
+  display: block;
+}
+.nav-dropdown-menu a:hover { color: #b30018; }
 
 .Active .Nav-consultation-button {
   background: #b30018 !important;
@@ -261,14 +298,14 @@ summary:focus-visible {
 }
 
 /* ── Staggered slide-from-right animation (8 items) ── */
-.Active ul li:nth-child(1) a { animation: slideFromRight 0.45s 0.18s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
-.Active ul li:nth-child(2) a { animation: slideFromRight 0.45s 0.24s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
-.Active ul li:nth-child(3) a { animation: slideFromRight 0.45s 0.30s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
-.Active ul li:nth-child(4) a { animation: slideFromRight 0.45s 0.36s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
-.Active ul li:nth-child(5) a { animation: slideFromRight 0.45s 0.42s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
-.Active ul li:nth-child(6) a { animation: slideFromRight 0.45s 0.48s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
-.Active ul li:nth-child(7) a { animation: slideFromRight 0.45s 0.54s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
-.Active ul li:nth-child(8) a { animation: slideFromRight 0.45s 0.60s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
+.Active ul > li:nth-child(1) > a { animation: slideFromRight 0.45s 0.18s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
+.Active ul > li:nth-child(2) > a { animation: slideFromRight 0.45s 0.24s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
+.Active ul > li:nth-child(3) > a { animation: slideFromRight 0.45s 0.30s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
+.Active ul > li:nth-child(4) > a { animation: slideFromRight 0.45s 0.36s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
+.Active ul > li:nth-child(5) > a { animation: slideFromRight 0.45s 0.42s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
+.Active ul > li:nth-child(6) > a { animation: slideFromRight 0.45s 0.48s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
+.Active ul > li:nth-child(7) > a { animation: slideFromRight 0.45s 0.54s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
+.Active ul > li:nth-child(8) > a { animation: slideFromRight 0.45s 0.60s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
 
 @keyframes slideFromRight {
   to {
@@ -278,11 +315,11 @@ summary:focus-visible {
   }
 }
 
-/* ── Tablet image fix ── */
+/* ── Tablet / desktop logo override (Active state uses its own transform) ── */
 @media (min-width: 768px) {
-  .navBar img {
-    margin-top: 50%;
-    transform: translateY(-60%);
+  .navBar.Active .logoContainer {
+    top: auto;
+    transform: none;
   }
 }
 
@@ -341,6 +378,35 @@ summary:focus-visible {
   .navBar ul li a:hover::after {
     transform: scaleX(1);
   }
+
+  /* Desktop blog dropdown */
+  .nav-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 10px;
+    min-width: 170px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    z-index: 200;
+    padding: 8px 0;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown.open .nav-dropdown-menu { display: flex; }
+  .nav-dropdown-menu a {
+    font-size: 12px;
+    color: rgba(0,0,0,0.65);
+    padding: 9px 18px;
+    white-space: nowrap;
+    width: 100%;
+  }
+  .nav-dropdown-menu a:hover { color: #b30018; background: rgba(179,0,24,0.04); }
+  .nav-dropdown-menu a::after { display: none !important; }
 
   .navBar .Nav-consultation-button {
     font-size: 11px !important;

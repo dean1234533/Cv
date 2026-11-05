@@ -1,5 +1,7 @@
-"""Generate DB's Workouts location SEO pages — run once then delete."""
+"""Generate location pages with the shared SEO design and current site chrome."""
 import os
+import re
+from refresh_seo_design import refresh_html
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -237,7 +239,7 @@ NAV_HTML = """  <div class="navContainer">
         <li><a href="/pricing">Services &amp; Pricing</a></li>
         <li><a href="/testimonials">Testimonials</a></li>
         <li><a href="/Active-Living-1">Blog</a></li>
-        <li><a href="/ai-plans">AI Plans</a></li>
+        <li><a href="https://app.dbworkouts.co.uk/">AI Plans</a></li>
         <li><a href="/contact">Contact</a></li>
         <li><a href="/contact" class="Nav-consultation-button">Book Now</a></li>
       </ul>
@@ -254,7 +256,7 @@ FOOTER_HTML = """  <footer>
       <div class="footer-col">
         <p class="footer-brand">DB's Workouts</p>
         <p class="footer-tagline">Outdoor PT &middot; East London</p>
-        <p class="footer-tagline">&#9733;&#9733;&#9733;&#9733;&#9733;&nbsp; 5.0 &middot; 69 Reviews</p>
+        <p class="footer-tagline">&#9733;&#9733;&#9733;&#9733;&#9733;&nbsp; 5.0 &middot; 70 Reviews</p>
       </div>
       <div class="footer-col">
         <p class="footer-heading">Pages</p>
@@ -264,7 +266,7 @@ FOOTER_HTML = """  <footer>
         <a href="/testimonials">Testimonials</a>
         <a href="/contact">Contact</a>
         <a href="/Active-Living-1">Blog</a>
-        <a href="/ai-plans">AI Plans</a>
+        <a href="https://app.dbworkouts.co.uk/">AI Plans</a>
         <a href="/smart-app">Smart App</a>
       </div>
       <div class="footer-col">
@@ -272,7 +274,7 @@ FOOTER_HTML = """  <footer>
         <a href="https://wa.me/447752300937" target="_blank" rel="noopener">
           <img src="./pics/whatsapp 3.png" width="22" height="22" loading="lazy" decoding="async" alt="WhatsApp"> WhatsApp
         </a>
-        <a href="mailto:dbs-workouts@yahoo.com" target="_blank" rel="noopener">
+        <a href="mailto:dbs_workouts@yahoo.com" target="_blank" rel="noopener">
           <img src="./pics/mail.png" width="22" height="22" loading="lazy" decoding="async" alt="Email"> Email
         </a>
         <a href="https://www.instagram.com/dbs_workouts" target="_blank" rel="noopener">
@@ -311,6 +313,12 @@ STYLES = """    * { box-sizing: border-box; margin: 0; padding: 0; }
 
 
 def build_page(loc):
+    # Keep the maintained generator aligned with the real site's navigation.
+    with open(os.path.join(BASE_DIR, 'personal-trainer-ilford.html'), encoding='utf-8') as source:
+        template = source.read()
+    nav_html = re.split(r'<main\b|<div class="hero-local">', template.split('<body>', 1)[1], maxsplit=1)[0]
+    nav_html = re.sub(r'<a class="seo-skip".*?</a>', '', nav_html)
+    footer_html = re.search(r'<footer\b.*?</footer>', template, re.S).group()
     name = loc["name"]
     slug = loc["slug"]
     postcode = loc["postcode"]
@@ -339,13 +347,13 @@ def build_page(loc):
         f'<span class="area-pill">{p}</span>' for p in parks
     )
 
-    return f"""<!DOCTYPE html>
+    return refresh_html(f"""<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Personal Trainer {name} | DB's Workouts – Outdoor PT {region}</title>
-  <meta name="description" content="Looking for a personal trainer in {name}? DB's Workouts offers outdoor 1-to-1 PT sessions at {park_hero} and local parks ({pc_str}). From £44. Book a free consultation.">
+  <meta name="description" content="Looking for a personal trainer in {name}? DB's Workouts offers outdoor 1-to-1 PT sessions at {park_hero} and local parks ({pc_str}). From £50. Book a free consultation call.">
   <meta name="keywords" content="{keywords}">
   <meta name="author" content="Dean Burt">
   <meta name="robots" content="index, follow">
@@ -365,25 +373,20 @@ def build_page(loc):
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Personal Trainer {name} | DB's Workouts – Outdoor PT">
-  <meta name="twitter:description" content="Outdoor PT in {name} {pc_str}. Sessions from £44. REPs certified. {park_hero} and local parks. Free consultation available.">
+  <meta name="twitter:description" content="Outdoor PT in {name} {pc_str}. Sessions from £50. REPs certified. {park_hero} and local parks. Free consultation call available.">
   <meta name="twitter:image" content="https://dbworkouts.co.uk/pics/IMG_8101.JPG">
   <script type="application/ld+json">
   [
     {{
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "@id": "https://dbworkouts.co.uk/#business",
-      "name": "DB's Workouts – Personal Trainer {name}",
-      "description": "Outdoor 1-to-1 personal training sessions in {name}, {region}. REPs Level 3 certified PT Dean Burt. Sessions at {park_hero} and surrounding areas {pc_str}.",
+      "@type": "Service",
+      "@id": "https://dbworkouts.co.uk/personal-trainer-{slug}#service",
+      "name": "Outdoor personal training in {name}",
+      "serviceType": "Outdoor personal training",
+      "description": "1-to-1 outdoor personal training in {name} with Dean Burt, qualified since 2019.",
       "url": "https://dbworkouts.co.uk/personal-trainer-{slug}",
-      "telephone": "+447752300937",
-      "priceRange": "££",
-      "image": "https://dbworkouts.co.uk/pics/IMG_8101.JPG",
-      "logo": "https://dbworkouts.co.uk/pics/IMG_8070-removebg-preview.png",
-      "address": {{"@type": "PostalAddress", "addressLocality": "{name}", "addressRegion": "{region}", "postalCode": "{postcode}", "addressCountry": "GB"}},
-      "aggregateRating": {{"@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "69", "bestRating": "5"}},
-      "areaServed": [{schema_area}],
-      "sameAs": ["https://www.facebook.com/dbs.workouts1","https://www.instagram.com/dbs_workouts","https://www.linkedin.com/in/db-s-workouts-2aa057214"]
+      "provider": {{"@type": "LocalBusiness", "@id": "https://dbworkouts.co.uk/#business", "name": "DB's Workouts", "url": "https://dbworkouts.co.uk/"}},
+      "areaServed": [{schema_area}]
     }},
     {{
       "@context": "https://schema.org",
@@ -405,19 +408,19 @@ def build_page(loc):
   </style>
 </head>
 <body>
-{NAV_HTML}
+{nav_html}
 
   <div class="hero-local">
     <p>OUTDOOR PT &middot; {name.upper()}</p>
     <h1>Personal Trainer in <span class="redText">{name}</span></h1>
     <p>Outdoor PT &amp; strength coaching sessions at {park_hero} and local parks across {pc_str}. No gym needed.</p>
-    <a href="/contact" class="cta-btn">Book a Free Consultation</a>
+    <a href="/contact" class="cta-btn">Book a Free Consultation Call</a>
     <p style="font-size:14px;color:#999;">Free &middot; No commitment &middot; {name}, {region}</p>
   </div>
 
   <div class="page-content">
     <h2>Outdoor Personal Training in <span class="redText">{name}</span>, {region}</h2>
-    <p>If you're searching for a personal trainer in {name}, DB's Workouts brings expert outdoor fitness coaching straight to your local park. Dean Burt is a REPs Level 3 certified personal trainer with over 12 years of experience delivering results-driven 1-to-1 sessions across {pc_str}. No gym membership, no commute — just effective training in the fresh air.</p>
+    <p>If you're searching for a personal trainer in {name}, DB's Workouts brings expert outdoor fitness coaching straight to your local park. Dean Burt is a REPs Level 3 certified personal trainer qualified since 2019 delivering results-driven 1-to-1 sessions across {pc_str}. No gym membership, no commute — just effective training in the fresh air.</p>
 
     <div class="info-block">
       <h2 style="font-size:22px;margin-top:0;">Training Locations in {name}</h2>
@@ -439,12 +442,17 @@ def build_page(loc):
     <p style="margin-top:16px;">Dean holds a REPs Level 3 Personal Training qualification and has worked with hundreds of clients across East London — from complete beginners to experienced gym-goers looking for a new challenge. His approach is straightforward: understand your goals, design a programme that works, and hold you accountable every session.</p>
 
     <h2>Pricing for <span class="redText">{name} PT Sessions</span></h2>
-    <p>Sessions from <strong>£44</strong> per session. Block bookings available from £37.40/session. <a href="/pricing" style="color:#b30018;">View full pricing.</a></p>
+    <p>Sessions from <strong>£50</strong> per session. Block bookings available from £42.50/session. <a href="/pricing" style="color:#b30018;">View full pricing.</a></p>
 
-    <a href="/contact" class="cta-btn block">Book a Free Consultation</a>
+<div class="info-block" id="training-options"><h2>Personal training for your goals</h2><p>Choose the focus for your sessions, then discuss your starting point and preferred location with Dean.</p><div class="areas-grid"><a href="/boxing-fitness-east-london">Boxing Fitness</a>
+<a href="/weight-loss-personal-trainer-east-london">Weight Loss Coaching</a>
+<a href="/personal-training-for-beginners-east-london">Beginner Personal Training</a>
+<a href="/mobile-personal-trainer-east-london">Mobile Personal Training</a>
+<a href="/pair-personal-training-east-london">Pair Personal Training</a></div></div>
+    <a href="/contact" class="cta-btn block">Book a Free Consultation Call</a>
   </div>
 
-{FOOTER_HTML}
+{footer_html}
 
   <script defer src="./Script/navbar.js"></script>
   <script>
@@ -455,7 +463,7 @@ def build_page(loc):
     }}
   </script>
 </body>
-</html>"""
+</html>""")
 
 
 def main():

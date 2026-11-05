@@ -1,6 +1,10 @@
 # Fitness Tools Hub — SPA rewrite (static files are served before this rule fires)
 /tools/*                    /tools/index.html           200
 
+# AI coaching now lives in the app. Keep old bookmarks and search results valid.
+/ai-plans                   https://app.dbworkouts.co.uk/ 301
+/ai-plans.html              https://app.dbworkouts.co.uk/ 301
+
 # Old blog_post URL (underscore) → new blog-post (hyphen)
 /blog_post                  /blog-post                  301
 
@@ -23,7 +27,6 @@
 /shop                       /blog-post                  301
 /smart-life                 /ai-plans                   301
 /plans                      /pricing                    301
-/blog                       /blog-post                  301
 /services                   /pricing                    301
 /fitness-tools              /tools                      301
 
@@ -35,3 +38,12 @@
 /Blog.html                  /blog-post                  301
 /Blog.html/                 /blog-post                  301
 /Blog                       /blog-post                  301
+/Blog%20page%204.html       /blog-post                  301
+
+# Old URLs with spaces (encoded) → clean canonical URLs
+/Privacy%20Policy.html      /privacy-policy             301
+/Terms%20and%20conditions.html /terms-and-conditions    301
+
+# Pair sessions replace the incorrectly advertised group-training service.
+/small-group-personal-training-east-london /pair-personal-training-east-london 301
+/small-group-personal-training-east-london.html /pair-personal-training-east-london 301

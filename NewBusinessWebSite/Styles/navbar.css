@@ -1,6 +1,12 @@
-* {
-  box-sizing: border-box;
-}
+/* ═══════════════════════════════════════════════════════════
+   DB's Workouts — Shared dark navbar (all inner pages)
+   Content theming is handled per-page. This file only controls
+   the fixed nav bar and the shared footer.
+═══════════════════════════════════════════════════════════ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
@@ -12,9 +18,7 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+* { -webkit-tap-highlight-color: transparent; }
 
 a:focus-visible,
 button:focus-visible,
@@ -24,17 +28,40 @@ summary:focus-visible {
   border-radius: 2px;
 }
 
-* {
-  -webkit-tap-highlight-color: transparent;
-}
-
 :root {
   --real-vh: 1vh;
+  --accent: #B30018;
+}
+
+/* ════════════════════════════════════════════════════════
+   NAV CONTAINER
+════════════════════════════════════════════════════════ */
+.navContainer {
+  width: 100%;
+  height: 100%;
+}
+
+.navBar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background: rgba(6, 6, 6, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  height: 72px;
+  position: fixed;
+  z-index: 900;
+  top: 0;
+  left: 0;
+  transition: height 0.5s cubic-bezier(0.77, 0, 0.175, 1), background 0.3s ease;
+  overflow-y: hidden;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 /* ── Logo ── */
 .navBar .logoContainer {
   position: absolute;
+  left: 20px;
   top: 50%;
   transform: translateY(-50%);
   opacity: 1;
@@ -50,33 +77,11 @@ summary:focus-visible {
 }
 
 .navBar img {
-  width: clamp(60px, 8vw, 64px);
-  height: clamp(60px, 8vw, 64px);
+  width: clamp(44px, 6vw, 52px);
+  height: clamp(44px, 6vw, 52px);
   display: block;
-}
-
-/* ── Core nav bar ── */
-.navContainer {
-  width: 100%;
-  height: 100%;
-}
-
-.navBar {
-  display: flex;
-  width: 100%;
-  background: #ffffff;
-  border-bottom: 2px solid #b30018;
-  height: 72px;
-  position: fixed;
-  z-index: 100;
-  top: 0;
-  left: 0;
-  transition: height 0.5s cubic-bezier(0.77, 0, 0.175, 1), background-color 0.3s ease;
-  overflow-y: hidden;
-  transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
+  border-radius: 8px;
+  object-fit: cover;
 }
 
 /* ── Desktop link list (hidden on mobile) ── */
@@ -90,48 +95,45 @@ summary:focus-visible {
 .navBar ul li a {
   text-decoration: none;
   padding: 10px 14px;
-  color: rgba(0,0,0,0.65);
+  color: rgba(255, 255, 255, 0.6);
   display: block;
   font-family: "IBM Plex Serif", serif;
   font-size: 13px;
   font-weight: 500;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   transition: color 0.2s ease;
   white-space: nowrap;
 }
 
 .navBar ul li a:hover {
-  color: #b30018;
+  color: rgba(255, 255, 255, 0.95);
 }
 
 /* ── Book Now CTA ── */
 .navBar .Nav-consultation-button {
   background: #b30018;
   color: white !important;
-  padding: 10px 20px;
-  border-radius: 4px;
+  padding: 9px 18px;
+  border-radius: 6px;
   font-size: 12px !important;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   border: none;
-  transition: background 0.2s ease;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .navBar .Nav-consultation-button:hover {
-  background: #8a0012;
+  background: #cc001e !important;
   color: white !important;
-  transform: none;
-  box-shadow: none;
-  filter: none;
-  opacity: 1;
-  border: none;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(179, 0, 24, 0.35);
 }
 
-/* ── Hamburger button ── */
+/* ── Hamburger ── */
 .Navbtn {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   position: absolute;
   right: 20px;
   top: 50%;
@@ -139,17 +141,14 @@ summary:focus-visible {
   background: none;
   border: none;
   padding: 0;
-  margin: 0;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 5px;
-  overflow: visible;
   -webkit-appearance: none;
   appearance: none;
-  -webkit-tap-highlight-color: transparent;
 }
 
 .navBar .Navbtn,
@@ -162,12 +161,11 @@ summary:focus-visible {
 .Navbtn .line2,
 .Navbtn .line3 {
   display: block !important;
-  width: 26px !important;
+  width: 24px !important;
   height: 2px !important;
-  background-color: rgba(0,0,0,0.8) !important;
+  background-color: rgba(255, 255, 255, 0.85) !important;
   border-radius: 2px;
   flex-shrink: 0;
-  overflow: visible;
   transition: all 0.3s;
 }
 
@@ -175,20 +173,21 @@ summary:focus-visible {
   background-color: #b30018 !important;
 }
 
-/* ── Mobile menu (Active state) ── */
+/* ── Mobile menu open (Active) ── */
 .Active {
   height: calc(var(--real-vh, 1vh) * 100);
-  background: #ffffff;
+  background: rgba(5, 5, 5, 0.98) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
-/* Red accent bar that grows in from the left */
 .Active::before {
   content: "";
   position: absolute;
   left: 0;
   top: 72px;
   width: 0;
-  height: 3px;
+  height: 2px;
   background: #b30018;
   animation: accentLine 0.6s 0.2s cubic-bezier(0.77, 0, 0.175, 1) forwards;
 }
@@ -200,7 +199,6 @@ summary:focus-visible {
 .Active .Navbtn .line2 {
   opacity: 0 !important;
   transform: scaleX(0) !important;
-  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .Active .Navbtn .line1 {
@@ -236,12 +234,11 @@ summary:focus-visible {
 .Active ul > li > a {
   font-weight: 700;
   font-size: clamp(18px, 5vw, 26px) !important;
-  color: rgba(0,0,0,0.0);
-  line-height: 1.4;
+  color: rgba(255, 255, 255, 0);
   opacity: 0;
   transform: translateX(40px);
   white-space: nowrap;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
   transition: color 0.2s ease;
   display: inline-block;
 }
@@ -263,14 +260,13 @@ summary:focus-visible {
   padding: 6px 0 2px;
 }
 .nav-dropdown.open .nav-dropdown-menu { display: flex; }
+
 .nav-dropdown-menu a {
-  font-family: "IBM Plex Serif", serif;
   font-size: clamp(13px, 3.5vw, 16px);
   font-weight: 600;
-  color: rgba(0,0,0,0.45);
+  color: rgba(255, 255, 255, 0.45);
   text-decoration: none;
   padding: 3px 10px;
-  letter-spacing: 0.03em;
   transition: color 0.2s;
   white-space: nowrap;
   display: block;
@@ -281,23 +277,20 @@ summary:focus-visible {
   background: #b30018 !important;
   color: white !important;
   padding: 13px 32px !important;
-  border-radius: 4px;
-  border: none !important;
+  border-radius: 6px;
   font-size: clamp(13px, 3.5vw, 16px) !important;
   font-weight: 700 !important;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   opacity: 0;
   transform: translateX(40px);
 }
 
 .Active .Nav-consultation-button:hover {
-  background: #8a0012 !important;
-  color: white !important;
-  border: none !important;
+  background: #cc001e !important;
 }
 
-/* ── Staggered slide-from-right animation (8 items) ── */
+/* ── Staggered link animations ── */
 .Active ul > li:nth-child(1) > a { animation: slideFromRight 0.45s 0.18s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
 .Active ul > li:nth-child(2) > a { animation: slideFromRight 0.45s 0.24s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
 .Active ul > li:nth-child(3) > a { animation: slideFromRight 0.45s 0.30s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
@@ -306,16 +299,16 @@ summary:focus-visible {
 .Active ul > li:nth-child(6) > a { animation: slideFromRight 0.45s 0.48s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
 .Active ul > li:nth-child(7) > a { animation: slideFromRight 0.45s 0.54s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
 .Active ul > li:nth-child(8) > a { animation: slideFromRight 0.45s 0.60s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
+.Active ul > li:nth-child(9) > a { animation: slideFromRight 0.45s 0.66s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
 
 @keyframes slideFromRight {
   to {
     opacity: 1;
-    color: rgba(0,0,0,0.8);
+    color: rgba(255, 255, 255, 0.88);
     transform: translateX(0);
   }
 }
 
-/* ── Tablet / desktop logo override (Active state uses its own transform) ── */
 @media (min-width: 768px) {
   .navBar.Active .logoContainer {
     top: auto;
@@ -323,11 +316,10 @@ summary:focus-visible {
   }
 }
 
-/* ── Desktop horizontal nav ── */
+/* ── Desktop ── */
 @media (min-width: 1200px) {
   .navBar {
     justify-content: flex-start;
-    background: #ffffff;
   }
 
   .navBar ul {
@@ -341,18 +333,14 @@ summary:focus-visible {
     height: 100%;
   }
 
-  .navBar ul li {
-    margin: 0;
-  }
-
   .navBar ul li a {
     opacity: 1 !important;
     transform: none;
     animation: none !important;
     font-size: 13px;
     padding: 10px 12px;
-    color: rgba(0,0,0,0.6);
-    letter-spacing: 0.06em;
+    color: rgba(255, 255, 255, 0.58);
+    letter-spacing: 0.05em;
     font-weight: 500;
     position: relative;
   }
@@ -371,26 +359,23 @@ summary:focus-visible {
   }
 
   .navBar ul li a:hover {
-    color: #0d0d0d;
+    color: rgba(255, 255, 255, 0.95);
     text-decoration: none;
   }
 
-  .navBar ul li a:hover::after {
-    transform: scaleX(1);
-  }
+  .navBar ul li a:hover::after { transform: scaleX(1); }
 
-  /* Desktop blog dropdown */
   .nav-dropdown-menu {
     display: none;
     position: absolute;
     top: calc(100% + 4px);
     left: 50%;
     transform: translateX(-50%);
-    background: white;
-    border: 1px solid rgba(0,0,0,0.08);
+    background: #111;
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 10px;
     min-width: 170px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
     z-index: 200;
     padding: 8px 0;
     flex-direction: column;
@@ -400,51 +385,40 @@ summary:focus-visible {
   .nav-dropdown.open .nav-dropdown-menu { display: flex; }
   .nav-dropdown-menu a {
     font-size: 12px;
-    color: rgba(0,0,0,0.65);
+    color: rgba(255, 255, 255, 0.5);
     padding: 9px 18px;
     white-space: nowrap;
     width: 100%;
   }
-  .nav-dropdown-menu a:hover { color: #b30018; background: rgba(179,0,24,0.04); }
+  .nav-dropdown-menu a:hover { color: #b30018; background: rgba(179, 0, 24, 0.05); }
   .nav-dropdown-menu a::after { display: none !important; }
 
   .navBar .Nav-consultation-button {
     font-size: 11px !important;
-    padding: 9px 18px;
-    letter-spacing: 0.12em;
+    padding: 9px 18px !important;
+    letter-spacing: 0.1em;
     margin-left: 8px;
   }
+  .navBar .Nav-consultation-button::after { display: none; }
 
-  .navBar .Nav-consultation-button::after {
-    display: none;
-  }
+  .Navbtn { display: none; }
 
-  .Navbtn {
-    display: none;
-  }
-
-  .Active {
-    height: 72px;
-  }
-
+  .Active { height: 72px; }
   .Active ul {
     position: static;
     transform: none;
     display: flex !important;
     flex-direction: row;
-    text-align: left;
   }
-
   .Active ul li a {
     font-size: 13px !important;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.05em;
   }
 }
 
-/* ════════════════════════════════════════════════════════════════
-   FOOTER — dark premium, shared across all pages
-   ════════════════════════════════════════════════════════════════ */
-
+/* ════════════════════════════════════════════════════════
+   FOOTER — shared across all inner pages
+════════════════════════════════════════════════════════ */
 footer {
   background: #0d0d0d !important;
   color: rgba(255,255,255,0.55) !important;
@@ -515,9 +489,7 @@ footer .footer-col a {
   transition: color 0.2s;
 }
 
-footer .footer-col a:hover {
-  color: #b30018 !important;
-}
+footer .footer-col a:hover { color: #b30018 !important; }
 
 footer .footer-col a img {
   opacity: 0.65;
@@ -525,9 +497,7 @@ footer .footer-col a img {
   flex-shrink: 0;
 }
 
-footer .footer-col a:hover img {
-  opacity: 1;
-}
+footer .footer-col a:hover img { opacity: 1; }
 
 footer .footer-bottom {
   max-width: 1100px;
@@ -539,7 +509,6 @@ footer .footer-bottom p {
   font-size: 12px;
   color: rgba(255,255,255,0.28) !important;
   margin: 0;
-  width: auto;
   text-align: center;
 }
 
@@ -553,17 +522,9 @@ footer .footer-bottom a {
   padding: 0;
 }
 
-footer .footer-bottom a:hover {
-  color: #b30018 !important;
-}
+footer .footer-bottom a:hover { color: #b30018 !important; }
 
-/* Stack footer on small screens */
 @media (max-width: 600px) {
-  footer .footer-columns {
-    flex-direction: column;
-    gap: 28px;
-  }
-  footer .footer-col {
-    flex-basis: auto;
-  }
+  footer .footer-columns { flex-direction: column; gap: 28px; }
+  footer .footer-col { flex-basis: auto; }
 }

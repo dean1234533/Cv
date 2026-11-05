@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { track } from "@/lib/analytics";
 
 import CalculatorWizard from "@/components/calculator/CalculatorWizard";
@@ -56,7 +57,7 @@ export default function Home() {
   });
 
   const calculatorRef = useRef(null);
-  const [data, setData] = useState({ workout_days: 3, equipment: [] });
+  const [data, setData] = useLocalStorage('db_tool_macro', { workout_days: 3, equipment: [] });
   const [results, setResults] = useState(null);
   const [isCalculating, setIsCalculating] = useState(false);
 
@@ -138,6 +139,7 @@ export default function Home() {
       <div className="mx-auto max-w-5xl px-4 pb-6">
         <RelatedTools tools={RELATED} />
       </div>
+      {!results && <CTA />}
       <Footer />
     </div>
   );

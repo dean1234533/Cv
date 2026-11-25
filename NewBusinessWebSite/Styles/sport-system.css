@@ -115,7 +115,7 @@ html:has(.sport-site) { scroll-padding-top:104px; }
 .sport-site .about-hero-content h1 { font-size:clamp(3.5rem,6vw,5.7rem); }
 .sport-site .about-hero-content h1 span { color:var(--accent-text); }
 .sport-site .about-hero-img-wrap { border-radius:0; }
-.sport-site .about-hero-img-wrap img { filter:grayscale(1); height:590px; }
+.sport-site .about-hero-img-wrap img { filter:none; height:590px; }
 .sport-site .about-hero-badge { left:0; bottom:0; border-radius:0; box-shadow:none; padding:20px 24px; }
 .sport-site .about-stats { background:var(--paper); color:#151515; }
 .sport-site .about-stat { border-color:#cacac3; }
@@ -256,14 +256,14 @@ html:has(.sport-site) { scroll-padding-top:104px; }
   .sport-site .primary-nav,.sport-site #dbMobileBar,.sport-site .db-wa-fab { display:none!important; }
 }
 /* Main booking pages use the same photographic energy as the homepage. */
-.sport-site:is(.sport-pricing,.sport-contact,.sport-testimonials) .db-page-hero {
+.sport-site.sport-pricing .db-page-hero {
   background-image:linear-gradient(90deg,rgba(0,0,0,.95),rgba(0,0,0,.88) 50%,rgba(0,0,0,.3)),url('/pics/IMG_8096.JPG');
   background-size:cover; background-position:center 42%;
 }
 .sport-site .about-hero .eyebrow { color:#ff6973; }
 .sport-site .seo-proof { --accent-text:#b30018; }
 .sport-site :is(h1,h2,h3,p,span,strong)[style*="color:var(--accent)"] { color:var(--accent-text)!important; }
-.sport-site.sport-ai-plans .article-hero-bg { background:url('/pics/IMG_8096.JPG') center 42%/cover; }
+.sport-site.sport-ai-plans .article-hero-bg { background:url('/pics/IMG_7863%203.jpg') center 42%/cover; }
 .sport-site.sport-ai-plans .article-hero-bg>svg { display:none; }
 .sport-site.sport-ai-plans .article-hero::after { background:linear-gradient(90deg,rgba(0,0,0,.93),rgba(0,0,0,.7) 60%,rgba(0,0,0,.25)); }
 .sport-site.sport-ai-plans .section-label { background:none; color:#eee; border:0; border-radius:0; padding:0; }
@@ -408,3 +408,72 @@ html:has(.sport-site) { scroll-padding-top:104px; }
   .sport-site .db-cta-band p { font-size:1.05rem; line-height:1.65; color:#fff; text-shadow:0 1px 8px rgba(0,0,0,.6); }
   .sport-site .db-cta-trust { font-size:.8rem; color:#fff; margin-top:28px; }
 }
+
+/* Results have their own proof-led hero, distinct from the pricing photography. */
+.sport-site.sport-testimonials .db-page-hero { background:#181818; }
+.sport-site .results-hero-layout { display:grid; grid-template-columns:1.2fr 1fr; align-items:center; gap:56px; margin-top:32px; }
+.sport-site .results-hero-copy { min-width:0; }
+.sport-site .results-hero-copy .db-page-hero-label { color:#ff6973; }
+.sport-site .results-hero-photos { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+.sport-site .results-hero-photos figure { min-width:0; margin:0; background:#202020; }
+.sport-site .results-hero-photos img { display:block; width:100%; height:auto; aspect-ratio:4/5; object-fit:contain; }
+.sport-site .results-hero-photos figcaption { padding:12px 16px; color:#fff; border-top:1px solid var(--border); font:600 .65rem/1.5 Inter,sans-serif; text-transform:uppercase; letter-spacing:.1em; }
+@media(max-width:859px) {
+  .sport-site .results-hero-layout { grid-template-columns:1fr; gap:32px; }
+  .sport-site .results-hero-photos { max-width:560px; width:100%; }
+}
+/* Compact, consistent photo strips on phones; retain the desktop sizing. */
+@media(max-width:767px) {
+  .sport-site { --mobile-photo-height:clamp(112px,32vw,144px); }
+  .sport-site :is(.about-marquee,.training-scroll-inner) img {
+    width:calc(var(--mobile-photo-height) * 16 / 9);
+    height:var(--mobile-photo-height); max-width:none; flex:0 0 auto;
+    aspect-ratio:16/9; object-fit:cover;
+  }
+  .sport-site .story-img-stack img {
+    flex:0 0 calc(var(--mobile-photo-height) * 16 / 9); min-width:0;
+    width:calc(var(--mobile-photo-height) * 16 / 9); height:var(--mobile-photo-height);
+  }
+}
+
+/* Contact uses its own location photograph, not the Pricing header image. */
+.sport-site.sport-contact .db-page-hero {
+  background-image:linear-gradient(90deg,rgba(0,0,0,.95),rgba(0,0,0,.85) 50%,rgba(0,0,0,.35)),url('/pics/IMG_7864%203.jpg');
+  background-size:cover; background-position:center;
+}
+
+/* Mobile benefits: open, aligned rows rather than cards inside a narrow card. */
+@media(max-width:767px) {
+  .sport-site .included-section .db-section-header,
+  .sport-site .compare-section .db-section-header { text-align:left; margin-bottom:32px; }
+  .sport-site :is(.included-section,.compare-section) .db-section-sub { margin-inline:0; font-size:.95rem; line-height:1.7; }
+  .sport-site .included-card { padding:0; border:0; background:transparent; max-width:none; }
+  .sport-site .included-grid { grid-template-columns:1fr; gap:0; margin-top:0; }
+  .sport-site :is(.included-item,.what-item) { display:grid; grid-template-columns:28px minmax(0,1fr); align-items:start; gap:16px; padding:22px 0; border:0; border-top:1px solid var(--border); border-radius:0; background:transparent; }
+  .sport-site :is(.included-icon,.what-check) { width:28px; height:28px; margin:0; border:0; border-radius:0; background:none; color:var(--accent-text); }
+  .sport-site :is(.included-text strong,.what-text h4) { font-family:Inter,sans-serif!important; text-transform:none; letter-spacing:0; font-size:.95rem; line-height:1.45; margin:0 0 6px; }
+  .sport-site :is(.included-text span,.what-text p) { display:block; font-size:.875rem; line-height:1.7; color:var(--text-dim); }
+  .sport-site .what-list { gap:0; margin-top:24px; }
+  .sport-site .free-consult-row { align-items:flex-start; padding:20px; margin-top:12px; border:0; border-left:2px solid var(--accent-text); border-radius:0; background:var(--bg); }
+  .sport-site .free-consult-row svg { display:none; }
+  .sport-site .free-consult-row span { font-size:.875rem; line-height:1.7; }
+  .sport-site .free-consult-row strong { display:block; margin-bottom:6px; }
+  /* Each feature keeps its two labelled choices together and fits the phone. */
+  .sport-site .compare-wrap { overflow:visible; border:0; background:transparent; }
+  .sport-site .compare-wrap::before { content:none; }
+  .sport-site .compare-table { display:block; width:100%; min-width:0; table-layout:auto; border-collapse:collapse; }
+  .sport-site .compare-table thead { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
+  .sport-site .compare-table tbody { display:grid; gap:16px; }
+  .sport-site .compare-table tbody tr { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); border:1px solid var(--border); background:var(--surface); }
+  .sport-site .compare-table tbody tr:hover { background:var(--surface); }
+  .sport-site .compare-table tbody td:first-child { grid-column:1 / -1; width:auto; padding:18px 18px 14px; color:var(--text); font-size:.95rem; font-weight:600; line-height:1.5; border-bottom:1px solid var(--border); }
+  .sport-site .compare-table tbody td:nth-child(n+2) { display:flex; flex-direction:column; align-items:flex-start; justify-content:space-between; gap:10px; width:auto; padding:14px 18px 18px; font-size:.875rem; text-align:left; line-height:1.5; }
+  .sport-site .compare-table tbody td:nth-child(3) { border-left:1px solid var(--border); }
+  .sport-site .compare-table td[data-label]::before { content:attr(data-label); font-size:.7rem; line-height:1.5; font-weight:500; color:var(--text-dim); }
+  .sport-site .compare-table .highlight-col { background:rgba(179,0,24,.08); }
+  .sport-site .compare-check { color:var(--accent-text); font-size:1.1rem; }
+  .sport-site .compare-cross { color:var(--text-dim); }
+  .sport-site .seo-steps p { font-size:.875rem; line-height:1.7; }
+}
+
+.sport-site :is(.included-section,.compare-section) .eyebrow { color:var(--accent-text); }

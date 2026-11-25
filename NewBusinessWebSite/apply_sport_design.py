@@ -44,6 +44,35 @@ def fix_image_dimensions(markup):
     return re.sub(r'<img\b[^>]*>', image_tag, markup, flags=re.I)
 
 
+
+def label_comparison_tables(markup):
+    def table(match):
+        text = match[0]
+        head = re.search(r'<thead\b[^>]*>([\s\S]*?)</thead>', text)
+        if not head:
+            return text
+        labels = [unescape(re.sub(r'<[^>]+>', '', value)).strip() for value in re.findall(r'<th\b[^>]*>([\s\S]*?)</th>', head[1])]
+        def row(match):
+            index = -1
+            def cell(match):
+                nonlocal index
+                index += 1
+                tag = match[0]
+                if index and index < len(labels) and 'data-label=' not in tag:
+                    label = labels[index].replace('&', '&amp;').replace('"', '&quot;')
+                    tag = tag[:-1] + f' data-label="{label}">'
+                return tag
+            return re.sub(r'<td\b[^>]*>', cell, match[0])
+        text = re.sub(r'<tr\b[^>]*>[\s\S]*?</tr>', row, text)
+        text = text.replace('class="compare-check"', 'class="compare-check" role="img" aria-label="Included"')
+        text = text.replace('class="compare-cross"', 'class="compare-cross" role="img" aria-label="Not included"')
+        # Keep this decorator idempotent.
+        text = text.replace(' role="img" aria-label="Included" role="img" aria-label="Included"', ' role="img" aria-label="Included"')
+        text = text.replace(' role="img" aria-label="Not included" role="img" aria-label="Not included"', ' role="img" aria-label="Not included"')
+        return text
+    return re.sub(r'<table\b[^>]*class="compare-table"[^>]*>[\s\S]*?</table>', table, markup)
+
+
 def apply_page(path):
     old = path.read_text()
     if '<head' not in old.lower() or '<body' not in old.lower():
@@ -62,8 +91,59 @@ def apply_page(path):
     text = re.sub(r'<body\b[^>]*>', body, text, count=1, flags=re.I)
     if 'id="sport-fonts"' not in text:
         text = re.sub(r'<link\b[^>]*href=["\']https://fonts\.googleapis\.com/css[^>]*>\s*', '', text)
-        text = text.replace('</head>', f'<link id="sport-fonts" rel="stylesheet" href="{FONT}">\n<link id="sport-design" rel="stylesheet" href="/Styles/sport-system.css?v=15">\n</head>', 1)
-    text = fix_image_dimensions(clean_arrows(text))
+        text = text.replace('</head>', f'<link id="sport-fonts" rel="stylesheet" href="{FONT}">\n<link id="sport-design" rel="stylesheet" href="/Styles/sport-system.css?v=16">\n</head>', 1)
+    # Main-page headers each own their photograph; location templates keep theirs.
+    main_header_images = {
+        'active-living-3.html': (
+            './pics/IMG_8096.JPG',
+            '/pics/IMG_7865%203.jpg',
+            'Outdoor fitness equipment beside the park tennis courts',
+        ),
+        'park-guide.html': (
+            './pics/IMG_7933.jpg',
+            '/pics/IMG_7861%203.jpg',
+            'Outdoor fitness equipment at Stratford Park',
+        ),
+        'pair-personal-training-east-london.html': (
+            '/pics/optimized/training-8096.webp',
+            '/pics/IMG_7911_SnapseedCopy.jpg',
+            'Clients training together on exercise mats in an East London park',
+        ),
+        'online-personal-training.html': (
+            '/pics/optimized/dean-portrait.webp',
+            '/pics/optimized/training-7883.webp',
+            'DB’s Workouts clients practising core exercises on individual mats',
+        ),
+        'personal-training-for-beginners-east-london.html': (
+            '/pics/optimized/training-7856.webp',
+            '/pics/optimized/training-7859.webp',
+            'Two clients stretching on exercise mats during a park training session',
+        ),
+        'mobile-personal-trainer-east-london.html': (
+            '/pics/optimized/training-7856.webp',
+            '/pics/IMG_7855%203.JPG',
+            'A client doing a press-up beside portable dumbbells and a skipping rope',
+        ),
+        'personal-trainer-east-london-areas.html': (
+            '/pics/optimized/training-7856.webp',
+            '/pics/IMG_7857%203.jpg',
+            'An outdoor basketball court and open park space',
+        ),
+    }
+    if path.name in main_header_images:
+        previous, source, alt = main_header_images[path.name]
+        def unique_header(match):
+            tag = match[0].replace(previous, source)
+            tag = re.sub(r'alt="[^"]*"', f'alt="{alt}"', tag)
+            width, height = DIMENSIONS[unquote(source).lstrip('/')]
+            tag = re.sub(r'\s(?:width|height)="[^"]*"', '', tag)
+            return tag[:-1] + f' width="{width}" height="{height}">'
+        def hero(match):
+            image_source = r'(?:' + re.escape(previous) + '|' + re.escape(source) + ')'
+            return re.sub(r'<img\b[^>]*src="' + image_source + r'"[^>]*>', unique_header, match[0], count=1)
+        text = re.sub(r'<(?:section|header)\b[^>]*class="[^"\n]*(?:seo-hero|article-hero)[^"\n]*"[^>]*>[\s\S]*?</(?:section|header)>', hero, text, count=1)
+    text = re.sub(r'(/Styles/sport-system\.css\?v=)\d+', r'\g<1>16', text)
+    text = label_comparison_tables(fix_image_dimensions(clean_arrows(text)))
     text = re.sub(r'(<a\b[^>]*class="mb-call"[^>]*>)[^<]*(</a>)', r'\1Call Dean\2', text)
     text = re.sub(r'(<a\b[^>]*class="mb-book"[^>]*>)[^<]*(</a>)', r'\1Book a call\2', text)
 

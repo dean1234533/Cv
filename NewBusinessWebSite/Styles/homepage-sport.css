@@ -393,3 +393,11 @@
 @media(max-width:380px) {
   .home-sport #map-heading { font-size:2.5rem; }
 }
+/* Keep the homepage photo carousel at the same compact mobile scale. */
+@media(max-width:767px) {
+  .home-sport .gallery-strip img {
+    height:clamp(112px,32vw,144px);
+    width:calc(clamp(112px,32vw,144px) * 16 / 9);
+    max-width:none; flex:0 0 auto; aspect-ratio:16/9;
+  }
+}

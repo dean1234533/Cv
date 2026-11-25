@@ -52,3 +52,20 @@ Pricing cards must fill the available content width on phones; they are not phot
 The mobile contact bar labels are Call Dean (immediate telephone), WhatsApp and Book a call (consultation enquiry). The inner-page decorator preserves this distinction when pages are regenerated.
 
 The comprehensive mobile review checks full-document content and card geometry, including text clipping inside containers, not just the page scroll width. Evidence: mobile-full-review on the external drive. Latest checks cover all 225 HTML pages and 12 tool routes at 320, 390 and 768px.
+
+## Page-specific hero imagery
+
+Results uses a dedicated client before-and-after photo pair, separate from the Pricing training photograph. Keep both client photos equally sized and uncropped across desktop and mobile.
+
+## Mobile carousel scale
+
+Photo carousels must stay compact on phones: height clamp(112px,32vw,144px), consistent 16:9 frames across Home, About and Results. At 390px, images are approximately 222 × 125px, rather than the old 533 × 300px Results images. Keep desktop sizing unchanged.
+
+
+## Main-page header ownership
+
+Header photographs must not repeat across main pages. The user explicitly chose to retain the existing location-page photos. Treat original and optimized copies as the same photo. Contact uses its own park-court image; Pricing retains dumbbell training; About retains the colour portrait; Results retains its matched client pair. AI plans, online training, pair sessions, beginner training, mobile training, the areas directory and journal pages have separate photographs. Keep these assignments when regenerating pages via apply_sport_design.py.
+
+## Mobile benefits and comparisons
+
+Pricing benefits use the full content width, aligned small icons and open rows with quiet separators. Avoid nested padding that squeezes the text. Apply the same benefit treatment to the free-workout page, and readable mobile descriptions to shared session steps. Comparison rows on phones show the feature above two equally sized, explicitly labelled choices; no sideways scrolling is required. Keep the semantic table and normal desktop layout. Mobile comparison labels come from the actual table headings through the design decorator.

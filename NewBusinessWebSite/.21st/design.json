@@ -149,6 +149,26 @@
       "date": "2026-11-25",
       "scope": "Complete responsive review and mobile pricing",
       "choice": "User rejected narrow mobile pricing cards and requested a full site review. Package cards now use one full-width column below 768px and two columns on tablets through 1199px; remove horizontal pricing carousels, preserve photo carousels. Fill card booking buttons, keep readable feature text, move mobile testimonial controls below full-width review cards, fix small-screen heading and long-link clipping, remove duplicate free-plan hero padding, widen workout form fields and fitness-level choices. Call Dean is immediate telephone; Book a call opens the consultation form. Retain existing form destinations, calculator logic and approved brand."
+    },
+    {
+      "date": "2026-11-25",
+      "scope": "Distinct Results and Pricing heroes",
+      "choice": "User flagged the reused hero photograph. Results now uses a dedicated proof-led split hero with an existing client\u2019s matched before/after photos and visible labels. Pricing retains its training photograph. Keep the client pair uncropped and equally sized on desktop and mobile."
+    },
+    {
+      "date": "2026-11-25",
+      "scope": "Compact mobile photo carousels",
+      "choice": "User found the carousel images too large on mobile. Use the same compact 16:9 strip size on Home, About and Results: clamp(112px,32vw,144px) image height below 768px, matching widths and equal frames. Apply the same scale to the About story photo scroller. Preserve desktop image sizes and carousel behaviour."
+    },
+    {
+      "date": "2026-11-25",
+      "scope": "Unique main-page header photographs",
+      "choice": "User confirmed no reused header photographs, scoped to main pages only. Contact owns the park tennis-court photograph; Pricing retains dumbbell training. Separate existing photographs are assigned to AI plans, online training, pair training, beginner training, mobile training, areas and affected journal headers. Retain the Results before/after pair and existing location-page template photography. Original and optimized copies count as the same photograph. Persist generated-page assignments in apply_sport_design.py."
+    },
+    {
+      "date": "2026-11-25",
+      "scope": "Mobile benefits and pricing comparison",
+      "choice": "Use full-width open benefit rows with aligned icons, readable Inter text and restrained separators instead of deeply padded nested cards. Apply to Pricing and the free-workout benefits list; improve mobile session-step text across service/location pages. On phones, each comparison feature keeps its two named choices together in a full-width panel; no horizontal table scrolling. Preserve the semantic table and desktop comparison. Derive mobile labels from table headings in the design decorator."
     }
   ],
   "evidence": [
@@ -166,6 +186,10 @@
       "date": "2026-11-25",
       "checks": "675 complete HTML page layouts (225 pages at 320, 390 and 768px): no clipped text, unintentional horizontal overflow, narrow phone pricing cards or overflowing card content after fixes. 36 tool layouts checked at the same widths: no clipped text or overflow after widening workout-generator inputs and choices. Review next/previous verified, immediate-call and booking destinations verified, all mobile-bar wording checked, tool lint/typecheck/build passed, 1689 scripts/schema blocks parsed, deterministic review errors/warnings resolved.",
       "artifacts": "/Volumes/Untitled/Codex/dbworkouts-site-redesign/mobile-full-review/"
+    },
+    {
+      "date": "2026-11-25",
+      "checks": "22 main-page photographic headers checked in the browser at 390px: images loaded, distinct original photographs, no horizontal overflow. Pricing, free-workout benefits and a shared location-session layout checked at 320, 390, 430, 768 and 1440px: no clipped targeted items or page overflow; 16 comparison labels present. Mobile benefits and comparison inspected visually. Decorator run twice to confirm idempotence. External drive disconnected; screenshots inspected directly in memory."
     }
   ],
   "generatedAt": "2026-10-14T06:24:46.230Z"

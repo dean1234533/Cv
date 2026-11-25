@@ -69,3 +69,20 @@ Header photographs must not repeat across main pages. The user explicitly chose 
 ## Mobile benefits and comparisons
 
 Pricing benefits use the full content width, aligned small icons and open rows with quiet separators. Avoid nested padding that squeezes the text. Apply the same benefit treatment to the free-workout page, and readable mobile descriptions to shared session steps. Comparison rows on phones show the feature above two equally sized, explicitly labelled choices; no sideways scrolling is required. Keep the semantic table and normal desktop layout. Mobile comparison labels come from the actual table headings through the design decorator.
+
+Pricing hero on phones: focus the background photograph at 75% horizontally, with vertical shading that reveals the foreground client’s head and darkens behind the text. Preserve the desktop crop and unique photo assignment.
+
+Results mobile opening follows the user’s IMG_2337.PNG reference: no breadcrumb or eyebrow, heading 32px below the nav, original introduction, two full-width buttons and the matched client photos 32px below. Keep desktop layout unchanged. At 390px the photo pair begins around 481px and the hero ends around 749px, excluding phone/browser chrome.
+
+Results review navigation: matching 48px-high Previous/Next buttons below the card, with a live current/total count between. No overlapping side controls or autoplay. Keep keyboard activation, intentional horizontal swipe, resize persistence and inert inactive slides. Preserve button effects and focus styling.
+
+SEO coach introductions on phones: for the shared Dean portrait section, put a compact, uncropped colour portrait beside the kicker/heading, then show biography and link across the full width, followed by a separated client quotation. Avoid a tall portrait centred in the middle of the text. Apply this to all 131 matching sections; retain other trainer images and desktop/tablet layouts.
+
+
+## White-section responsive rules
+
+All 154 white sections across 152 static pages were checked at phone, tablet and desktop widths. Text/photo panels for Jasmin and Jay must use two actual columns on larger screens, never inherit the three-column testimonial layout. On phones use one column and preserve the full source frame; cap image height without distorting width. Coach panels on tablets use copy/photo columns with the quotation across the full width below. Online coach biographies now use Dean’s existing portrait and the same compact phone introduction as location pages.
+
+The homepage’s white training-service photographs use consistent 16:9 frames at every width; retain horizontal service-card scrolling on phones. Root horizontal clipping prevents oversized fixed navigation from enlarging phone viewports, without changing scrolling inside photo strips.
+
+Audit evidence is in the external white-sections folder: 225 pages inventoried, 1520 white-section layouts plus 75 breakpoint layouts, 36 tool layouts and 40 viewport checks. Both stylesheets pass deterministic review with no errors/warnings. Source, copy, forms and business pricing remain in the existing repository.

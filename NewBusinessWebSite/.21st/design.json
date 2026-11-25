@@ -169,6 +169,31 @@
       "date": "2026-11-25",
       "scope": "Mobile benefits and pricing comparison",
       "choice": "Use full-width open benefit rows with aligned icons, readable Inter text and restrained separators instead of deeply padded nested cards. Apply to Pricing and the free-workout benefits list; improve mobile session-step text across service/location pages. On phones, each comparison feature keeps its two named choices together in a full-width panel; no horizontal table scrolling. Preserve the semantic table and desktop comparison. Derive mobile labels from table headings in the design decorator."
+    },
+    {
+      "date": "2026-11-25",
+      "scope": "Pricing mobile hero crop",
+      "choice": "User reported that the pricing hero image did not show properly on mobile. Retain the unique dumbbell-training background photograph and overlaid copy. On phones, focus the photograph at 75% horizontally so the foreground client\u2019s head stays in frame, and replace the desktop horizontal shading with vertical shading that reveals the upper photograph and darkens behind the copy/buttons. Keep the desktop crop unchanged."
+    },
+    {
+      "date": "2026-11-25",
+      "scope": "Results mobile opening matches supplied screenshot",
+      "choice": "Use IMG_2337.PNG as the mobile Results reference. Hide breadcrumb and eyebrow below 768px, start the Client Results heading 32px below the navigation, retain the introduction, show two full-width buttons, then the existing equal before/after pair with a 32px gap. Keep the desktop split hero. At 390px the photo pair starts at about 481px and the hero ends at about 749px, matching the supplied phone composition without the operating-system/browser bars."
+    },
+    {
+      "date": "2026-11-25",
+      "scope": "Results review slider controls",
+      "choice": "Replace overlapping, unequal side controls with equal-width 48px-high Previous and Next buttons in one row below the review, with a live review count between. Use manual navigation and horizontal swipe; remove autoplay and tiny dot navigation. Keep the selected review through resizing, support keyboard activation, and make inactive review slides inert and hidden to assistive technology. Preserve hover, press and focus feedback without decorative arrows."
+    },
+    {
+      "date": "2026-11-25",
+      "scope": "Mobile coach introduction on SEO pages",
+      "choice": "User disliked the portrait presentation in Your coach, outdoors. For the 131 shared proof sections using dean-portrait.webp, use a compact uncropped colour portrait beside the kicker and heading on phones, followed by full-width biography, Meet Dean link and separated client quotation. Avoid a large portrait centred between the copy and review. Keep desktop/tablet layouts and other trainer/service images unchanged."
+    },
+    {
+      "date": "2026-11-25",
+      "scope": "All white sections across responsive layouts",
+      "choice": "Audit all 225 public static pages; 152 contain white sections. Use two columns for text/photo panels without a quotation, preserving full natural image proportions and bounding image heights. On tablets, coach panels with quotations use copy/photo columns and a full-width quotation below. Phones keep the approved compact Dean portrait introduction; online coach biographies use the same portrait. Jasmin and Jay retain full-frame service photos in a single column on phones. Homepage white service cards use consistent 16:9 photos across all widths. Clip horizontal overflow at the document root to stop fixed navigation widening narrow phone viewports, while retaining intentional photo scrolling. All decorator-managed pages use shared style version 21; homepage uses version 22."
     }
   ],
   "evidence": [
@@ -190,6 +215,26 @@
     {
       "date": "2026-11-25",
       "checks": "22 main-page photographic headers checked in the browser at 390px: images loaded, distinct original photographs, no horizontal overflow. Pricing, free-workout benefits and a shared location-session layout checked at 320, 390, 430, 768 and 1440px: no clipped targeted items or page overflow; 16 comparison labels present. Mobile benefits and comparison inspected visually. Decorator run twice to confirm idempotence. External drive disconnected; screenshots inspected directly in memory."
+    },
+    {
+      "date": "2026-11-25",
+      "checks": "Results hero screenshot visually compared to user reference at 390px. At 320, 390, 430, 768 and 1440px: no horizontal page overflow or clipped hero buttons; both images loaded; original enquiry/pricing destinations retained; phone-only label removal and desktop two-column layout verified. Decorator idempotent; git diff --check clean.",
+      "artifacts": "/Volumes/Untitled/Codex/dbworkouts-site-redesign/results-mobile-reference-match.png"
+    },
+    {
+      "date": "2026-11-25",
+      "checks": "Review controls exercised at 320, 390, 430, 768 and 1440px: next/previous and wrapping update the correct slide/count, controls sit below the card with equal layout widths and 48px heights, no horizontal overflow. Keyboard Enter and preservation across resizing verified. All 6 script/schema blocks parsed, decorator idempotent, git diff --check clean. HTML review also identifies 6 existing unrelated video/lightbox click-semantics findings.",
+      "artifacts": "/Volumes/Untitled/Codex/dbworkouts-site-redesign/review-buttons-after.png"
+    },
+    {
+      "date": "2026-11-25",
+      "checks": "Visually inspected Stratford mobile coach section before and after. Stratford, Hackney, Ilford and pair training checked at 320, 390, 430, 768 and 1440px: no page/section/heading overflow. Phone portrait retains its natural 599:800 ratio at 88px wide. Shared CSS scopes to 131 sections using this portrait.",
+      "artifacts": "/Volumes/Untitled/Codex/dbworkouts-site-redesign/coach-mobile-after.png"
+    },
+    {
+      "date": "2026-11-25",
+      "checks": "Inventoried all 225 public static pages: 154 white sections on 152 pages. Audited 1520 layouts at 10 widths (320\u20131920px), plus 75 exact-breakpoint layouts, with no white-section overflow, clipped text, missing/distorted photos or contrast failures. 13822 text samples and 1530 image placements checked in the main audit. Inspected screenshots for Dean, Jasmin, Jay, online coaching, homepage and About. All 12 tool routes checked at 320/768/1440px: no white sections or detected issues. Fixed viewport scaling confirmed on 20 affected location pages at 320/390px (40 checks). Homepage photos retain 16:9 proportions and phone horizontal scrolling. Both stylesheet reviews have zero errors/warnings, decorator is idempotent and git diff --check is clean.",
+      "artifacts": "/Volumes/Untitled/Codex/dbworkouts-site-redesign/white-sections"
     }
   ],
   "generatedAt": "2026-10-14T06:24:46.230Z"

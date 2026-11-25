@@ -142,7 +142,12 @@ def apply_page(path):
             image_source = r'(?:' + re.escape(previous) + '|' + re.escape(source) + ')'
             return re.sub(r'<img\b[^>]*src="' + image_source + r'"[^>]*>', unique_header, match[0], count=1)
         text = re.sub(r'<(?:section|header)\b[^>]*class="[^"\n]*(?:seo-hero|article-hero)[^"\n]*"[^>]*>[\s\S]*?</(?:section|header)>', hero, text, count=1)
-    text = re.sub(r'(/Styles/sport-system\.css\?v=)\d+', r'\g<1>16', text)
+    # Keep coach-biography photography consistent after regenerating online pages.
+    def coach_portrait(match):
+        return re.sub(r'<img\b[^>]*src="/pics/optimized/hero-dean.webp"[^>]*>', '<img src="/pics/optimized/dean-portrait.webp" alt="Dean Burt, your DB’s Workouts personal trainer" width="599" height="800" loading="lazy" decoding="async">', match[0], count=1)
+    text = re.sub(r'<section class="seo-proof seo-section"[^>]*>[\s\S]*?</section>', coach_portrait, text)
+    style_version = '21'
+    text = re.sub(r'(/Styles/sport-system\.css\?v=)\d+', lambda m: m[1] + style_version, text)
     text = label_comparison_tables(fix_image_dimensions(clean_arrows(text)))
     text = re.sub(r'(<a\b[^>]*class="mb-call"[^>]*>)[^<]*(</a>)', r'\1Call Dean\2', text)
     text = re.sub(r'(<a\b[^>]*class="mb-book"[^>]*>)[^<]*(</a>)', r'\1Book a call\2', text)

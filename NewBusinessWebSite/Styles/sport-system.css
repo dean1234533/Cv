@@ -12,7 +12,7 @@
   background:var(--bg); color:var(--text); font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   font-size:16px; line-height:1.75; -webkit-font-smoothing:antialiased;
 }
-html:has(.sport-site) { scroll-padding-top:104px; }
+html:has(.sport-site) { scroll-padding-top:104px; overflow-x:clip; }
 .sport-site :is(h1,h2,h3,h4,.blog-card-title,.timeline-title,.qual-title,.pricing-card-name,.home-cta-title) {
   font-family:'Barlow Condensed','Arial Narrow',Impact,sans-serif!important;
   text-transform:uppercase; font-weight:700; letter-spacing:-.02em; line-height:1;
@@ -477,3 +477,61 @@ html:has(.sport-site) { scroll-padding-top:104px; }
 }
 
 .sport-site :is(.included-section,.compare-section) .eyebrow { color:var(--accent-text); }
+
+/* Keep the pricing hero's foreground client in frame on narrow screens. */
+@media(max-width:767px) {
+  .sport-site.sport-pricing .db-page-hero {
+    background-image:linear-gradient(180deg,rgba(0,0,0,.28) 0%,rgba(0,0,0,.38) 30%,rgba(0,0,0,.82) 57%,rgba(0,0,0,.94) 100%),url('/pics/IMG_8096.JPG');
+    background-position:center,75% center;
+  }
+}
+
+/* Results mobile opening follows the client's supplied phone reference. */
+@media(max-width:767px) {
+  .sport-site.sport-testimonials .db-page-hero { padding:120px 0 20px; }
+  .sport-site.sport-testimonials .db-page-hero :is(.db-breadcrumb,.db-page-hero-label) { display:none; }
+  .sport-site.sport-testimonials .results-hero-layout { margin-top:0; gap:32px; }
+  .sport-site.sport-testimonials .results-hero-copy h1 { margin:0 0 24px; font-size:clamp(2.6rem,12.3vw,3rem); }
+  .sport-site.sport-testimonials .results-hero-copy p { margin:0!important; font-size:1rem!important; line-height:1.7!important; }
+  .sport-site.sport-testimonials .db-page-hero-actions { display:flex; flex-direction:column; gap:14px; margin-top:32px; }
+  .sport-site.sport-testimonials .db-page-hero-actions .db-btn { width:100%; }
+}
+
+/* Review controls share one clear row below the card on every screen. */
+.sport-site.sport-testimonials .review-stage { display:block; padding:0; }
+.sport-site.sport-testimonials .review-controls { display:grid; grid-template-columns:minmax(0,1fr) auto minmax(0,1fr); gap:16px; align-items:center; width:100%; max-width:420px; margin:20px auto 0; }
+.sport-site.sport-testimonials .review-controls .carousel-btn { position:static; inset:auto; transform:none; --button-y:0px; width:100%; height:48px; min-height:48px; font:600 .8rem/1.4 Inter,sans-serif; padding:12px 16px; }
+.sport-site.sport-testimonials .review-status { margin:0; min-width:48px; text-align:center; color:var(--text-dim); font:500 .75rem/1.5 Inter,sans-serif; font-variant-numeric:tabular-nums; }
+.sport-site.sport-testimonials .review-carousel-section .eyebrow { color:var(--accent-text); }
+.sport-site.sport-testimonials .carousel-slide { padding:0; }
+@media(max-width:767px) { .sport-site.sport-testimonials .review-controls { gap:12px; } }
+@media(hover:hover) and (pointer:fine) { .sport-site.sport-testimonials .review-controls .carousel-btn:hover { transform:translateY(-2px); } }
+.sport-site.sport-testimonials .review-controls .carousel-btn:active { transform:scale(.97); }
+
+/* Compact coach introduction on phones: portrait beside the heading. */
+@media(max-width:767px) {
+  .sport-site .seo-proof:has(>img[src$="/dean-portrait.webp"]) { display:grid; grid-template-columns:88px minmax(0,1fr); gap:0 20px; align-items:start; padding:24px; }
+  .sport-site .seo-proof:has(>img[src$="/dean-portrait.webp"])>div { display:contents; }
+  .sport-site .seo-proof:has(>img[src$="/dean-portrait.webp"]) .seo-kicker { grid-column:2; grid-row:1; margin:0; font-size:.6rem; line-height:1.6; letter-spacing:.1em; }
+  .sport-site .seo-proof:has(>img[src$="/dean-portrait.webp"]) h2 { grid-column:2; grid-row:2; margin:8px 0 0; font-size:clamp(1.5rem,6.7vw,1.75rem); line-height:1.08; }
+  .sport-site .seo-proof:has(>img[src$="/dean-portrait.webp"])>img { grid-column:1; grid-row:1 / span 2; width:88px; height:auto; max-width:none; max-height:none; margin:0; object-fit:contain; }
+  .sport-site .seo-proof:has(>img[src$="/dean-portrait.webp"])>div>p:not(.seo-kicker) { grid-column:1 / -1; grid-row:3; margin:20px 0 0; font-size:.875rem; line-height:1.75; }
+  .sport-site .seo-proof:has(>img[src$="/dean-portrait.webp"])>div>.seo-text-link { grid-column:1 / -1; grid-row:4; justify-self:start; margin-top:16px; }
+  .sport-site .seo-proof:has(>img[src$="/dean-portrait.webp"])>blockquote { grid-column:1 / -1; grid-row:5; margin-top:24px; padding:20px 0 0; border:0; border-top:1px solid #cacac3; }
+}
+
+/* White proof panels adapt to their actual content and photograph. */
+.sport-site .seo-proof.seo-proof-photo { grid-template-columns:minmax(0,1fr) minmax(0,.85fr); gap:40px; }
+.sport-site .seo-proof.seo-proof-photo>img { width:auto; height:auto; max-width:100%; max-height:400px!important; object-fit:contain; justify-self:center; }
+@media(min-width:768px) and (max-width:1099px) {
+  .sport-site .seo-proof { grid-template-columns:minmax(0,1fr) minmax(0,240px); gap:32px; }
+  .sport-site .seo-proof.seo-proof-photo { grid-template-columns:minmax(0,1fr) minmax(0,.85fr); }
+  .sport-site .seo-proof>img { width:auto; height:auto; max-width:100%; max-height:320px; margin:0; }
+  .sport-site .seo-proof.seo-proof-photo>img { max-height:360px!important; }
+  .sport-site .seo-proof blockquote { grid-column:1 / -1; max-width:none; margin:0; padding:24px 0 0; border:0; border-top:1px solid var(--border-h); }
+}
+@media(max-width:767px) {
+  .sport-site .seo-proof:not(:has(>img[src$="/dean-portrait.webp"])) { display:grid; grid-template-columns:minmax(0,1fr); gap:0; padding:24px; }
+  .sport-site .seo-proof.seo-proof-photo>img { width:auto; height:auto; max-width:100%; max-height:340px!important; margin:24px auto 0; }
+  .sport-site .seo-proof.seo-proof-photo>div>p:not(.seo-kicker) { font-size:.875rem; line-height:1.75; }
+}

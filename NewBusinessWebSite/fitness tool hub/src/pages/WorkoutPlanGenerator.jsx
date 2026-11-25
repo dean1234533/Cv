@@ -1,7 +1,6 @@
 // @ts-nocheck
 import React, { useState, useRef } from "react";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
-import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { track } from "@/lib/analytics";
 import {
@@ -462,29 +461,15 @@ export default function WorkoutPlanGenerator() {
     <div className="min-h-screen bg-zinc-950 text-zinc-100">
 
       {/* ── Hero ── */}
-      <div className="relative overflow-hidden border-b border-zinc-800/60">
+      <header className="tools-workout-hero relative overflow-hidden border-b border-zinc-800/60">
         {/* Red glow accent */}
         <div className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-full max-w-xl h-[400px] rounded-full bg-[#B30018]/15 blur-[120px]" />
 
-        {/* Back link — left aligned */}
-        <div className="relative mx-auto max-w-2xl px-4 pt-10">
-          <Link
-            to="/tools"
-            className="inline-flex items-center gap-2 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B30018]"
-          >
-            <img src={import.meta.env.BASE_URL + "logo.png"} alt="DB's Workouts" className="h-14 w-14 object-contain" />
-            <div className="text-left">
-              <p className="text-sm font-black leading-none text-white">DB's Workouts</p>
-              <p className="mt-0.5 text-[11px] font-medium leading-none text-zinc-500">← Back to Fitness Tools</p>
-            </div>
-          </Link>
-        </div>
-
-        <div className="relative mx-auto max-w-2xl px-4 pb-14 text-center mt-10">
+        <div className="relative mx-auto max-w-2xl px-4 text-center">
 
           {/* Badge */}
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             className="inline-flex items-center gap-2 rounded-full border border-[#B30018]/30 bg-[#B30018]/10 px-4 py-1.5 text-xs font-bold text-[#F0F8FF] mb-6"
           >
@@ -494,7 +479,7 @@ export default function WorkoutPlanGenerator() {
 
           {/* Heading */}
           <motion.h1
-            initial={{ opacity: 0, y: 10 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.08 }}
             className="text-4xl sm:text-6xl font-black leading-tight tracking-tight text-white"
@@ -504,7 +489,7 @@ export default function WorkoutPlanGenerator() {
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0 }}
+            initial={false}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.18 }}
             className="mt-5 text-base leading-7 text-zinc-400 max-w-md mx-auto"
@@ -514,7 +499,7 @@ export default function WorkoutPlanGenerator() {
 
           {/* Trust badges */}
           <motion.div
-            initial={{ opacity: 0 }}
+            initial={false}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.28 }}
             className="mt-6 flex flex-wrap justify-center gap-2"
@@ -527,7 +512,7 @@ export default function WorkoutPlanGenerator() {
             ))}
           </motion.div>
         </div>
-      </div>
+      </header>
 
       {/* ── Content ── */}
       <main className="mx-auto max-w-2xl px-4 py-10 space-y-6">
@@ -537,7 +522,7 @@ export default function WorkoutPlanGenerator() {
           {!plan ? (
             <motion.div
               key="form"
-              initial={{ opacity: 0, y: 16 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -16 }}
               className="rounded-3xl border border-zinc-800 bg-zinc-900/60 p-6 sm:p-8 shadow-2xl shadow-black/40"

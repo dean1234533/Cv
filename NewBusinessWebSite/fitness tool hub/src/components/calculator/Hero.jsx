@@ -7,7 +7,7 @@ const BADGES = ["Free", "No Signup", "Created by DB's Workouts"];
 export default function Hero({ onStart }) {
   return (
     <section className="mx-auto max-w-3xl px-4 pb-12 pt-12 text-center sm:pt-16">
-      <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}>
+      <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}>
         <h1 className="mx-auto max-w-2xl text-4xl font-black leading-tight tracking-tight text-white sm:text-6xl">
           Free Macro &amp; Training Goal Calculator
         </h1>

@@ -148,13 +148,19 @@ def apply_page(path):
     def coach_portrait(match):
         return re.sub(r'<img\b[^>]*src="/pics/optimized/hero-dean.webp"[^>]*>', '<img src="/pics/optimized/dean-portrait.webp" alt="Dean Burt, your DB’s Workouts personal trainer" width="599" height="800" loading="lazy" decoding="async">', match[0], count=1)
     text = re.sub(r'<section class="seo-proof seo-section"[^>]*>[\s\S]*?</section>', coach_portrait, text)
-    style_version = '21'
+    style_version = '24'
     text = re.sub(r'(/Styles/sport-system\.css\?v=)\d+', lambda m: m[1] + style_version, text)
     text = label_comparison_tables(fix_image_dimensions(clean_arrows(text)))
     text = re.sub(r'(<a\b[^>]*class="mb-call"[^>]*>)[^<]*(</a>)', r'\1Call Dean\2', text)
     text = re.sub(r'(<a\b[^>]*class="mb-book"[^>]*>)[^<]*(</a>)', r'\1Book a call\2', text)
 
+    if path.name == 'programs.html':
+        # Show the page title before the legacy article-page navigation.
+        text = re.sub(r'(<div class="content-container">)\s*(<nav aria-label="Page navigation example">[\s\S]*?</nav>)\s*(<h1\b[^>]*>[\s\S]*?</h1>)', r'\1\n\3\n\2', text, count=1)
+
     if path.name == 'about.html':
+        # Keep first-screen proof values correct and stable from the first paint.
+        text = re.sub(r"  var co=new IntersectionObserver[^\n]*\n\s*document\.querySelectorAll\('\[data-count\]'\)[^\n]*", '  // Stats display their final values immediately.', text, count=1)
         # Match the approved homepage gallery: landscape images only, including loop copies.
         text = re.sub(r'\s*<img[^>]+src="\./pics/IMG_8723\.JPG"[^>]*>', '', text)
 

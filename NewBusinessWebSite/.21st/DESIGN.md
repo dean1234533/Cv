@@ -90,3 +90,14 @@ Audit evidence is in the external white-sections folder: 225 pages inventoried, 
 Do not show Home / page-name breadcrumb trails on any public page. The logo links home. The design decorator removes visible breadcrumb markup after regeneration; retain structured data for search engines.
 
 Areas Covered uses IMG_7861 3.jpg, showing the outdoor gym at Stratford Park, following the latest user correction. Do not substitute homepage training photos or court photographs. Park Guide uses victoria-park-london.jpg to keep these two main headers distinct; see pics/image-credits.json for its CC0 source.
+
+WhatsApp sizing: shared floating action 72×72px with a 36px icon and 24px edge spacing. Mobile contact-bar actions are 52px high with 76px bottom space plus the safe-area inset. Preserve the existing WhatsApp destinations, responsive visibility and button effects. Latest shared/home styles use version 23.
+
+
+## Initial page positioning
+
+Keep foreground headings, labels, images and actions clear of the 88px fixed navigation. About has no negative portrait margin: its colour photo starts below the header, scales with viewport height and keeps its complete frame. On short laptops reduce spacing and stat padding, with enough text-column width to keep the booking actions together. On phones add explicit top clearance. Show final About statistics immediately instead of counting up from zero.
+
+Programs shows its title before page-number navigation. The workout generator uses the shared tool-header spacing, without a duplicate logo/back-link block; its hero and first form appear immediately. The macro hero also starts in its final position. Keep the user’s mobile Results reference, full-background homepage video and existing carousel layouts.
+
+Validated all 237 public routes at 9 viewport sizes (2133 opening layouts), followed by 168 changed-route/tool layouts and focused short-laptop checks. Tool lint/typecheck/build and 12 prerenders passed. Evidence is in the external opening-layouts folder. Latest shared static stylesheet version is 24; homepage version remains 23.

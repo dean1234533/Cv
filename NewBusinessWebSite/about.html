@@ -170,7 +170,7 @@
 <script defer src="/Script/site-navigation.js?v=1"></script>
 <link rel="stylesheet" href="/Styles/icons.css?v=2">
 <link id="sport-fonts" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap">
-<link id="sport-design" rel="stylesheet" href="/Styles/sport-system.css?v=21">
+<link id="sport-design" rel="stylesheet" href="/Styles/sport-system.css?v=24">
 </head>
 <body class="sport-site sport-about">
 
@@ -517,8 +517,7 @@
 <script>
 var ro=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('revealed');ro.unobserve(x.target);}});},{threshold:.12});
   document.querySelectorAll('[data-reveal]').forEach(function(el){ro.observe(el);});
-  var co=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){var el=x.target,t=parseInt(el.dataset.count),p=t>=100,d=1800,s=performance.now();(function tick(n){var pct=Math.min((n-s)/d,1),ease=1-Math.pow(1-pct,3);el.textContent=Math.round(ease*t)+(p?'+':'');if(pct<1)requestAnimationFrame(tick);})(performance.now());co.unobserve(el);}});},{threshold:.5});
-  document.querySelectorAll('[data-count]').forEach(function(el){co.observe(el);});
+  // Stats display their final values immediately.
 </script>
 <!-- db-mobile-bar -->
 <style>

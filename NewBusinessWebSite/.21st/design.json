@@ -209,6 +209,16 @@
       "date": "2026-11-25",
       "scope": "Areas outdoor gym image",
       "choice": "Latest user correction selects an outdoor gym image. Areas now owns the existing Stratford Park outdoor-fitness photograph IMG_7861 3.jpg; it is absent from the homepage. To keep main-page header photographs distinct, Park Guide now uses a real Victoria Park photograph by Harry Wood, published under CC0 on the OpenStreetMap Wiki. Exact source/license metadata is recorded in pics/image-credits.json. Both assignments persist through regeneration."
+    },
+    {
+      "date": "2026-11-25",
+      "scope": "Larger WhatsApp controls",
+      "choice": "User found the WhatsApp button too small. Increase the shared floating action from 54px to 72px and its icon to 36px, keeping 24px edge spacing. Increase the mobile contact-bar controls to 52px high across Home and inner pages, with matching bottom space and safe-area allowance. Preserve existing WhatsApp destinations, visibility breakpoints and interaction effects. Shared/home style versions are 23."
+    },
+    {
+      "date": "2026-11-25",
+      "scope": "Stable page openings across devices",
+      "choice": "User supplied IMG_2339 2.HEIC showing About on a laptop and requested correct initial positioning across all pages. Remove About\u2019s negative portrait offset, keep 32px header clearance and use viewport-aware portrait sizing. On shorter laptops tighten copy spacing, allow sufficient width for booking actions and reduce stat padding so the hero/stat strip fits; phones have explicit top clearance. Render About\u2019s final stat values immediately. Put the Programs title before its existing page-number navigation. Remove the workout generator\u2019s duplicate logo/back-link block, reuse the standard tool-header spacing and show hero text/initial form immediately. Keep macro hero in its final position on first paint. Preserve photo choices, mobile Results reference layout, video background, carousel behaviour, calculators and form logic. Shared static styles now use version 24; Home remains version 23."
     }
   ],
   "evidence": [
@@ -264,6 +274,15 @@
       "date": "2026-11-25",
       "checks": "Areas and Park Guide image loading and no horizontal overflow verified at 320, 390, 768 and 1440px. Areas desktop screenshot inspected. Decorator idempotent; git diff --check clean.",
       "artifacts": "/Volumes/Untitled/Codex/dbworkouts-site-redesign/areas-outdoor-gym.png"
+    },
+    {
+      "date": "2026-11-25",
+      "checks": "Areas and Home checked at 320, 390, 768 and 1440px: no horizontal overflow or clipped mobile WhatsApp labels. Floating action measures 72\u00d772px with a 36px icon; phone bar actions measure 52px high with 76px reserved space plus safe area. WhatsApp URLs unchanged. Desktop screenshot inspected."
+    },
+    {
+      "date": "2026-11-25",
+      "checks": "Audited all 225 public static pages and 12 tool routes across 9 phone/tablet/laptop/desktop/landscape dimensions: 2133 layouts, zero heading/photo/header overlaps, heading/action overflow or below-fold desktop hero actions at tested regular desktop sizes. Rechecked 168 layouts across changed routes and tools, plus short-laptop About variants; hero and stats fit at 860/1024/1099\u00d7600, 1280\u00d7640/720, 1366\u00d7600, 1440\u00d7810 and 1920\u00d71080. Initial stats show 7/70/12 immediately, and workout hero text is visible immediately. Macro Start Calculator button scrolls to the working form. Tool lint, typecheck, production build and all 12 prerenders passed. Changed inline scripts/schemas parse; decorator idempotent; git diff --check clean.",
+      "artifacts": "/Volumes/Untitled/Codex/dbworkouts-site-redesign/opening-layouts"
     }
   ],
   "generatedAt": "2026-10-14T06:24:46.230Z"

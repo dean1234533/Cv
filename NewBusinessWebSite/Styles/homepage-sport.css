@@ -404,3 +404,8 @@
 
 /* Keep fixed navigation inside the phone viewport without affecting photo scrolling. */
 html:has(.home-sport) { overflow-x:clip; }
+
+@media(max-width:767px) {
+  .home-sport #dbMobileBar a { min-height:52px; }
+  .home-sport:has(#dbMobileBar) { padding-bottom:calc(76px + env(safe-area-inset-bottom)); }
+}

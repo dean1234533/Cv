@@ -194,6 +194,21 @@
       "date": "2026-11-25",
       "scope": "All white sections across responsive layouts",
       "choice": "Audit all 225 public static pages; 152 contain white sections. Use two columns for text/photo panels without a quotation, preserving full natural image proportions and bounding image heights. On tablets, coach panels with quotations use copy/photo columns and a full-width quotation below. Phones keep the approved compact Dean portrait introduction; online coach biographies use the same portrait. Jasmin and Jay retain full-frame service photos in a single column on phones. Homepage white service cards use consistent 16:9 photos across all widths. Clip horizontal overflow at the document root to stop fixed navigation widening narrow phone viewports, while retaining intentional photo scrolling. All decorator-managed pages use shared style version 21; homepage uses version 22."
+    },
+    {
+      "date": "2026-11-25",
+      "scope": "Remove visible breadcrumbs site-wide",
+      "choice": "User does not want Home / page-name breadcrumb trails because the logo already links home. Remove the visible breadcrumb blocks from About, Pricing and Results; apply_sport_design.py strips breadcrumb markup when pages are regenerated. Preserve logo home links and search-engine structured data."
+    },
+    {
+      "date": "2026-11-25",
+      "scope": "Areas Covered header image replacement",
+      "choice": "User requested a different Areas Covered photograph and rejected homepage imagery. Replace the basketball-court / original training image with the existing tennis-court location photo IMG_7854 3.jpg, which is not used on the homepage or another main-page header. Persist the assignment in the page decorator."
+    },
+    {
+      "date": "2026-11-25",
+      "scope": "Areas outdoor gym image",
+      "choice": "Latest user correction selects an outdoor gym image. Areas now owns the existing Stratford Park outdoor-fitness photograph IMG_7861 3.jpg; it is absent from the homepage. To keep main-page header photographs distinct, Park Guide now uses a real Victoria Park photograph by Harry Wood, published under CC0 on the OpenStreetMap Wiki. Exact source/license metadata is recorded in pics/image-credits.json. Both assignments persist through regeneration."
     }
   ],
   "evidence": [
@@ -235,6 +250,20 @@
       "date": "2026-11-25",
       "checks": "Inventoried all 225 public static pages: 154 white sections on 152 pages. Audited 1520 layouts at 10 widths (320\u20131920px), plus 75 exact-breakpoint layouts, with no white-section overflow, clipped text, missing/distorted photos or contrast failures. 13822 text samples and 1530 image placements checked in the main audit. Inspected screenshots for Dean, Jasmin, Jay, online coaching, homepage and About. All 12 tool routes checked at 320/768/1440px: no white sections or detected issues. Fixed viewport scaling confirmed on 20 affected location pages at 320/390px (40 checks). Homepage photos retain 16:9 proportions and phone horizontal scrolling. Both stylesheet reviews have zero errors/warnings, decorator is idempotent and git diff --check is clean.",
       "artifacts": "/Volumes/Untitled/Codex/dbworkouts-site-redesign/white-sections"
+    },
+    {
+      "date": "2026-11-25",
+      "checks": "Parsed all 225 public HTML pages: no visible breadcrumb containers remain. Confirmed the three affected primary-brand links still point to /. Structured data on all three pages parses; decorator second run updates zero pages; git diff --check clean."
+    },
+    {
+      "date": "2026-11-25",
+      "checks": "Replacement image loaded in browser at 320, 390, 768 and 1440px without page overflow. Verified 896\u00d7504 source dimensions, homepage has no copy of this photograph, decorator idempotent and git diff --check clean.",
+      "artifacts": "/Volumes/Untitled/Codex/dbworkouts-site-redesign/areas-new-image.png"
+    },
+    {
+      "date": "2026-11-25",
+      "checks": "Areas and Park Guide image loading and no horizontal overflow verified at 320, 390, 768 and 1440px. Areas desktop screenshot inspected. Decorator idempotent; git diff --check clean.",
+      "artifacts": "/Volumes/Untitled/Codex/dbworkouts-site-redesign/areas-outdoor-gym.png"
     }
   ],
   "generatedAt": "2026-10-14T06:24:46.230Z"

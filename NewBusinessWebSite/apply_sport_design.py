@@ -17,6 +17,8 @@ def clean_arrows(markup):
     parts = re.split(r'(<script\b[^>]*>[\s\S]*?</script>|<style\b[^>]*>[\s\S]*?</style>)', markup, flags=re.I)
     for i in range(0, len(parts), 2):
         text = parts[i]
+        # The logo is the home link; do not reintroduce visible breadcrumb trails.
+        text = re.sub(r'\s*<(div|nav|ol)\b[^>]*class="[^"\n]*\bbreadcrumb[^"\n]*"[^>]*>[\s\S]*?</\1>', '', text, flags=re.I)
         text = re.sub(r'(<button\b[^>]*aria-label="([^"]+)"[^>]*>)\s*[←→↗↓↑]\s*(</button>)', lambda m: m[1] + ('Previous' if 'prev' in m[2].lower() else 'Next' if 'next' in m[2].lower() else m[2]) + m[3], text)
         text = re.sub(r'\s*<span\b[^>]*>\s*(?:[↗↘→←↓↑]|&(?:rarr|larr|nearr|darr);)\s*</span>', '', text)
         text = re.sub(r'\s*(?:[↗↘→←↓↑]|&(?:rarr|larr|nearr|darr);)(?=\s*</(?:a|button)>)', '', text)
@@ -101,8 +103,8 @@ def apply_page(path):
         ),
         'park-guide.html': (
             './pics/IMG_7933.jpg',
-            '/pics/IMG_7861%203.jpg',
-            'Outdoor fitness equipment at Stratford Park',
+            '/pics/victoria-park-london.jpg',
+            'Trees, grass and a fountain in Victoria Park, East London',
         ),
         'pair-personal-training-east-london.html': (
             '/pics/optimized/training-8096.webp',
@@ -126,8 +128,8 @@ def apply_page(path):
         ),
         'personal-trainer-east-london-areas.html': (
             '/pics/optimized/training-7856.webp',
-            '/pics/IMG_7857%203.jpg',
-            'An outdoor basketball court and open park space',
+            '/pics/IMG_7861%203.jpg',
+            'Outdoor fitness equipment at Stratford Park',
         ),
     }
     if path.name in main_header_images:

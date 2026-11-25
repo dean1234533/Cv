@@ -86,3 +86,7 @@ All 154 white sections across 152 static pages were checked at phone, tablet and
 The homepage’s white training-service photographs use consistent 16:9 frames at every width; retain horizontal service-card scrolling on phones. Root horizontal clipping prevents oversized fixed navigation from enlarging phone viewports, without changing scrolling inside photo strips.
 
 Audit evidence is in the external white-sections folder: 225 pages inventoried, 1520 white-section layouts plus 75 breakpoint layouts, 36 tool layouts and 40 viewport checks. Both stylesheets pass deterministic review with no errors/warnings. Source, copy, forms and business pricing remain in the existing repository.
+
+Do not show Home / page-name breadcrumb trails on any public page. The logo links home. The design decorator removes visible breadcrumb markup after regeneration; retain structured data for search engines.
+
+Areas Covered uses IMG_7861 3.jpg, showing the outdoor gym at Stratford Park, following the latest user correction. Do not substitute homepage training photos or court photographs. Park Guide uses victoria-park-london.jpg to keep these two main headers distinct; see pics/image-credits.json for its CC0 source.

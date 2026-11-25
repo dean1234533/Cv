@@ -395,9 +395,9 @@ html:has(.sport-site) { scroll-padding-top:104px; }
 /* Trust line under closing CTAs: tidy, left-aligned list on mobile (no stray dot separators). */
 .sport-site .db-cta-trust .trust-dot { opacity:.5; }
 @media(max-width:600px) {
-  .sport-site .db-cta-trust { flex-direction:column; align-items:flex-start; gap:8px; }
+  .sport-site .db-cta-trust { display:grid; grid-template-columns:1fr 1fr; gap:14px 12px; align-items:start; }
   .sport-site .db-cta-trust .trust-dot { display:none; }
-  .sport-site .db-cta-trust > span { display:block; }
+  .sport-site .db-cta-trust > span { display:block; line-height:1.3; }
 }
 @media(max-width:480px) { .sport-site .db-cta-band-actions { align-items:stretch; } .sport-site .db-cta-band-actions .db-btn { justify-content:center; } }
 
@@ -410,5 +410,5 @@ html:has(.sport-site) { scroll-padding-top:104px; }
   .sport-site .db-cta-band h2 { font-size:clamp(2.2rem,10vw,3.1rem); line-height:1.04; text-wrap:balance; }
   .sport-site .db-cta-band .eyebrow { font-size:.75rem; letter-spacing:.14em; margin-bottom:4px; }
   .sport-site .db-cta-band p { font-size:1.05rem; line-height:1.65; color:#fff; text-shadow:0 1px 8px rgba(0,0,0,.6); }
-  .sport-site .db-cta-trust { font-size:1rem; color:#fff; gap:12px; margin-top:28px; }
+  .sport-site .db-cta-trust { font-size:.8rem; color:#fff; margin-top:28px; }
 }

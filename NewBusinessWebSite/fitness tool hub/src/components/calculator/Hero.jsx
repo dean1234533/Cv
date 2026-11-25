@@ -8,9 +8,8 @@ export default function Hero({ onStart }) {
   return (
     <section className="mx-auto max-w-3xl px-4 pb-12 pt-12 text-center sm:pt-16">
       <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}>
-        <img src={import.meta.env.BASE_URL + 'logo.png'} alt="DB's Workouts" className="mx-auto mb-5 h-14 w-14 object-contain" />
         <h1 className="mx-auto max-w-2xl text-4xl font-black leading-tight tracking-tight text-white sm:text-6xl">
-          Free Macro & Calorie Calculator
+          Free Macro &amp; Training Goal Calculator
         </h1>
         <p className="mx-auto mt-4 max-w-xl text-base leading-7 text-zinc-400">
           Calculate your calories, macros and personalised training recommendations in less than 60 seconds.

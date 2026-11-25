@@ -101,7 +101,7 @@ export default function FeaturesSection() {
                   style={{ "--tw-shadow-color": `${accentColor}20` }}
                 >
                   <div
-                    className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-all duration-500"
+                    className="db-icon-box w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-all duration-500"
                     style={{ backgroundColor: `${accentColor}15` }}
                   >
                     <feature.icon

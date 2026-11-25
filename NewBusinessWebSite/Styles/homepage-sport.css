@@ -1,0 +1,395 @@
+/* DB's Workouts — sport direction. Scoped to the homepage. */
+.home-sport {
+  --bg:#101010; --surface:#181818; --card:#202020; --card-hover:#272727;
+  --text:#f7f7f3; --text-dim:#b9b9b5; --text-muted:#a4a4a0;
+  --accent:#b30018; --accent-hover:#cc001e; --accent-text:#ff4652;
+  --border:rgba(255,255,255,.17); --border-hover:rgba(255,255,255,.35);
+  --paper:#f4f4ef; --ink:#151515; --ink-dim:#5c5c57;
+  --radius:0px; --radius-sm:0px; --radius-lg:0px;
+  --shadow-glow:none; --shadow-lg:none;
+}
+.home-sport h1,.home-sport h2,.home-sport h3,.home-sport h4 {
+  font-family:'Barlow Condensed','Arial Narrow',Impact,sans-serif;
+  text-transform:uppercase; font-weight:700; letter-spacing:-.025em; line-height:.95;
+}
+.home-sport .container { max-width:1328px; padding-inline:48px; }
+.home-sport .section { padding:100px 0; }
+.home-sport .section-header { margin:0 0 48px; max-width:800px; text-align:left; }
+.home-sport .section-header h2,.home-sport .about-content h2 { font-size:clamp(3rem,5vw,4.75rem); margin-top:20px; }
+.home-sport .section-sub { max-width:540px; font-size:.96rem; line-height:1.8; }
+.home-sport .eyebrow { font:600 .64rem/1.5 Inter,sans-serif; letter-spacing:.13em; color:var(--text-dim); }
+.home-sport .btn-primary,.home-sport .btn-primary-card,.home-sport .btn-ghost,.home-sport .btn-secondary,
+.home-sport .btn-outline-card,.home-sport .btn-whatsapp {
+  min-height:50px; border-radius:0; font-family:Inter,sans-serif; font-size:.78rem;
+  font-weight:600; letter-spacing:.025em; text-transform:uppercase; box-shadow:none;
+  transform:none; white-space:normal;
+}
+.home-sport .btn-primary:hover,.home-sport .btn-primary-card:hover,.home-sport .btn-ghost:hover,
+.home-sport .btn-whatsapp:hover { transform:none; box-shadow:none; }
+.home-sport .primary-nav { background:var(--bg); }
+.home-sport .primary-nav-inner { max-width:1328px; padding-inline:48px; min-height:88px; }
+.home-sport .primary-brand { font-family:Inter,sans-serif; text-transform:uppercase; letter-spacing:-.025em; font-weight:700; font-size:14px; }
+.home-sport .primary-links { gap:24px; }
+.home-sport .primary-links>a,.home-sport .primary-dropdown summary { font-size:12px; }
+.home-sport .primary-links .primary-book { border-radius:0; padding-inline:20px; font-size:11px; text-transform:uppercase; }
+.home-sport .primary-toggle { border-radius:0; }
+.home-sport .primary-links { top:88px; }
+.home-sport .skip-link { position:fixed; top:0; left:24px; z-index:10000; background:var(--paper); color:var(--ink); padding:12px 20px; transform:translateY(-150%); }
+.home-sport .skip-link:focus { transform:none; }
+/* Two decisive columns: a typographic statement and real training. */
+.home-sport .hero {
+  margin-top:88px; min-height:0; background:var(--bg); display:grid;
+  grid-template-columns:1fr 1fr; align-items:stretch; overflow:hidden;
+  max-width:1600px; margin-inline:auto;
+}
+.home-sport .hero-content { grid-row:1; grid-column:1; width:auto; max-width:none; margin:0; padding:62px 44px 44px max(48px,calc((100vw - 1232px)/2)); }
+.home-sport .hero-media { grid-row:1; grid-column:2; position:relative; inset:auto; min-height:650px; overflow:hidden; }
+.home-sport .hero-poster { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 40%; opacity:1; }
+.home-sport .hero-photo-caption { position:absolute; bottom:0; left:0; right:0; display:flex; justify-content:space-between; gap:16px; padding:17px 24px; background:var(--ink); color:var(--text); font:500 .58rem/1.5 Inter,sans-serif; letter-spacing:.08em; }
+.home-sport .hero-badge { display:flex; width:fit-content; background:none; border:0; border-radius:0; margin:0 0 40px; padding:0; font-size:.7rem; animation:none; }
+.home-sport .hero-stars { color:var(--text); font-size:.7rem; letter-spacing:1px; }
+.home-sport .hero-kicker { font:600 .62rem/1.5 Inter,sans-serif; letter-spacing:.12em; color:var(--text-dim); margin-bottom:18px; }
+.home-sport .hero-heading { font-size:clamp(4rem,7.5vw,7.25rem); font-weight:700; letter-spacing:-.025em; line-height:.92; max-width:none; animation:none; }
+.home-sport .hero-heading .accent { color:var(--accent-text); }
+.home-sport .hero-sub { max-width:375px; font-size:.96rem; color:var(--text-dim); margin-top:28px; line-height:1.8; animation:none; }
+.home-sport .hero-actions { display:flex; align-items:center; gap:18px; margin-top:28px; animation:none; }
+.home-sport .hero-cta { padding:17px 24px; gap:30px; }
+.home-sport .hero .btn-ghost { background:none; border:0; padding:12px 0; backdrop-filter:none; text-decoration:underline; text-underline-offset:5px; }
+.home-sport .hero-note { font-size:.62rem; color:var(--text-muted); margin-top:16px; }
+.home-sport .hero-trust { display:flex; gap:12px 18px; margin-top:32px; border-top:1px solid var(--border); padding-top:20px; animation:none; }
+.home-sport .htrust-item { font-size:.59rem; color:var(--text-dim); }
+.home-sport .htrust-item svg { width:13px; height:13px; color:var(--text-dim); }
+/* Restrained proof band. Values are static rather than animated. */
+.home-sport .trust-bar { padding:28px 48px; background:var(--paper); color:var(--ink); border:0; }
+.home-sport .trust-bar-inner { max-width:1232px; justify-content:space-between; }
+.home-sport .trust-stat { flex-direction:row; padding:0; align-items:center; gap:10px; }
+.home-sport .ts-num { color:var(--ink); font-family:'Barlow Condensed',Impact,sans-serif; font-weight:600; font-size:2rem; }
+.home-sport .ts-plus { color:var(--ink); margin-left:-7px; font-size:1rem; }
+.home-sport .ts-label { font-size:.6rem; color:var(--ink-dim); letter-spacing:.06em; }
+.home-sport .ts-icon { display:flex; color:var(--accent); }
+.home-sport .trust-divider { background:#cdcdc6; height:30px; }
+/* Photography and service names do the work, with no decorative card shells. */
+.home-sport .training-section { background:var(--paper); color:var(--ink); --text:var(--ink); --text-dim:var(--ink-dim); --accent-text:var(--accent); }
+.home-sport .training-header { display:flex; justify-content:space-between; gap:60px; max-width:none; align-items:flex-end; }
+.home-sport .training-header .section-sub { max-width:370px; margin-bottom:4px; }
+.home-sport .training-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
+.home-sport .training-card { display:block; }
+.home-sport .training-photo { overflow:hidden; position:relative; background:#d2d2cb; }
+.home-sport .training-photo img { width:100%; height:280px; object-fit:cover; transition:transform .3s ease; }
+.home-sport .training-card:hover img { transform:scale(1.035); }
+.home-sport .training-index { position:absolute; left:0; top:0; background:var(--ink); color:var(--paper); padding:8px 12px; font-size:.6rem; }
+.home-sport .training-card-title { display:flex; gap:20px; align-items:center; justify-content:space-between; margin:24px 0 12px; }
+.home-sport .training-card-title h3 { font-size:2rem; }
+.home-sport .training-card p { font-size:.84rem; color:var(--ink-dim); max-width:290px; line-height:1.7; }
+.home-sport .training-more { display:flex; align-items:center; flex-wrap:wrap; gap:14px 28px; padding-top:28px; margin-top:40px; border-top:1px solid #cdcdc6; font-size:.7rem; }
+.home-sport .training-more>span { color:var(--ink-dim); margin-right:auto; }
+.home-sport .training-more a { text-decoration:underline; text-underline-offset:4px; }
+.home-sport .about-section { background:var(--bg); }
+.home-sport .about-inner { grid-template-columns:.9fr 1fr; gap:100px; }
+.home-sport .about-img-wrap { border-radius:0; border:0; }
+.home-sport .about-img-wrap>img { height:590px; filter:grayscale(1); }
+.home-sport .about-img-badge { background:var(--card); padding:16px 20px; }
+.home-sport .aib-label { color:var(--text-dim); }
+.home-sport .aib-level { font-family:Inter,sans-serif; font-size:.8rem; font-weight:500; }
+.home-sport .about-mini-gallery { display:none; }
+.home-sport .about-content h2 { margin-bottom:28px; }
+.home-sport .about-lead { font-size:1rem; line-height:1.8; }
+.home-sport .about-body { font-size:.91rem; }
+.home-sport .about-creds { display:grid; grid-template-columns:1fr 1fr; gap:18px 24px; }
+.home-sport .about-cred { background:none; border:0; border-top:1px solid var(--border); padding:16px 0 0; border-radius:0; gap:8px; align-items:flex-start; }
+.home-sport .ac-icon { color:var(--text); background:none; width:24px; }
+.home-sport .ac-icon svg { width:19px; }
+.home-sport .about-cred strong { font-size:.73rem; }
+.home-sport .about-cred span { font-size:.66rem; }
+.home-sport .why-section { background:var(--surface); }
+.home-sport .why-section .section-header { display:grid; grid-template-columns:1fr 1fr; gap:14px 80px; max-width:none; }
+.home-sport .why-section .eyebrow { grid-column:1/-1; }
+.home-sport .why-section .section-sub { align-self:end; }
+.home-sport .why-grid { grid-template-columns:repeat(3,minmax(0,1fr)); gap:36px 40px; }
+.home-sport .why-card { background:none; border:0; border-top:1px solid var(--border); border-radius:0; padding:24px 0 0; transform:none; box-shadow:none; }
+.home-sport .why-card:hover { background:none; transform:none; box-shadow:none; border-color:var(--text-dim); }
+.home-sport .why-icon,.home-sport .why-card:hover .why-icon { color:var(--accent-text); background:none; border:0; border-radius:0; box-shadow:none; width:30px; height:30px; margin-bottom:20px; }
+.home-sport .why-card h3 { font-size:1.8rem; }
+.home-sport .why-card p { font-size:.85rem; }
+.home-sport .results-section { background:var(--bg); }
+.home-sport .results-stats { justify-content:flex-start; gap:48px; margin-bottom:48px; }
+.home-sport .rs-num { font-family:'Barlow Condensed',Impact,sans-serif; font-weight:600; }
+.home-sport .ba-slider,.home-sport .ba-card { border-radius:0; }
+.home-sport .ba-tag { border-radius:0; color:var(--text-dim); border-color:var(--border); background:none; }
+.home-sport .reviews-section { background:var(--paper); color:var(--ink); --text:var(--ink); --text-dim:var(--ink-dim); --text-muted:var(--ink-dim); --accent-text:var(--accent); --border:#cdcdc6; }
+.home-sport .reviews-section .container { display:grid; grid-template-columns:1fr 1.1fr; gap:0 90px; }
+.home-sport .reviews-carousel { max-width:none; width:100%; }
+.home-sport .review-card { background:none; border:0; padding:0; border-radius:0; }
+.home-sport .rv-text { font-family:Inter,sans-serif; font-size:1.3rem; font-weight:500; line-height:1.6; letter-spacing:-.035em; }
+.home-sport .rv-stars { color:var(--ink); }
+.home-sport .rv-avatar { color:var(--ink); background:#e2e2da; border-radius:0; }
+.home-sport .rv-nav { justify-content:flex-start; }
+.home-sport .rv-btn { border-color:#a6a69c; border-radius:0; }
+.home-sport .google-link { margin-top:28px; color:var(--ink-dim); }
+.home-sport .price-card { border-radius:0; padding:30px 22px; transform:none; box-shadow:none; }
+.home-sport .price-card:hover { transform:none; box-shadow:none; }
+.home-sport .price-card.featured { background:var(--card); border:1px solid var(--accent-text); box-shadow:none; }
+.home-sport .pc-badge { background:var(--accent); color:white; border-radius:0; }
+.home-sport .pc-label { font-family:Inter,sans-serif; font-size:.7rem; font-weight:600; }
+.home-sport .pc-price { font-family:'Barlow Condensed',Impact,sans-serif; font-weight:600; font-size:3.1rem; letter-spacing:-.02em; }
+.home-sport .pc-features li { font-size:.78rem; }
+.home-sport .pricing-online { background:var(--bg); border-radius:0; }
+.home-sport .lead-magnet-inner { border-radius:0; box-shadow:none; }
+.home-sport .tool-card { background:none; border-radius:0; box-shadow:none; transform:none; }
+.home-sport .tool-card:hover { transform:none; box-shadow:none; background:var(--surface); }
+.home-sport .tools-grid { grid-template-columns:repeat(4,minmax(0,1fr)); }
+.home-sport .tool-name { font-size:.78rem; font-weight:500; }
+.home-sport .tool-icon { color:var(--text-dim); }
+.home-sport .faq-item { border-width:0 0 1px; border-radius:0; background:none; }
+.home-sport .faq-q { font-family:Inter,sans-serif; font-size:.95rem; font-weight:500; }
+.home-sport .map-embed { border-radius:0; }
+.home-sport .map-embed iframe { filter:grayscale(1); }
+.home-sport .site-footer { background:var(--bg); }
+.home-sport [data-reveal],.home-sport [data-reveal-child] { opacity:1; transform:none; transition:none; }
+@media(min-width:1600px) { .home-sport .hero-content { padding-left:100px; } }
+@media(max-width:1199px) {
+  .home-sport .hero-content { padding:48px 32px 36px; }
+  .home-sport .hero-heading { font-size:6rem; }
+  .home-sport .hero-media { min-height:650px; }
+  .home-sport .hero-actions { align-items:flex-start; flex-direction:column; gap:8px; }
+  .home-sport .about-inner { gap:60px; }
+}
+@media(max-width:859px) {
+  .home-sport .container,.home-sport .primary-nav-inner { padding-inline:24px; }
+  .home-sport .section { padding:68px 0; }
+  .home-sport .hero-content { padding:40px 24px; }
+  .home-sport .hero-heading { font-size:4.8rem; }
+  .home-sport .hero-badge { margin-bottom:30px; font-size:.65rem; }
+  .home-sport .hero-media { min-height:650px; }
+  .home-sport .hero-photo-caption { flex-direction:column; gap:4px; padding:14px 16px; }
+  .home-sport .trust-bar { padding-inline:24px; }
+  .home-sport .trust-bar-inner { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+  .home-sport .trust-divider { display:none; }
+  .home-sport .trust-stat { flex:none; text-align:left; }
+  .home-sport .training-photo img { height:200px; }
+  .home-sport .training-card-title h3 { font-size:1.65rem; }
+  .home-sport .training-header { gap:30px; }
+  .home-sport .training-header .section-sub { max-width:280px; }
+  .home-sport .about-inner { gap:40px; grid-template-columns:1fr 1fr; }
+  .home-sport .about-img-wrap>img { height:560px; }
+  .home-sport .about-creds { grid-template-columns:1fr; }
+  .home-sport .why-grid { grid-template-columns:1fr 1fr; gap:32px; }
+  .home-sport .why-section .section-header { gap:20px 40px; }
+  .home-sport .reviews-section .container { display:block; }
+  .home-sport .tools-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .home-sport .tools-grid>* { grid-column:auto; }
+}
+@media(max-width:599px) {
+  .home-sport .hero { display:flex; flex-direction:column; }
+  .home-sport .hero-content { order:0; padding:32px 24px 28px; }
+  .home-sport .hero-badge { margin-bottom:28px; }
+  .home-sport .hero-kicker { font-size:.56rem; letter-spacing:.1em; margin-bottom:16px; }
+  .home-sport .hero-heading { font-size:clamp(4.2rem,18.2vw,6.5rem); }
+  .home-sport .hero-sub { margin-top:24px; font-size:.9rem; }
+  .home-sport .hero-actions { flex-direction:row; flex-wrap:wrap; align-items:center; gap:12px 20px; margin-top:24px; }
+  .home-sport .hero-cta { width:auto; padding:15px 20px; }
+  .home-sport .hero .btn-ghost { width:auto; font-size:.64rem; }
+  .home-sport .hero-note { font-size:.57rem; }
+  .home-sport .hero-trust { margin-top:22px; padding-top:16px; gap:10px 14px; }
+  .home-sport .htrust-item { font-size:.56rem; }
+  .home-sport .hero-media { order:1; min-height:0; height:340px; }
+  .home-sport .hero-poster { object-position:50% 45%; }
+  .home-sport .hero-photo-caption { flex-direction:row; font-size:.5rem; gap:8px; }
+  .home-sport .trust-bar { padding-block:24px; }
+  .home-sport .ts-num { font-size:1.8rem; }
+  .home-sport .ts-label { font-size:.54rem; }
+  .home-sport .training-header { display:block; }
+  .home-sport .training-header .section-sub { max-width:none; margin-top:24px; }
+  /* Keep photo-led training options in a horizontal strip on mobile. */
+  .home-sport .training-grid { display:flex; gap:20px; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:18px; }
+  .home-sport .training-card { flex:0 0 85%; min-width:0; scroll-snap-align:start; }
+  .home-sport .training-photo img { height:auto; aspect-ratio:1.45; }
+  .home-sport .training-card-title { margin-top:18px; }
+  .home-sport .training-card-title h3 { font-size:2.1rem; }
+  .home-sport .training-card p { max-width:none; }
+  .home-sport .training-more { gap:16px 20px; }
+  .home-sport .training-more>span { flex-basis:100%; }
+  .home-sport .about-inner { grid-template-columns:1fr; gap:36px; }
+  .home-sport .about-img-wrap>img { height:430px; }
+  .home-sport .about-creds { grid-template-columns:1fr 1fr; gap:16px; }
+  .home-sport .about-actions { flex-direction:column; }
+  .home-sport .about-actions a { justify-content:center; }
+  .home-sport .why-section .section-header { display:block; }
+  .home-sport .why-section .section-sub { margin-top:24px; }
+  .home-sport .why-grid { grid-template-columns:1fr; gap:28px; }
+  .home-sport .why-card { display:grid; grid-template-columns:30px 1fr; gap:0 16px; padding-top:24px; }
+  .home-sport .why-icon { grid-row:1/3; margin-top:2px; }
+  .home-sport .why-card p { grid-column:2; }
+  .home-sport .price-card { padding:30px; }
+  .home-sport .pc-price { font-size:3.5rem; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .home-sport *,.home-sport *::before,.home-sport *::after { animation:none!important; transition:none!important; scroll-behavior:auto!important; }
+}
+@media(max-width:599px) {
+  .home-sport .hero-heading { font-size:clamp(3.1rem,15.1vw,5.4rem); }
+  .home-sport #dbMobileBar a { border-radius:0; font-size:12px; }
+  .home-sport #dbMobileBar .mb-wa { background:#202020; color:#fff; border:1px solid #555; }
+}
+/* User-selected hero: full-bleed training film, with all content overlaid. */
+.home-sport .hero {
+  display:flex; align-items:center; max-width:none; position:relative;
+  min-height:760px; min-height:calc(100svh - 88px); isolation:isolate;
+}
+.home-sport .hero-media { position:absolute; inset:0; min-height:0; z-index:-2; }
+.home-sport .hero-poster { opacity:1; object-position:center; }
+.home-sport .hero-video { opacity:0; object-position:center; }
+.home-sport .hero-video.is-playing { opacity:1; }
+.home-sport .hero-overlay { background:linear-gradient(90deg,rgba(0,0,0,.86) 0%,rgba(0,0,0,.7) 38%,rgba(0,0,0,.22) 75%,rgba(0,0,0,.2) 100%); z-index:1; }
+.home-sport .hero-media:has(.hero-video.is-playing) .hero-poster { opacity:0; }
+.home-sport .hero-content { width:100%; max-width:1328px; margin:0 auto; padding:64px 48px 100px; }
+.home-sport .hero-heading { font-size:clamp(4.5rem,8.3vw,8rem); max-width:850px; }
+.home-sport .hero-sub { max-width:430px; color:#e0e0dc; }
+.home-sport .hero-badge { color:#f7f7f3; }
+.home-sport .hero-kicker,.home-sport .hero-note,.home-sport .htrust-item,.home-sport .htrust-item svg { color:#d1d1cd; }
+.home-sport .hero-trust { max-width:600px; }
+.home-sport .hero-video-footer { position:absolute; bottom:0; left:0; right:0; display:flex; align-items:center; justify-content:space-between; padding:18px 48px; border-top:1px solid rgba(255,255,255,.22); color:white; font:500 .6rem/1.5 Inter,sans-serif; letter-spacing:.1em; }
+@media(max-width:859px) {
+  .home-sport .hero-content { padding:56px 24px 100px; }
+  .home-sport .hero-heading { font-size:clamp(4rem,9vw,6rem); }
+  .home-sport .hero-video-footer { padding-inline:24px; }
+}
+@media(max-width:599px) {
+  .home-sport .hero { min-height:calc(100svh - 88px); }
+  .home-sport .hero-media { height:auto; order:initial; }
+  .home-sport .hero-content { padding:32px 24px 94px; }
+  .home-sport .hero-heading { font-size:clamp(3.1rem,15.1vw,5.4rem); }
+  .home-sport .hero-overlay { background:linear-gradient(90deg,rgba(0,0,0,.82),rgba(0,0,0,.48)); }
+  .home-sport .hero-poster,.home-sport .hero-video { object-position:center; }
+  .home-sport .hero-video-footer { font-size:.5rem; padding:12px 24px; }
+}
+
+/* Restore the original continuous photo carousel at every screen size. */
+.home-sport .gallery-section { padding:4px 0 0; }
+@media(prefers-reduced-motion:reduce) {
+  .home-sport .gallery-section { overflow-x:auto; }
+  .home-sport .gallery-strip img[aria-hidden="true"] { display:none; }
+}
+
+/* Text labels replace arrow icons in review controls. */
+.home-sport .rv-btn { width:auto; min-width:44px; padding:0 14px; font-size:.75rem; }
+
+/* Shared button feedback: a crisp hover lift, press response and visible focus. */
+.home-sport :is(button, a[class*="btn-"], .primary-book, .lf-alt a, #dbMobileBar a, .db-wa-fab) {
+  /* Switch foreground/background together; crossfading inverse colours
+     briefly produces grey text on grey, even when both endpoints pass. */
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+@media (hover:hover) and (pointer:fine) {
+  .home-sport :is(button, a[class*="btn-"], .primary-book, .lf-alt a, #dbMobileBar a, .db-wa-fab):not(:disabled):not([aria-disabled="true"]):hover {
+    transform:translateY(-2px);
+    box-shadow:0 6px 16px rgba(0,0,0,.2), inset 0 0 0 1px rgba(255,255,255,.18);
+  }
+  .home-sport .rv-btn:hover { background:var(--ink); color:var(--paper); }
+  .home-sport .btn-ghost:hover { text-decoration-thickness:2px; }
+}
+.home-sport :is(button, a[class*="btn-"], .primary-book, .lf-alt a, #dbMobileBar a, .db-wa-fab):not(:disabled):not([aria-disabled="true"]):active {
+  transform:translateY(0) scale(.97);
+  box-shadow:none;
+}
+.home-sport :is(button, a[class*="btn-"], .primary-book, .lf-alt a, #dbMobileBar a, .db-wa-fab):focus-visible {
+  outline:3px solid var(--accent-text);
+  outline-offset:4px;
+}
+.home-sport :is(button:disabled, [aria-disabled="true"]) { transform:none; filter:none; box-shadow:none; }
+@media (prefers-reduced-motion:reduce) {
+  .home-sport :is(button, a[class*="btn-"], .primary-book, .lf-alt a, #dbMobileBar a, .db-wa-fab) { transform:none!important; }
+}
+
+/* Keep text/background pairs explicit in every interactive state. */
+.home-sport :is(.btn-primary,.btn-primary-card,.primary-book),
+.home-sport #leadForm button {
+  color:#fff; background:#b30018;
+}
+.home-sport :is(.btn-primary,.btn-primary-card,.primary-book):is(:hover,:active),
+.home-sport #leadForm button:is(:hover,:active) {
+  color:#fff; background:#cc001e;
+}
+.home-sport :is(.btn-secondary,.btn-outline-card) {
+  color:#fff; background:#202020; border-color:#777;
+}
+.home-sport :is(.btn-secondary,.btn-outline-card):is(:hover,:active) {
+  color:#fff; background:#353535; border-color:#aaa;
+}
+.home-sport .hero .btn-ghost,
+.home-sport .hero .btn-ghost:is(:hover,:active) { color:#fff; }
+.home-sport .rv-btn { color:#151515; background:#f4f4ef; border-color:#777; }
+.home-sport .rv-btn:is(:hover,:active) { color:#fff; background:#151515; border-color:#151515; }
+.home-sport .faq-q:is(:hover,:active) { color:#fff; background:#242424; }
+.home-sport #dbMobileBar :is(.mb-call,.mb-wa) { color:#fff; background:#202020; }
+.home-sport #dbMobileBar :is(.mb-call,.mb-wa):is(:hover,:active) { color:#fff; background:#353535; }
+.home-sport #dbMobileBar .mb-book,
+.home-sport #dbMobileBar .mb-book:is(:hover,:active) { color:#fff; background:#b30018; }
+.home-sport #dbw-cookie-decline:is(:hover,:active) { color:#fff; background:#353535; }
+.home-sport #dbw-cookie-accept:is(:hover,:active) { color:#fff; background:#cc001e; }
+
+/* Photo-led closing section: a strong finish without a solid red banner. */
+.home-sport .final-cta-section { position:relative; isolation:isolate; overflow:hidden; background:#101010; padding:88px 0; min-height:590px; display:flex; align-items:center; border-top:1px solid var(--border); }
+.home-sport .final-cta-photo { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 48%; z-index:0; }
+.home-sport .final-cta-section::before { display:none; }
+.home-sport .final-cta-section::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg,rgba(0,0,0,.91) 0%,rgba(0,0,0,.8) 35%,rgba(0,0,0,.35) 68%,rgba(0,0,0,.12) 100%); z-index:1; pointer-events:none; }
+.home-sport .final-cta-section .container { position:relative; z-index:2; width:100%; }
+.home-sport .final-cta-inner { max-width:none; text-align:left; }
+.home-sport .final-cta-copy { max-width:580px; }
+.home-sport .final-cta-section .eyebrow { color:#fff; border-left:3px solid var(--accent-text); padding-left:12px; }
+.home-sport .final-cta-section h2 { color:#fff; margin:24px 0; font-size:clamp(4rem,7vw,6.75rem); font-weight:700; line-height:.94; }
+.home-sport .final-cta-copy p { max-width:430px; margin:0; font-size:.94rem; line-height:1.8; color:#ededeb; }
+.home-sport .final-cta-contact { margin-top:30px; max-width:580px; }
+.home-sport .final-cta-section .fca-actions { display:flex; flex-direction:row; align-items:center; justify-content:flex-start; flex-wrap:wrap; gap:12px; margin:0; }
+.home-sport .final-cta-section .fca-actions a { justify-content:center; width:auto; }
+.home-sport .final-cta-section .btn-primary { background:#b30018; color:#fff; padding:17px 24px; }
+.home-sport .final-cta-section .btn-primary:is(:hover,:active) { background:#cc001e; color:#fff; }
+.home-sport .final-cta-section .btn-whatsapp { background:#202020; color:#fff; border:1px solid #aaa; padding:16px 24px; opacity:1; }
+.home-sport .final-cta-section .btn-whatsapp:is(:hover,:active) { background:#353535; color:#fff; opacity:1; }
+.home-sport .final-cta-section .final-cta-note { color:#d5d5d1; font-size:.7rem; margin:18px 0 0; text-align:left; }
+@media(max-width:699px) {
+  .home-sport .final-cta-section { min-height:570px; padding:56px 0; }
+  .home-sport .final-cta-photo { object-position:62% center; }
+  .home-sport .final-cta-section::after { background:rgba(0,0,0,.73); }
+  .home-sport .final-cta-section .eyebrow { font-size:.57rem; }
+  .home-sport .final-cta-section h2 { font-size:4.6rem; }
+  .home-sport .final-cta-section .fca-actions { align-items:stretch; }
+  .home-sport .final-cta-section .fca-actions a { width:100%; }
+}
+
+/* Align the results introduction and proof with the photo grid below. */
+.home-sport .results-intro { display:grid; grid-template-columns:1.4fr 1fr; align-items:end; gap:56px; margin-bottom:44px; }
+.home-sport .results-intro .section-header { max-width:none; margin:0; }
+.home-sport .results-intro .section-sub { margin-top:20px; }
+.home-sport .results-intro .results-stats { display:grid; grid-template-columns:1fr 1fr; gap:28px; margin:0 0 5px; }
+.home-sport .results-intro .rs-stat { text-align:left; padding-left:20px; border-left:1px solid var(--border); min-width:0; }
+.home-sport .results-intro .rs-stat>div { display:flex; align-items:baseline; gap:3px; }
+.home-sport .results-intro .rs-num { display:inline; color:var(--text); font-size:3.6rem; line-height:1; }
+.home-sport .results-intro .rs-suffix { color:var(--accent-text); font-family:'Barlow Condensed',Impact,sans-serif; font-size:2.2rem; font-weight:600; line-height:1; }
+.home-sport .results-intro .rs-label { font-size:.65rem; line-height:1.7; letter-spacing:.055em; margin-top:10px; }
+@media(max-width:999px) {
+  .home-sport .results-intro { gap:32px; }
+  .home-sport .results-intro .results-stats { gap:18px; }
+  .home-sport .results-intro .rs-stat { padding-left:14px; }
+  .home-sport .results-intro .rs-num { font-size:3rem; }
+}
+@media(max-width:699px) {
+  .home-sport .results-intro { grid-template-columns:1fr; gap:28px; margin-bottom:32px; }
+  .home-sport .results-intro .results-stats { gap:24px; }
+  .home-sport .results-intro .rs-num { font-size:2.8rem; }
+  .home-sport .results-intro .rs-suffix { font-size:1.8rem; }
+}
+/* Keep homepage package cards readable at phone and tablet widths. */
+@media(max-width:767px) {
+  .home-sport .pricing-grid { display:grid; grid-template-columns:minmax(0,1fr); gap:24px; }
+  .home-sport .price-card { width:100%; min-width:0; padding:28px 24px; }
+  .home-sport .pc-features li { font-size:.9rem; line-height:1.7; }
+}
+@media(min-width:768px) and (max-width:1199px) {
+  .home-sport .pricing-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+
+@media(max-width:380px) {
+  .home-sport #map-heading { font-size:2.5rem; }
+}

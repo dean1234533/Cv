@@ -16,7 +16,7 @@ export default function CTABanner() {
 
       <div className="relative z-10">
         <div className="flex items-center gap-2 mb-3">
-          <div className="w-8 h-8 rounded-xl bg-white/20 flex items-center justify-center">
+          <div className="db-icon-box w-8 h-8 rounded-xl bg-white/20 flex items-center justify-center">
             <Sparkles className="w-4 h-4 text-white" />
           </div>
           <span className="text-sm font-semibold text-white/80 uppercase tracking-wider">Upgrade your results</span>

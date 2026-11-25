@@ -183,3 +183,6 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #334155;
 }
+/* Icon containers: retain existing fills, white strokes and red outlines. */
+.db-icon-box { border: 1px solid #B30018; color: #fff; }
+.db-icon-box > svg { color: #fff !important; }

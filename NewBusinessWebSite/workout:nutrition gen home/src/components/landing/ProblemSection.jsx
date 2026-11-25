@@ -60,7 +60,7 @@ export default function ProblemSection() {
               className="group relative"
             >
               <div className="relative bg-[#0d1322] border border-white/5 rounded-2xl p-8 h-full transition-all duration-500 hover:border-[#ef4444]/20 hover:shadow-lg hover:shadow-[#ef4444]/5">
-                <div className="w-14 h-14 rounded-xl bg-[#ef4444]/10 flex items-center justify-center mb-6 group-hover:bg-[#ef4444]/20 transition-colors duration-500">
+                <div className="db-icon-box w-14 h-14 rounded-xl bg-[#ef4444]/10 flex items-center justify-center mb-6 group-hover:bg-[#ef4444]/20 transition-colors duration-500">
                   <problem.icon className="w-7 h-7 text-[#ef4444]/70 group-hover:text-[#ef4444] transition-colors duration-500" aria-hidden="true" />
                 </div>
                 <h3 className="font-display font-semibold text-lg text-white mb-3 leading-snug">

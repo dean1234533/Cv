@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Flame, Beef, Wheat, Droplets, Coffee, Sun, Moon, Apple } from "lucide-react";
+import { Flame, Beef, Wheat, Droplets, Coffee, Sun, Moon, Apple, Lightbulb } from "lucide-react";
 
 const goalLabels = {
   lose_fat:        { label: "Fat Loss", color: "text-orange-600", bg: "bg-orange-50 border-orange-200" },
@@ -121,7 +121,7 @@ export default function NutritionPlan({ data }) {
               transition={{ delay: 0.25 + i * 0.06 }}
               className="flex gap-4 px-6 py-4"
             >
-              <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+              <div className="db-icon-box w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
                 <MealIcon className="w-4 h-4 text-primary" />
               </div>
               <div>
@@ -133,7 +133,7 @@ export default function NutritionPlan({ data }) {
         </div>
         {meals.notes && (
           <div className="px-6 py-4 bg-secondary/40 border-t border-border">
-            <p className="text-xs text-muted-foreground italic">💡 {meals.notes}</p>
+            <p className="text-xs text-muted-foreground italic"><Lightbulb className="inline-block w-4 h-4 mr-1 align-text-bottom text-primary" strokeWidth={1.5} aria-hidden="true" /> {meals.notes}</p>
           </div>
         )}
       </motion.div>
@@ -145,7 +145,7 @@ export default function NutritionPlan({ data }) {
         transition={{ delay: 0.35 }}
         className="flex items-center gap-4 p-5 rounded-2xl bg-sky-50 border border-sky-200"
       >
-        <div className="w-12 h-12 rounded-2xl bg-sky-100 flex items-center justify-center shrink-0">
+        <div className="db-icon-box w-12 h-12 rounded-2xl bg-sky-100 flex items-center justify-center shrink-0">
           <Droplets className="w-6 h-6 text-sky-500" />
         </div>
         <div>

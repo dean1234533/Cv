@@ -1,0 +1,172 @@
+{
+  "version": 1,
+  "project": {
+    "name": "dbworkouts",
+    "productType": "Local personal training website",
+    "stack": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React"
+    ]
+  },
+  "sources": {
+    "tokens": [
+      "Styles/index.css",
+      "Styles/db.css",
+      "Styles/navbar.css",
+      "Styles/homepage-sport.css",
+      "Styles/sport-system.css",
+      "fitness tool hub/src/index.css"
+    ],
+    "components": [],
+    "assets": [],
+    "instructions": []
+  },
+  "design": {
+    "colorMode": "unknown",
+    "colors": {
+      "background": "#101010",
+      "surface": "#181818",
+      "paper": "#f4f4ef",
+      "ink": "#151515",
+      "brand": "#b30018",
+      "accentOnDark": "#ff4652"
+    },
+    "typography": {
+      "display": "Barlow Condensed 700",
+      "body": "Inter 400\u2013700"
+    },
+    "spacing": {},
+    "radius": {},
+    "shadows": {},
+    "motion": {},
+    "density": "unknown"
+  },
+  "components": {
+    "installed": [],
+    "preferredPrimitives": [],
+    "patterns": [
+      "hero-local",
+      "page-content",
+      "info-block",
+      "cta-btn",
+      "areas-grid",
+      "tools-grid"
+    ]
+  },
+  "constraints": {
+    "must": [
+      "Reuse existing page templates, navigation, footer and CSS.",
+      "Keep booking CTAs and mobile layout."
+    ],
+    "avoid": [
+      "Invented credentials, new service claims or ranking guarantees."
+    ]
+  },
+  "decisions": [
+    {
+      "date": "2026-10-21",
+      "scope": "Boxing fitness page",
+      "choice": "Real outdoor training photography, charcoal and brand red, split hero, session steps, price grid and native FAQ disclosures. Reuses shared navigation, footer and buttons."
+    },
+    {
+      "date": "2026-10-24",
+      "scope": "Location and service SEO landing pages",
+      "choice": "Extend the boxing page design using shared DB tokens, split training-photo heroes, visible coach and review proof, session steps, price comparisons and native details FAQs. Preserve original page metadata, local copy and structured data."
+    },
+    {
+      "date": "2026-10-24",
+      "scope": "Shared public navigation",
+      "choice": "One static header across main and SEO pages. Native Training and More disclosures, area directory, persistent desktop booking CTA, one mobile controller with Escape, focus management, inert closed content and resize cleanup. Preserve DB branding."
+    },
+    {
+      "date": "2026-10-26",
+      "scope": "Fitness tool directory badges",
+      "choice": "One instance per directory in a compact horizontal carousel with arrows, swipe, pause/play and reduced-motion support. Shared server decorator prevents duplicate badges."
+    },
+    {
+      "date": "2026-10-26",
+      "scope": "Fitness tool directory badges",
+      "choice": "Match app.dbworkouts.co.uk: reuse its Discover more tools heading, horizontal badge cards, arrow and pause controls, swipe and reduced motion. Preserve eight unique directory links."
+    },
+    {
+      "date": "2026-11-25",
+      "scope": "Homepage sports brand direction",
+      "choice": "User selected high-end sports brand: bold, sharp and energetic. Black, crisp off-white and brand red; Barlow Condensed uppercase display with Inter body text; full-bleed responsive training video hero with text and buttons overlaid, dark shading, a poster fallback, a pause/play control and reduced-motion support; real training photography; photo-led services immediately after hero; squared controls, flat surfaces, static proof, manual reviews. Retain business information, prices and enquiry integrations."
+    },
+    {
+      "date": "2026-11-25",
+      "scope": "Homepage image layout",
+      "choice": "User prefers the original continuous horizontal photo carousel and dislikes stacked image layouts. Restore the full original gallery and its scrolling animation across desktop and mobile. Keep the new photo-led training options horizontally scrollable on mobile. Preserve the full-background video hero."
+    },
+    {
+      "date": "2026-11-25",
+      "scope": "Homepage buttons and links",
+      "choice": "User requested removal of all decorative arrows. Use plain text on calls to action and service links, and Previous/Next text on review navigation."
+    },
+    {
+      "date": "2026-11-25",
+      "scope": "Homepage button interactions and hero",
+      "choice": "User requested effects on all buttons and removal of the video pause button. Add hover lift and brightening, pressed feedback, keyboard focus rings, disabled-state and reduced-motion support. Background video autoplays without a visible pause control; reduced motion retains the poster."
+    },
+    {
+      "date": "2026-11-25",
+      "scope": "Homepage button contrast",
+      "choice": "Remove whole-button brightness filters. Set explicit text/background pairs for normal, hover and active states, including review controls, red booking buttons, secondary actions and mobile contact buttons. Keep lift, press and focus effects. Browser audit checked 31 text controls in normal and hover states with no contrast ratio below 4.5:1."
+    },
+    {
+      "date": "2026-11-25",
+      "scope": "Bottom contact section",
+      "choice": "User rejected the large red Your move section. Replace it with a compact dark contact section: smaller heading, copy on the left, clear booking and WhatsApp actions on the right, and red limited to the primary button. Remove duplicate trust strip."
+    },
+    {
+      "date": "2026-11-25",
+      "scope": "Bottom contact section revision",
+      "choice": "The user found the plain dark version bland. Use full-width original outdoor training photography with a dark overlay, a bold white Let\u2019s get you moving heading, a small red accent and booking/WhatsApp buttons over the image. Preserve explicit readable button colours and existing button effects. Keep the original scrolling gallery and background-video hero."
+    },
+    {
+      "date": "2026-11-25",
+      "scope": "Results introduction alignment",
+      "choice": "User liked the overall design but flagged the results heading and experience/personalisation stats positioning. Group them above the photo grid: heading/description left, two compact stats aligned right on desktop; a single horizontal stats row below the heading on mobile. Keep + and % on the same baseline as their values."
+    },
+    {
+      "date": "2026-11-25",
+      "scope": "All public website pages and fitness tools",
+      "choice": "Extend the approved homepage sports identity to 224 inner HTML pages and all 12 fitness-tool routes: Barlow Condensed headings, Inter body text, charcoal/off-white/brand red, crisp panels, real training photography, photo-led closing sections, shared navigation, readable button effects and no decorative arrows. Preserve content, pricing, enquiry/checkout destinations, metadata, schemas, calculators, FAQs and carousel behaviour. apply_sport_design.py keeps regenerated static pages consistent and runs from build.sh."
+    },
+    {
+      "date": "2026-11-25",
+      "scope": "Mobile photography fixes",
+      "choice": "User reported mobile images not displaying properly. Remove fixed-height cropping from service-page mobile hero, session and coach photos; position hero captions below the image; restore coach images hidden at small breakpoints; show Jasmin photos in a large horizontal, keyboard-focusable swipe gallery with contain fitting and matching frames. Correct mismatched intrinsic image dimensions using lib/image-dimensions.json and the existing idempotent design decorator. Preserve the homepage video and original horizontal photo carousel."
+    },
+    {
+      "date": "2026-11-25",
+      "scope": "Uniform photo carousels",
+      "choice": "User objected to different photo sizes in one carousel. Remove the mixed-proportion Jasmin carousel and show one full-width, uncropped trainer photo instead. Keep landscape training carousels in consistent 16:9 frames on About and Results, matching the approved homepage strip."
+    },
+    {
+      "date": "2026-11-25",
+      "scope": "Complete responsive review and mobile pricing",
+      "choice": "User rejected narrow mobile pricing cards and requested a full site review. Package cards now use one full-width column below 768px and two columns on tablets through 1199px; remove horizontal pricing carousels, preserve photo carousels. Fill card booking buttons, keep readable feature text, move mobile testimonial controls below full-width review cards, fix small-screen heading and long-link clipping, remove duplicate free-plan hero padding, widen workout form fields and fitness-level choices. Call Dean is immediate telephone; Book a call opens the consultation form. Retain existing form destinations, calculator logic and approved brand."
+    }
+  ],
+  "evidence": [
+    {
+      "date": "2026-11-25",
+      "checks": "225 HTML pages and 12 tool routes checked at mobile width without horizontal overflow; representative desktop/mobile screenshots; 232 button colour states checked without contrast failures; BMI and full macro wizard exercised; navigation Escape and search filtering verified; tool lint, typecheck and production build passed; 1689 inline scripts and schema blocks parsed. Static-page form actions, links, titles, metadata and structured data compared to the pre-rollout backup.",
+      "artifacts": "/Volumes/Untitled/Codex/dbworkouts-site-redesign/"
+    },
+    {
+      "date": "2026-11-25",
+      "checks": "15 representative mobile page layouts checked at 320, 390 and 430px; all targeted images loaded, remained visible and retained natural proportions within 1%, without horizontal page overflow. Both Jasmin gallery images decoded and horizontal scroll verified. Corrected 134 intrinsic image dimension mismatches across 132 pages; no missing local image paths found.",
+      "artifacts": "/Volumes/Untitled/Codex/dbworkouts-site-redesign/mobile-image-verification.json"
+    },
+    {
+      "date": "2026-11-25",
+      "checks": "675 complete HTML page layouts (225 pages at 320, 390 and 768px): no clipped text, unintentional horizontal overflow, narrow phone pricing cards or overflowing card content after fixes. 36 tool layouts checked at the same widths: no clipped text or overflow after widening workout-generator inputs and choices. Review next/previous verified, immediate-call and booking destinations verified, all mobile-bar wording checked, tool lint/typecheck/build passed, 1689 scripts/schema blocks parsed, deterministic review errors/warnings resolved.",
+      "artifacts": "/Volumes/Untitled/Codex/dbworkouts-site-redesign/mobile-full-review/"
+    }
+  ],
+  "generatedAt": "2026-10-14T06:24:46.230Z"
+}

@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { track } from "@/lib/analytics";
 import {
-  AlertCircle, AlertTriangle, Beef, Calendar, Clock, Coffee,
-  Dumbbell, Droplets, Flame, Moon, RefreshCw, Ruler,
-  Scale, Sun, Target, Wheat, Zap, Apple,
+  AlertTriangle, Clock, Coffee,
+  Dumbbell, Droplets, Flame, Moon, RefreshCw,
+  Scale, Sun, Zap, Apple, Lightbulb, Utensils,
 } from "lucide-react";
 import { generatePlan } from "@/lib/planGenerator";
 import CTA from "@/components/sections/CTA";
@@ -40,10 +40,10 @@ const schema = {
 // ─── FORM CONSTANTS ────────────────────────────────────────────────────────────
 
 const GOALS = [
-  { value: "lose_fat",        label: "Lose Fat",        emoji: "🔥" },
-  { value: "build_muscle",    label: "Build Muscle",    emoji: "💪" },
-  { value: "maintain",        label: "Maintain",        emoji: "⚖️" },
-  { value: "improve_fitness", label: "Improve Fitness", emoji: "⚡" },
+  { value: "lose_fat",        label: "Lose Fat",        icon: Flame },
+  { value: "build_muscle",    label: "Build Muscle",    icon: Dumbbell },
+  { value: "maintain",        label: "Maintain",        icon: Scale },
+  { value: "improve_fitness", label: "Improve Fitness", icon: Zap },
 ];
 
 const LEVELS = [
@@ -56,8 +56,11 @@ const GOAL_LABELS = {
   lose_fat: "Fat Loss", build_muscle: "Muscle Building",
   maintain: "Maintenance", improve_fitness: "Improve Fitness",
 };
-const GOAL_EMOJIS = {
-  lose_fat: "🔥", build_muscle: "💪", maintain: "⚖️", improve_fitness: "⚡",
+const GOAL_ICONS = {
+  lose_fat: <Flame className="inline-block w-4 h-4 mr-1 align-text-bottom text-[#f0142f]" strokeWidth={1.5} aria-hidden="true" />,
+  build_muscle: <Dumbbell className="inline-block w-4 h-4 mr-1 align-text-bottom text-[#f0142f]" strokeWidth={1.5} aria-hidden="true" />,
+  maintain: <Scale className="inline-block w-4 h-4 mr-1 align-text-bottom text-[#f0142f]" strokeWidth={1.5} aria-hidden="true" />,
+  improve_fitness: <Zap className="inline-block w-4 h-4 mr-1 align-text-bottom text-[#f0142f]" strokeWidth={1.5} aria-hidden="true" />,
 };
 
 // ─── SMALL HELPERS ─────────────────────────────────────────────────────────────
@@ -95,7 +98,7 @@ function NumInput({ value, onChange, placeholder, error }) {
       value={value}
       onChange={e => onChange(e.target.value)}
       placeholder={placeholder}
-      className={`h-11 w-full rounded-lg border px-3 text-sm font-semibold text-white bg-zinc-900 outline-none transition-colors focus:ring-2 focus:ring-[#B30018]/30 ${
+      className={`h-11 w-full rounded-lg border px-3 text-sm font-semibold text-white bg-zinc-900 transition-colors focus:ring-2 focus:ring-[#B30018]/30 ${
         error ? "border-[#D0182E]" : "border-zinc-800 focus:border-[#B30018]"
       }`}
     />
@@ -138,7 +141,7 @@ function InputForm({ onGenerate }) {
         <div className="grid grid-cols-2 gap-2">
           {GOALS.map(g => (
             <ChoiceBtn key={g.value} selected={form.goal === g.value} onClick={() => set("goal", g.value)}>
-              <span className="text-base">{g.emoji}</span>
+              <g.icon className={`mx-auto w-6 h-6 ${form.goal === g.value ? "text-white" : "text-[#f0142f]"}`} strokeWidth={1.5} aria-hidden="true" />
               <span className="block text-xs mt-0.5">{g.label}</span>
             </ChoiceBtn>
           ))}
@@ -150,14 +153,14 @@ function InputForm({ onGenerate }) {
         <div className="flex gap-2">
           {["male", "female"].map(g => (
             <ChoiceBtn key={g} selected={form.gender === g} onClick={() => set("gender", g)}>
-              {g === "male" ? "♂ Male" : "♀ Female"}
+              {g === "male" ? "Male" : "Female"}
             </ChoiceBtn>
           ))}
         </div>
       </Field>
 
       {/* Age / Weight / Height */}
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
         <Field label="Age" error={errors.age}>
           <NumInput value={form.age} onChange={v => set("age", v)} placeholder="25" error={errors.age} />
         </Field>
@@ -171,7 +174,7 @@ function InputForm({ onGenerate }) {
 
       {/* Fitness Level */}
       <Field label="Fitness Level" error={errors.level}>
-        <div className="grid grid-cols-3 gap-2">
+        <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
           {LEVELS.map(l => (
             <ChoiceBtn key={l.value} selected={form.level === l.value} onClick={() => set("level", l.value)}>
               <span className="block font-bold text-xs">{l.label}</span>
@@ -203,7 +206,7 @@ function InputForm({ onGenerate }) {
           onChange={e => set("injuries", e.target.value)}
           placeholder="e.g. bad knees, shoulder impingement, lower back pain…"
           rows={3}
-          className="w-full rounded-xl border border-zinc-800 bg-zinc-900 px-4 py-3 text-sm text-white placeholder:text-zinc-600 focus:outline-none focus:border-[#B30018] focus:ring-2 focus:ring-[#B30018]/30 transition-colors resize-none"
+          className="w-full rounded-xl border border-zinc-800 bg-zinc-900 px-4 py-3 text-sm text-white placeholder:text-zinc-600 focus:border-[#B30018] focus:ring-2 focus:ring-[#B30018]/30 transition-colors resize-none"
         />
       </div>
 
@@ -388,7 +391,7 @@ function NutritionPlan({ data }) {
               transition={{ delay: 0.2 + i * 0.05 }}
               className="flex gap-4 px-6 py-4"
             >
-              <div className="w-8 h-8 rounded-lg bg-[#B30018]/20 flex items-center justify-center shrink-0 mt-0.5">
+              <div className="db-icon-box w-8 h-8 rounded-lg bg-[#B30018]/20 flex items-center justify-center shrink-0 mt-0.5">
                 <Icon className="w-4 h-4 text-[#B30018]" />
               </div>
               <div>
@@ -400,14 +403,14 @@ function NutritionPlan({ data }) {
         </div>
         {meals.notes && (
           <div className="px-6 py-4 bg-zinc-900/40 border-t border-zinc-800">
-            <p className="text-xs text-zinc-500 italic">💡 {meals.notes}</p>
+            <p className="text-xs text-zinc-500 italic"><Lightbulb className="inline-block w-4 h-4 mr-1 align-text-bottom text-[#f0142f]" strokeWidth={1.5} aria-hidden="true" /> {meals.notes}</p>
           </div>
         )}
       </div>
 
       {/* Hydration */}
       <div className="flex items-center gap-4 p-5 rounded-2xl bg-sky-900/20 border border-sky-800/40">
-        <div className="w-11 h-11 rounded-xl bg-sky-900/40 flex items-center justify-center shrink-0">
+        <div className="db-icon-box w-11 h-11 rounded-xl bg-sky-900/40 flex items-center justify-center shrink-0">
           <Droplets className="w-5 h-5 text-sky-400" />
         </div>
         <div>
@@ -422,8 +425,8 @@ function NutritionPlan({ data }) {
 // ─── PAGE ─────────────────────────────────────────────────────────────────────
 
 const TABS = [
-  { key: "workout",   label: "🏋️ Workout Plan" },
-  { key: "nutrition", label: "🥗 Nutrition Plan" },
+  { key: "workout", label: "Workout Plan", icon: Dumbbell },
+  { key: "nutrition", label: "Nutrition Plan", icon: Utensils },
 ];
 
 export default function WorkoutPlanGenerator() {
@@ -461,7 +464,7 @@ export default function WorkoutPlanGenerator() {
       {/* ── Hero ── */}
       <div className="relative overflow-hidden border-b border-zinc-800/60">
         {/* Red glow accent */}
-        <div className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full bg-[#B30018]/15 blur-[120px]" />
+        <div className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-full max-w-xl h-[400px] rounded-full bg-[#B30018]/15 blur-[120px]" />
 
         {/* Back link — left aligned */}
         <div className="relative mx-auto max-w-2xl px-4 pt-10">
@@ -551,7 +554,7 @@ export default function WorkoutPlanGenerator() {
               <div>
                 <p className="text-[10px] font-bold uppercase tracking-widest text-[#B30018] mb-0.5">Plan generated for</p>
                 <p className="font-black text-white text-sm">
-                  {GOAL_EMOJIS[inputs.goal]} {GOAL_LABELS[inputs.goal]} · {inputs.trainingDays}×/week · {inputs.level}
+                  {GOAL_ICONS[inputs.goal]} {GOAL_LABELS[inputs.goal]} · {inputs.trainingDays}×/week · {inputs.level}
                 </p>
                 <p className="text-xs text-zinc-500 mt-0.5">
                   {inputs.age} yrs · {inputs.weight} kg · {inputs.height} cm · {inputs.gender}
@@ -585,12 +588,13 @@ export default function WorkoutPlanGenerator() {
                   <button
                     key={tab.key}
                     onClick={() => setActiveTab(tab.key)}
-                    className={`flex-1 py-3 px-4 rounded-xl text-sm font-bold transition-all duration-200 ${
+                    className={`flex-1 py-3 px-4 rounded-xl text-sm font-bold transition-colors duration-200 ${
                       activeTab === tab.key
                         ? "bg-[#B30018] text-white shadow-lg shadow-[#B30018]/20"
                         : "text-zinc-500 hover:text-zinc-300"
                     }`}
                   >
+                    <tab.icon className="inline-block w-4 h-4 mr-1.5 align-text-bottom" strokeWidth={1.5} aria-hidden="true" />
                     {tab.label}
                   </button>
                 ))}

@@ -96,3 +96,83 @@
     background: #b30018;
   }
 }
+
+/* Icon containers: retain existing fills, white strokes and red outlines. */
+.db-icon-box { border: 1px solid #B30018; color: #fff; }
+.db-icon-box > svg { color: #fff !important; }
+
+/* Approved sports identity, shared by all calculator routes. */
+.sport-tools {
+  --background:0 0% 6.3%; --foreground:60 20% 96%; --card:0 0% 12.5%; --card-foreground:60 20% 96%;
+  --popover:0 0% 12.5%; --popover-foreground:60 20% 96%; --primary:352 100% 35%; --primary-foreground:0 0% 100%;
+  --secondary:0 0% 18%; --secondary-foreground:0 0% 100%; --muted:0 0% 16%; --muted-foreground:60 3% 70%;
+  --accent:0 0% 20%; --accent-foreground:0 0% 100%; --border:0 0% 28%; --input:0 0% 40%; --ring:356 100% 64%;
+  --radius:0px; --font-body:Inter,sans-serif; --font-heading:'Barlow Condensed',Impact,sans-serif;
+  font-family:Inter,sans-serif; background:#101010; color:#f7f7f3; padding-top:88px;
+}
+.sport-tools :is(h1,h2,h3) { font-family:'Barlow Condensed','Arial Narrow',Impact,sans-serif; text-transform:uppercase; font-weight:700; letter-spacing:-.02em; line-height:1; }
+.sport-tools h1 { font-size:clamp(3rem,6vw,5.2rem); }
+.sport-tools h2 { font-size:2rem; }
+.sport-tools h3 { font-size:1.55rem; }
+.sport-tools :is(.text-zinc-400,.text-zinc-500,.text-zinc-600) { color:#b9b9b5; }
+.sport-tools :is(.text-\[\#B30018\],.text-\[\#D0182E\],.text-\[\#e0334a\]) { color:#ff6973; }
+.sport-tools [class*="rounded"] { border-radius:0; }
+.sport-tools [class*="shadow"] { box-shadow:none; }
+.sport-tools [class*="bg-zinc-950"] { background-color:#101010; }
+.sport-tools [class*="bg-zinc-900"] { background-color:#202020; }
+.sport-tools [class*="border-zinc-800"] { border-color:#555; }
+.sport-tools input::placeholder { color:#a4a4a0; }
+.sport-tools :is(input,select,textarea) { color:#fff; }
+.sport-tools [role="slider"] { border-radius:50%; }
+.sport-tools .tools-site-nav { position:fixed; top:0; left:0; right:0; z-index:90; background:#101010; border-bottom:1px solid #393939; }
+.sport-tools .tools-site-nav-inner { max-width:1328px; padding:0 48px; min-height:88px; margin:auto; display:flex; align-items:center; justify-content:space-between; gap:28px; }
+.sport-tools .tools-site-brand { display:flex; align-items:center; gap:10px; color:#fff; font-size:14px; font-weight:700; text-transform:uppercase; }
+.sport-tools .tools-site-brand img { object-fit:contain; width:56px; height:56px; }
+.sport-tools .tools-desktop-links { display:flex; align-items:center; gap:24px; font-size:12px; color:#b9b9b5; }
+.sport-tools .tools-desktop-links a:hover { color:#fff; }
+.sport-tools .tools-nav-book { display:inline-flex; align-items:center; justify-content:center; background:#b30018; color:#fff; min-height:48px; padding:14px 20px; font:600 11px/1.5 Inter,sans-serif; text-transform:uppercase; }
+.sport-tools .tools-nav-book:hover { background:#cc001e; color:#fff; }
+.sport-tools .tools-mobile-menu { display:none; }
+.sport-tools #root>div>header:not(.tools-site-nav) { padding-top:56px; padding-bottom:40px; }
+.sport-tools #root>div>header>div { margin-top:0; }
+.sport-tools #root>div>header h1 { max-width:920px; }
+.sport-tools .db-icon-box { border:0; background:none; }
+.sport-tools .tools-photo-cta { position:relative; isolation:isolate; background:#151515 url('/pics/IMG_8096.JPG') center/cover; padding:72px 24px; margin-top:48px; }
+.sport-tools .tools-photo-cta::before { content:''; position:absolute; inset:0; z-index:-1; background:linear-gradient(90deg,rgba(0,0,0,.94),rgba(0,0,0,.78) 55%,rgba(0,0,0,.4)); }
+.sport-tools .tools-photo-cta-inner { max-width:1120px; margin:auto; text-align:left; }
+.sport-tools .tools-photo-cta h2 { max-width:650px; font-size:clamp(2.5rem,4vw,3.75rem); margin:20px 0; }
+.sport-tools .tools-photo-cta p { max-width:580px; color:#ededeb; }
+.sport-tools .tools-photo-cta .flex { justify-content:flex-start; }
+.sport-tools .tools-photo-cta a { background:#202020; color:white; }
+.sport-tools .tools-photo-cta a:first-child { background:#b30018; color:white; }
+.sport-tools .tools-photo-cta a:hover { background:#353535; color:white; }
+.sport-tools .tools-photo-cta a:first-child:hover { background:#cc001e; color:white; }
+.sport-tools footer>div { max-width:1200px; }
+.sport-tools :is(button,a[class*="bg-"],a[class*="border"],.tools-nav-book) { transition:transform 180ms ease,box-shadow 180ms ease,border-color 180ms ease; }
+.sport-tools :is(button,a,input,select,textarea):focus-visible { outline:3px solid #ff4652; outline-offset:4px; }
+.sport-tools button:not(:disabled):active,.sport-tools a[class*="bg-"]:active { transform:scale(.97); }
+.sport-tools .tools-not-found { max-width:960px; margin:auto; padding:80px 24px; }
+.sport-tools .tools-not-found h1 { margin:24px 0; }
+.sport-tools .tools-not-found p { color:#b9b9b5; margin-bottom:24px; }
+@media(hover:hover) and (pointer:fine) {
+  .sport-tools :is(button,a[class*="bg-"],a[class*="border"],.tools-nav-book):not(:disabled):hover { transform:translateY(-2px); }
+}
+@media(max-width:1099px) {
+  .sport-tools .tools-site-nav-inner { padding-inline:24px; }
+  .sport-tools .tools-desktop-links { display:none; }
+  .sport-tools .tools-mobile-menu { display:block; }
+  .sport-tools .tools-mobile-menu summary { list-style:none; cursor:pointer; border:1px solid #777; padding:10px 14px; font-size:12px; text-transform:uppercase; }
+  .sport-tools .tools-mobile-menu summary::-webkit-details-marker { display:none; }
+  .sport-tools .tools-mobile-menu nav { position:absolute; top:88px; left:0; right:0; background:#101010; padding:12px 24px 24px; display:flex; flex-direction:column; max-height:calc(100dvh - 88px); overflow-y:auto; }
+  .sport-tools .tools-mobile-menu nav a { display:block; padding:16px 0; border-bottom:1px solid #393939; font-size:14px; }
+  .sport-tools .tools-mobile-menu .tools-nav-book { margin-top:16px; padding:16px; text-align:center; }
+}
+@media(max-width:599px) {
+  .sport-tools #root>div>header:not(.tools-site-nav) { padding-top:36px; }
+  .sport-tools .tools-photo-cta { padding-block:56px; }
+  .sport-tools h1 { font-size:clamp(2.8rem,11.5vw,4rem); }
+}
+@media(prefers-reduced-motion:reduce) {
+  .sport-tools *,.sport-tools *::before,.sport-tools *::after { transition:none!important; animation:none!important; }
+  .sport-tools :is(button,a):hover,.sport-tools :is(button,a):active { transform:none!important; }
+}

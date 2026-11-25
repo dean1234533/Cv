@@ -10,36 +10,20 @@
   }
 
   function loadAnalytics() {
-    // GTM
-    (function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-      var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
-      j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-      f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-WP7SGHH5');
-
-    (function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-      var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
-      j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-      f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-NTB5TFMH');
-
-    // GA4
-    var s1 = document.createElement('script');
-    s1.async = true;
-    s1.src = 'https://www.googletagmanager.com/gtag/js?id=G-SF5QQJNM9T';
-    document.head.appendChild(s1);
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { window.dataLayer.push(arguments); }
-    window.gtag = gtag;
-    gtag('js', new Date());
-    gtag('config', 'G-SF5QQJNM9T');
-
+    // Never record local previews (localhost) in Google Analytics or Clarity
+    if (/^(localhost|127\.0\.0\.1|\[::1\]|.*\.local)$/.test(location.hostname)) return;
+    // GA4 is loaded directly. The two Tag Manager containers that used to load here were removed:
+    // GTM-WP7SGHH5 had no tags, and GTM-NTB5TFMH only re-sent the same GA4 events to G-SF5QQJNM9T, counting every visit twice.
+    // GA4: one property (G-3WDZBM8JJ7, also used by the tools hub). The old second property
+    // G-SF5QQJNM9T was removed so each visit is sent once.
     var s2 = document.createElement('script');
     s2.async = true;
     s2.src = 'https://www.googletagmanager.com/gtag/js?id=G-3WDZBM8JJ7';
     document.head.appendChild(s2);
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { window.dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('js', new Date());
     gtag('config', 'G-3WDZBM8JJ7');
 
     // Microsoft Clarity
@@ -59,7 +43,7 @@
     banner.id = 'dbw-cookie-banner';
     banner.setAttribute('role', 'dialog');
     banner.setAttribute('aria-label', 'Cookie consent');
-    banner.innerHTML = '<p>We use analytics cookies (Google Analytics &amp; Microsoft Clarity) to improve this site. Your data stays on your device. <a href="/privacy-policy" target="_blank" rel="noopener" aria-label="Read the privacy policy">Privacy Policy</a></p><div id="dbw-cookie-btns"><button id="dbw-cookie-decline" aria-label="Decline analytics cookies">Decline</button><button id="dbw-cookie-accept" aria-label="Accept analytics cookies">Accept</button></div>';
+    banner.innerHTML = '<p>We use analytics cookies (Google Analytics &amp; Microsoft Clarity) to improve this site. No analytics run unless you accept, and your choice is saved on your device. <a href="/privacy-policy" target="_blank" rel="noopener" aria-label="Read the privacy policy">Privacy Policy</a></p><div id="dbw-cookie-btns"><button id="dbw-cookie-decline" aria-label="Decline analytics cookies">Decline</button><button id="dbw-cookie-accept" aria-label="Accept analytics cookies">Accept</button></div>';
     document.body.appendChild(banner);
 
     function dismissBanner() {

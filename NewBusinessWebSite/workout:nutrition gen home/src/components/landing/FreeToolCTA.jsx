@@ -21,7 +21,7 @@ export default function FreeToolCTA() {
             <div className="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-[#10b981]/30 rounded-bl-lg" />
             <div className="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-[#10b981]/30 rounded-br-lg" />
 
-            <div className="w-14 h-14 rounded-2xl bg-[#10b981]/10 flex items-center justify-center mx-auto mb-6">
+            <div className="db-icon-box w-14 h-14 rounded-2xl bg-[#10b981]/10 flex items-center justify-center mx-auto mb-6">
               <Sparkles className="w-7 h-7 text-[#10b981]" aria-hidden="true" />
             </div>
 

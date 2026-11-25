@@ -155,7 +155,7 @@ export default function PricingSection() {
                     {plan.features.map((feature, fi) => (
                       <li key={fi} className="flex items-start gap-3">
                         <div
-                          className="w-5 h-5 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0"
+                          className="db-icon-box w-5 h-5 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0"
                           style={{ backgroundColor: `${accentColor}20` }}
                         >
                           <Check className="w-3 h-3" style={{ color: accentColor }} aria-hidden="true" />

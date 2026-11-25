@@ -1,7 +1,6 @@
 // @ts-nocheck
 import React, { useEffect, useMemo, useState } from "react";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
-import { Link } from "react-router-dom";
 import { Copy, Download, Map, Printer, RefreshCw, Share2, Timer, Zap } from "lucide-react";
 import { track } from "@/lib/analytics";
 
@@ -343,13 +342,6 @@ export default function OutdoorWorkoutGenerator() {
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-100">
       <header className="mx-auto max-w-5xl px-4 pb-8 pt-8 sm:pt-12">
-        <Link to="/tools" className="inline-flex items-center gap-2.5 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B30018]">
-          <img src={import.meta.env.BASE_URL + 'logo.png'} alt="DB's Workouts" className="h-14 w-14 object-contain" />
-          <div>
-            <p className="text-sm font-black leading-none text-white">DB's Workouts</p>
-            <p className="mt-1 text-[11px] font-medium leading-none text-zinc-500">Fitness Tools</p>
-          </div>
-        </Link>
 
         <div className="mt-12 max-w-3xl">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#B30018]/30 bg-[#B30018]/10 px-3 py-1.5 text-xs font-bold text-[#F0F8FF]">

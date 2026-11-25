@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import { ArrowUpRight, MessageCircle } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import { track } from "@/lib/analytics";
 import { bookingLink, tool, whatsappLink } from "@/lib/booking";
 
@@ -10,8 +10,8 @@ export default function CTA() {
   const t = tool(pathname);
   const click = (kind) => track("book_consultation_click", { tool: t.slug, placement: "tools_cta", kind });
   return (
-    <section className="mx-auto max-w-2xl px-4 pb-12">
-      <div className="rounded-2xl border border-[#B30018]/40 bg-zinc-950 p-6 text-center shadow-2xl shadow-black/20">
+    <section className="tools-photo-cta">
+      <div className="tools-photo-cta-inner">
         <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#e0334a]">Personal training in East London</p>
         <h2 className="mt-2 text-2xl font-black text-white">{t.heading}</h2>
         <p className="mt-2 text-sm text-zinc-400">
@@ -25,7 +25,7 @@ export default function CTA() {
             onClick={() => click("book")}
             className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-[#B30018] px-6 text-sm font-bold text-white transition-colors hover:bg-[#940014] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B30018] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
           >
-            Book a free consultation call <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+            Book a free consultation call
           </a>
           <a
             href={whatsappLink(t)}

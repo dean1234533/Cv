@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React, { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowLeft, ArrowRight, Loader2 } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -88,7 +88,7 @@ export default function CalculatorWizard({ data, onChange, onCalculate, isCalcul
                   <Input type="number" min="35" max="250" value={data.weight_kg || ""} onChange={(e) => onChange({ weight_kg: Number(e.target.value) })} className="bg-zinc-900 border-zinc-800 text-white" />
                 </Field>
               </div>
-              <Button disabled={!stepOneValid} onClick={() => setStep(1)} className="w-full bg-[#B30018] py-6 text-white hover:bg-[#940014]">Continue <ArrowRight className="h-4 w-4" /></Button>
+              <Button disabled={!stepOneValid} onClick={() => setStep(1)} className="w-full bg-[#B30018] py-6 text-white hover:bg-[#940014]">Continue </Button>
             </motion.div>
           )}
           {step === 1 && (
@@ -121,8 +121,8 @@ export default function CalculatorWizard({ data, onChange, onCalculate, isCalcul
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-3">
-                <Button variant="outline" onClick={() => setStep(0)} className="border-zinc-800 py-6 text-zinc-300 hover:bg-zinc-900"><ArrowLeft className="h-4 w-4" /> Back</Button>
-                <Button disabled={!stepTwoValid} onClick={() => setStep(2)} className="bg-[#B30018] py-6 text-white hover:bg-[#940014]">Summary <ArrowRight className="h-4 w-4" /></Button>
+                <Button variant="outline" onClick={() => setStep(0)} className="border-zinc-800 py-6 text-zinc-300 hover:bg-zinc-900"> Back</Button>
+                <Button disabled={!stepTwoValid} onClick={() => setStep(2)} className="bg-[#B30018] py-6 text-white hover:bg-[#940014]">Summary </Button>
               </div>
             </motion.div>
           )}
@@ -141,7 +141,7 @@ export default function CalculatorWizard({ data, onChange, onCalculate, isCalcul
                 ))}
               </div>
               <div className="grid grid-cols-2 gap-3">
-                <Button variant="outline" onClick={() => setStep(1)} className="border-zinc-800 py-6 text-zinc-300 hover:bg-zinc-900"><ArrowLeft className="h-4 w-4" /> Back</Button>
+                <Button variant="outline" onClick={() => setStep(1)} className="border-zinc-800 py-6 text-zinc-300 hover:bg-zinc-900"> Back</Button>
                 <Button disabled={isCalculating} onClick={onCalculate} className="bg-[#B30018] py-6 text-white hover:bg-[#940014]">
                   {isCalculating ? <>Calculating <Loader2 className="h-4 w-4 animate-spin" /></> : "Calculate"}
                 </Button>

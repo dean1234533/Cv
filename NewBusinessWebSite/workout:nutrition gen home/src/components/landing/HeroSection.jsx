@@ -88,7 +88,7 @@ export default function HeroSection() {
           <div className="absolute -inset-4 bg-gradient-to-b from-[#b30018]/20 via-[#10b981]/10 to-transparent rounded-3xl blur-2xl" />
           <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-[#0d1322] p-8 text-left">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-xl bg-[#b30018]/20 flex items-center justify-center">
+              <div className="db-icon-box w-10 h-10 rounded-xl bg-[#b30018]/20 flex items-center justify-center">
                 <Zap className="w-5 h-5 text-[#b30018]" />
               </div>
               <div>

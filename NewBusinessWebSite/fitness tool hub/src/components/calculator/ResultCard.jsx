@@ -17,7 +17,7 @@ export default function ResultCard({ icon: Icon, label, value, helper, progress 
           {helper && <p className="mt-1 text-xs leading-relaxed text-zinc-500">{helper}</p>}
         </div>
         {Icon && (
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-zinc-800 bg-black">
+          <div className="db-icon-box flex h-9 w-9 items-center justify-center rounded-lg border border-zinc-800 bg-black">
             <Icon className="h-4 w-4 text-[#B30018]" aria-hidden="true" />
           </div>
         )}

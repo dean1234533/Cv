@@ -391,3 +391,12 @@ html:has(.sport-site) { scroll-padding-top:104px; }
   .sport-site .about-hero-img-wrap img { height:auto; width:auto; max-width:100%; max-height:clamp(340px,calc(100vh - 150px),760px); object-fit:contain; margin-left:auto; display:block; }
   .sport-site .about-hero-img-wrap { margin-top:-56px; max-height:none; overflow:visible; }
 }
+
+/* Trust line under closing CTAs: tidy, left-aligned list on mobile (no stray dot separators). */
+.sport-site .db-cta-trust .trust-dot { opacity:.5; }
+@media(max-width:600px) {
+  .sport-site .db-cta-trust { flex-direction:column; align-items:flex-start; gap:8px; }
+  .sport-site .db-cta-trust .trust-dot { display:none; }
+  .sport-site .db-cta-trust > span { display:block; }
+}
+@media(max-width:480px) { .sport-site .db-cta-band-actions { align-items:stretch; } .sport-site .db-cta-band-actions .db-btn { justify-content:center; } }

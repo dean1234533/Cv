@@ -127,7 +127,7 @@
 .sport-tools .tools-site-nav { position:fixed; top:0; left:0; right:0; z-index:90; background:#101010; border-bottom:1px solid #393939; }
 .sport-tools .tools-site-nav-inner { max-width:1328px; padding:0 48px; min-height:88px; margin:auto; display:flex; align-items:center; justify-content:space-between; gap:28px; }
 .sport-tools .tools-site-brand { display:flex; align-items:center; gap:10px; color:#fff; font-size:14px; font-weight:700; text-transform:uppercase; }
-.sport-tools .tools-site-brand img { object-fit:contain; width:56px; height:56px; }
+.sport-tools .tools-site-brand img { object-fit:contain; width:72px; height:72px; flex-shrink:0; }
 .sport-tools .tools-desktop-links { display:flex; align-items:center; gap:24px; font-size:12px; color:#b9b9b5; }
 .sport-tools .tools-desktop-links a:hover { color:#fff; }
 .sport-tools .tools-nav-book { display:inline-flex; align-items:center; justify-content:center; background:#b30018; color:#fff; min-height:48px; padding:14px 20px; font:600 11px/1.5 Inter,sans-serif; text-transform:uppercase; }
@@ -175,4 +175,41 @@
 @media(prefers-reduced-motion:reduce) {
   .sport-tools *,.sport-tools *::before,.sport-tools *::after { transition:none!important; animation:none!important; }
   .sport-tools :is(button,a):hover,.sport-tools :is(button,a):active { transform:none!important; }
+}
+
+@media(max-width:1099px) { .sport-tools .tools-site-nav-inner { padding-inline:20px; gap:12px; } .sport-tools .tools-site-brand { white-space:nowrap; } }
+
+/* Give the matte 3D mark a restrained physical hover response. */
+.sport-tools .tools-site-brand img { transform-origin:50% 55%; transition:transform 280ms cubic-bezier(.2,.7,.2,1); }
+@media (hover:hover) and (pointer:fine) {
+  .sport-tools .tools-site-brand:hover img { transform:perspective(400px) translateY(-2px) rotateY(-12deg) rotateZ(-3deg) scale(1.06); }
+}
+.sport-tools .tools-site-brand:focus-visible img { transform:translateY(-2px) scale(1.06); }
+.sport-tools .tools-site-brand:active img { transform:scale(.97); transition-duration:100ms; }
+@media (prefers-reduced-motion:reduce) {
+  .sport-tools .tools-site-brand img { transition:none; }
+  .sport-tools .tools-site-brand:hover img, .sport-tools .tools-site-brand:focus-visible img, .sport-tools .tools-site-brand:active img { transform:none; }
+}
+
+/* Athletic wordmark, paired with the existing shield. */
+.sport-tools .tools-site-brand span { font-family:'Barlow Condensed','Arial Narrow',Impact,sans-serif; font-size:24px; font-weight:800; font-style:italic; letter-spacing:.015em; line-height:1; text-transform:uppercase; white-space:nowrap; }
+@media (max-width:359px) { .sport-tools .tools-site-brand span { font-size:22px; } }
+
+/* Subtle raised button face; existing accessible colour pairs stay intact. */
+.sport-tools :is(button[class*="bg-"],button[class*="border"],button[type="submit"],a[class*="bg-"],a[class*="border"],.tools-nav-book,.tools-photo-cta a):not(:disabled):not([aria-disabled="true"]) {
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.16),inset 0 -1px 0 rgba(0,0,0,.18),0 3px 0 rgba(0,0,0,.65),0 6px 12px rgba(0,0,0,.18);
+}
+@media (hover:hover) and (pointer:fine) {
+  .sport-tools :is(button[class*="bg-"],button[class*="border"],button[type="submit"],a[class*="bg-"],a[class*="border"],.tools-nav-book,.tools-photo-cta a):not(:disabled):not([aria-disabled="true"]):hover {
+    transform:translateY(calc(var(--button-y,0px) - 1px));
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.2),inset 0 -1px 0 rgba(0,0,0,.18),0 4px 0 rgba(0,0,0,.65),0 8px 16px rgba(0,0,0,.22);
+  }
+}
+.sport-tools :is(button[class*="bg-"],button[class*="border"],button[type="submit"],a[class*="bg-"],a[class*="border"],.tools-nav-book,.tools-photo-cta a):not(:disabled):not([aria-disabled="true"]):active {
+  transform:translateY(calc(var(--button-y,0px) + 2px));
+  box-shadow:inset 0 1px 2px rgba(0,0,0,.2),0 1px 0 rgba(0,0,0,.65);
+}
+@media (prefers-reduced-motion:reduce) {
+  .sport-tools :is(button[class*="bg-"],button[class*="border"],button[type="submit"],a[class*="bg-"],a[class*="border"],.tools-nav-book,.tools-photo-cta a):not(:disabled):not([aria-disabled="true"]) { transition:none; }
+  .sport-tools :is(button[class*="bg-"],button[class*="border"],button[type="submit"],a[class*="bg-"],a[class*="border"],.tools-nav-book,.tools-photo-cta a):not(:disabled):not([aria-disabled="true"]):hover, .sport-tools :is(button[class*="bg-"],button[class*="border"],button[type="submit"],a[class*="bg-"],a[class*="border"],.tools-nav-book,.tools-photo-cta a):not(:disabled):not([aria-disabled="true"]):active { transform:none!important; }
 }

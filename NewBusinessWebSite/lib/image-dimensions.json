@@ -246,5 +246,77 @@
   "pics/victoria-park-london.jpg": [
     800,
     600
+  ],
+  "pics/tools/macro-calculator.webp": [
+    960,
+    640
+  ],
+  "pics/tools/bmi-calculator.webp": [
+    960,
+    640
+  ],
+  "pics/tools/protein-calculator.webp": [
+    960,
+    640
+  ],
+  "pics/tools/tdee-calculator.webp": [
+    960,
+    640
+  ],
+  "pics/tools/body-fat-calculator.webp": [
+    960,
+    640
+  ],
+  "pics/tools/water-intake-calculator.webp": [
+    960,
+    640
+  ],
+  "pics/tools/one-rep-max-calculator.webp": [
+    960,
+    640
+  ],
+  "pics/tools/running-pace-calculator.webp": [
+    960,
+    640
+  ],
+  "pics/optimized/logo-320.webp": [
+    320,
+    320
+  ],
+  "pics/optimized/logo-3d-160.webp": [
+    160,
+    160
+  ],
+  "pics/optimized/logo-3d-320.webp": [
+    320,
+    320
+  ],
+  "pics/branding/logo-3d.png": [
+    1254,
+    1254
+  ],
+  "pics/branding/logo-3d-clean.png": [
+    1254,
+    1254
+  ],
+  "pics/optimized/logo-3d-clean-160.webp": [
+    160,
+    160
+  ],
+  "pics/optimized/logo-3d-clean-320.webp": [
+    320,
+    320
+  ],
+  "pics/branding/logo-3d-matte.png": [
+    1254,
+    1254
+  ],
+  "pics/optimized/logo-3d-matte-160.webp": [
+    160,
+    160
+  ],
+  "pics/optimized/logo-3d-matte-320.webp": [
+    320,
+    320
   ]
 }

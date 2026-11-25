@@ -219,6 +219,46 @@
       "date": "2026-11-25",
       "scope": "Stable page openings across devices",
       "choice": "User supplied IMG_2339 2.HEIC showing About on a laptop and requested correct initial positioning across all pages. Remove About\u2019s negative portrait offset, keep 32px header clearance and use viewport-aware portrait sizing. On shorter laptops tighten copy spacing, allow sufficient width for booking actions and reduce stat padding so the hero/stat strip fits; phones have explicit top clearance. Render About\u2019s final stat values immediately. Put the Programs title before its existing page-number navigation. Remove the workout generator\u2019s duplicate logo/back-link block, reuse the standard tool-header spacing and show hero text/initial form immediately. Keep macro hero in its final position on first paint. Preserve photo choices, mobile Results reference layout, video background, carousel behaviour, calculators and form logic. Shared static styles now use version 24; Home remains version 23."
+    },
+    {
+      "date": "2026-11-25",
+      "scope": "Know Your Numbers photo-led tool cards",
+      "choice": "User explicitly requested realistic made-up images instead of icons. Generate eight distinct photoreal editorial still-life photographs with the built-in image tool: balanced meal/kitchen scale, bathroom scale/tape, protein foods, smartwatch/dumbbell, body-fat caliper, water bottle/glass, weighted barbell and running shoes/stopwatch. Illustrative scenes contain no clients or claimed results. Use matching charcoal/red styling and uncropped 3:2 frames, four columns on desktop and two on phones/tablets below 860px. Preserve every calculator label, accessible link name and destination. Optimize as 960\u00d7640 WebP assets; retain lazy loading, focus, press and reduced-motion behaviour. Generation briefs saved beside the eight assets in pics/tools. Homepage CSS version 25."
+    },
+    {
+      "date": "2026-11-25",
+      "scope": "Larger, sharp shared header logo",
+      "choice": "User found the logo small. Enlarge the shared mark from 56px to 72px on Home, all inner pages and tool routes, keeping the 88px navigation height. Tighten tool-navigation gaps/padding on phones to preserve menu fit. Provide a 320px WebP derivative of the existing original logo through srcset/sizes for high-density screens; retain the existing artwork and original source. The design decorator maintains header image sizing and srcset when pages regenerate."
+    },
+    {
+      "date": "2026-11-25",
+      "scope": "Single-line mobile homepage trust strip",
+      "choice": "User requests REPs Level 3 Certified, Qualified Since 2019 and Outdoor PT Specialist on one mobile line. Preserve all wording and keep decorative icons inline. Use a non-wrapping flex row, compact icon/gap sizing and responsive type; below 360px allow modest extra horizontal space within the viewport. No clipping or horizontal scrolling. Homepage CSS version 27, shared static stylesheet version 26."
+    },
+    {
+      "date": "2026-11-25",
+      "scope": "3D brand logo",
+      "choice": "User explicitly requested a 3D logo. Use built-in image_gen to restyle the original transparent logo as a raised red-enamel/black-metal badge with silver bevelled D, raised red B, the original dumbbell arm, DB\u2019s lettering and red star. Preserve the original logo.png. Store the transparent high-resolution PNG and exact generation brief in pics/branding; serve 160/320px transparent WebP derivatives in static headers/footers and the 320px public asset in tool navigation/footer. Keep the existing 72px header mark and 88px navigation height. The decorator maintains all visible brand logo sources and responsive header sizing on regeneration."
+    },
+    {
+      "date": "2026-11-25",
+      "scope": "Cleaner 3D logo perimeter",
+      "choice": "User likes the 3D logo but dislikes the lines around its edges. Refine only the outer shield treatment with the built-in image tool: remove fine parallel contour/pinstripe lines and use one smooth dark-metal rim. Preserve the raised lettering, red enamel, arm/dumbbell, DB\u2019s text, star and transparent background. Install the clean version in static and tool headers/footers; retain earlier versions. Full PNG and edit prompt are pics/branding/logo-3d-clean.png and logo-3d-clean-prompt.json. No website card/border styling was changed for this request."
+    },
+    {
+      "date": "2026-11-25",
+      "scope": "Matte 3D logo interaction",
+      "choice": "Matte shield perimeter removes specular glare. Add a restrained hover lift, tilt and scale to the existing header brand image across main, SEO and tool pages. Keep layout fixed, no glow or glare, keyboard focus response, press feedback and reduced-motion override."
+    },
+    {
+      "date": "2026-11-25",
+      "scope": "Header wordmark",
+      "choice": "DB\u2019s Workouts beside the shield uses bold italic Barlow Condensed 800, uppercase at 24px (22px below 360px). Apply consistently to main, SEO and tools navigation, retaining 72px shield, hover effect and existing header height."
+    },
+    {
+      "date": "2026-11-25",
+      "scope": "Subtle 3D buttons",
+      "choice": "Boxed actions use a restrained inset top edge, 3px dark base and soft shadow. Hover lifts 1px; active depresses 2px and reduces the base to 1px. Preserve explicit readable colours, square shapes, focus outlines, layout and reduced-motion support across main, SEO and tools pages."
     }
   ],
   "evidence": [
@@ -283,6 +323,25 @@
       "date": "2026-11-25",
       "checks": "Audited all 225 public static pages and 12 tool routes across 9 phone/tablet/laptop/desktop/landscape dimensions: 2133 layouts, zero heading/photo/header overlaps, heading/action overflow or below-fold desktop hero actions at tested regular desktop sizes. Rechecked 168 layouts across changed routes and tools, plus short-laptop About variants; hero and stats fit at 860/1024/1099\u00d7600, 1280\u00d7640/720, 1366\u00d7600, 1440\u00d7810 and 1920\u00d71080. Initial stats show 7/70/12 immediately, and workout hero text is visible immediately. Macro Start Calculator button scrolls to the working form. Tool lint, typecheck, production build and all 12 prerenders passed. Changed inline scripts/schemas parse; decorator idempotent; git diff --check clean.",
       "artifacts": "/Volumes/Untitled/Codex/dbworkouts-site-redesign/opening-layouts"
+    },
+    {
+      "date": "2026-11-25",
+      "checks": "Inspected all eight generated photographs in a contact sheet and the installed desktop/mobile section. At 320, 390, 430, 600, 768, 844, 860, 900, 1024 and 1440px: all eight photos load, zero icon markup remains, image frames have equal heights and natural 3:2 proportions, labels do not clip, no horizontal page overflow, all eight tool hrefs retained. Stylesheet review reports zero errors/warnings; git diff --check clean.",
+      "artifacts": "/Volumes/Untitled/Codex/dbworkouts-site-redesign/tool-photos/"
+    },
+    {
+      "date": "2026-11-25",
+      "checks": "Shared navigation checked on Home, About, Areas and BMI at 320, 390, 768, 1100, 1280 and 1440px: logo 72\u00d772px, navigation 89px including border, no page overflow or clipped visible controls. At 3\u00d7 density the 320px logo source is selected. Tool production build and all 12 prerenders passed. Trust row checked at 320, 344, 359, 360, 375, 390, 430, 600, 767, 768 and 1440px: all three items remain on one line within their container; original text retained; no page overflow. Mobile screenshot inspected; decorator idempotent and git diff --check clean.",
+      "artifacts": "/Volumes/Untitled/Codex/dbworkouts-site-redesign/home-trust-one-line.png"
+    },
+    {
+      "date": "2026-11-25",
+      "checks": "3D output inspected against the original; RGBA alpha verified (transparent pixels retained). All public HTML scanned: zero remaining old visible brand-image references, 450 updated logo placements. Home/About/BMI checked at 320, 390, 768 and 1440px: new header/footer assets load, header mark remains 72\u00d772px, header remains 89px including border, no horizontal overflow. Mobile screenshot inspected. Tool lint/typecheck/build and all 12 prerenders passed. Decorator idempotent; git diff --check clean.",
+      "artifacts": "/Volumes/Untitled/Codex/dbworkouts-site-redesign/logo-3d-mobile.png"
+    },
+    {
+      "date": "2026-11-25",
+      "checks": "Refined logo inspected; transparent RGBA retained. Home, About and BMI checked at 320, 390 and 1440px: new assets load, logo remains 72\u00d772px, navigation height remains 89px including border, no page overflow. No old 3D logo image references remain in public HTML. Tool build and 12 prerenders passed; decorator idempotent; git diff --check clean."
     }
   ],
   "generatedAt": "2026-10-14T06:24:46.230Z"

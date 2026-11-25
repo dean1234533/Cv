@@ -1,0 +1,5 @@
+{
+  "mode": "built-in image_gen",
+  "reference": "pics/branding/logo-3d.png",
+  "prompt": "Use case: precise-object-edit. Edit target: this 3D DB's shield logo. Change ONLY the outer edge treatment. Remove the busy fine parallel contour lines, silver/white pinstripes, tiny blue/white fringe marks and etched outlines around the outside of the shield. Replace them with one clean smooth dark-metal rim and a restrained broad bevel, without thin traced outlines or multiple stacked border rings. Preserve the raised red enamel border, silver D, red B, muscular dumbbell arm, exact small text \"DB's\", red star, original layout, shape, colours and convincing 3D depth. Keep all internal emblem details and typography the same. Keep the logo crisp at small website-header sizes. Preserve the existing square composition and a genuine transparent alpha background. No background, floor, shadow rectangle, checkerboard, watermark, new wording or symbols."
+}

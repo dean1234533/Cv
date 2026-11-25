@@ -75,6 +75,34 @@ def label_comparison_tables(markup):
     return re.sub(r'<table\b[^>]*class="compare-table"[^>]*>[\s\S]*?</table>', table, markup)
 
 
+
+def size_header_logo(markup):
+    def header(match):
+        tag = re.sub(r'\s(?:width|height)="[^"]*"', '', match[2])
+        return match[1] + tag[:-1] + ' width="72" height="72">'
+    markup = re.sub(r'(<a\b[^>]*class="primary-brand"[^>]*>\s*)(<img\b[^>]*>)', header, markup)
+    def logo(match):
+        tag = match[0]
+        source = re.search(r'\bsrc="([^"]*)"', tag)
+        if not source:
+            return tag
+        url = urlsplit(unescape(source[1]))
+        key = unquote(url.path).removeprefix('./').lstrip('/')
+        if url.scheme or url.netloc or key not in {
+            'logo.png', 'logo-136.png', 'pics/optimized/logo-160.webp',
+            'pics/optimized/logo-320.webp', 'pics/optimized/logo-3d-160.webp',
+            'pics/optimized/logo-3d-320.webp', 'pics/optimized/logo-3d-matte-160.webp',
+            'pics/optimized/logo-3d-matte-320.webp',
+        }:
+            return tag
+        width = re.search(r'\bwidth="(\d+)"', tag)
+        size = width[1] if width else '72'
+        tag = tag[:source.start(1)] + '/pics/optimized/logo-3d-matte-160.webp' + tag[source.end(1):]
+        tag = re.sub(r'\s(?:srcset|sizes)="[^"]*"', '', tag)
+        return tag[:-1] + f' srcset="/pics/optimized/logo-3d-matte-160.webp 160w, /pics/optimized/logo-3d-matte-320.webp 320w" sizes="{size}px">'
+    return re.sub(r'<img\b[^>]*>', logo, markup)
+
+
 def apply_page(path):
     old = path.read_text()
     if '<head' not in old.lower() or '<body' not in old.lower():
@@ -93,7 +121,7 @@ def apply_page(path):
     text = re.sub(r'<body\b[^>]*>', body, text, count=1, flags=re.I)
     if 'id="sport-fonts"' not in text:
         text = re.sub(r'<link\b[^>]*href=["\']https://fonts\.googleapis\.com/css[^>]*>\s*', '', text)
-        text = text.replace('</head>', f'<link id="sport-fonts" rel="stylesheet" href="{FONT}">\n<link id="sport-design" rel="stylesheet" href="/Styles/sport-system.css?v=16">\n</head>', 1)
+        text = text.replace('</head>', f'<link id="sport-fonts" rel="stylesheet" href="{FONT}">\n<link id="sport-design" rel="stylesheet" href="/Styles/sport-system.css?v=29">\n</head>', 1)
     # Main-page headers each own their photograph; location templates keep theirs.
     main_header_images = {
         'active-living-3.html': (
@@ -148,9 +176,9 @@ def apply_page(path):
     def coach_portrait(match):
         return re.sub(r'<img\b[^>]*src="/pics/optimized/hero-dean.webp"[^>]*>', '<img src="/pics/optimized/dean-portrait.webp" alt="Dean Burt, your DB’s Workouts personal trainer" width="599" height="800" loading="lazy" decoding="async">', match[0], count=1)
     text = re.sub(r'<section class="seo-proof seo-section"[^>]*>[\s\S]*?</section>', coach_portrait, text)
-    style_version = '24'
+    style_version = '26'
     text = re.sub(r'(/Styles/sport-system\.css\?v=)\d+', lambda m: m[1] + style_version, text)
-    text = label_comparison_tables(fix_image_dimensions(clean_arrows(text)))
+    text = size_header_logo(label_comparison_tables(fix_image_dimensions(clean_arrows(text))))
     text = re.sub(r'(<a\b[^>]*class="mb-call"[^>]*>)[^<]*(</a>)', r'\1Call Dean\2', text)
     text = re.sub(r'(<a\b[^>]*class="mb-book"[^>]*>)[^<]*(</a>)', r'\1Book a call\2', text)
 

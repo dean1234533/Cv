@@ -1,0 +1,5 @@
+{
+  "mode": "built-in image_gen",
+  "prompt": "Use case: precise-object-edit. Edit target: attached DB’s Workouts 3D shield logo. The user dislikes the glare that appears as bright lines around the edges. Remove ALL white/silver specular highlight lines and shiny glare from the perimeter: both the outer charcoal rim AND the red shield border. Make these two border surfaces completely matte: uniform charcoal and deep red, with only broad soft dark shading to convey depth. NO bright edge tracing, no white hairlines, no metallic glints, no rim light, no reflected light streaks. This must look visibly different from the glossy reference around the entire shield perimeter. Preserve the shield silhouette, raised three-dimensional construction, silver D, red B, exact small text \"DB’s\", muscular arm holding dumbbell, red star, layout and colours. Keep the central emblem details intact. Transparent alpha background, square composition, no added objects or text.",
+  "reference": "pics/branding/logo-3d-clean.png"
+}

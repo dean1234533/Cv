@@ -574,3 +574,41 @@ html:has(.sport-site) { scroll-padding-top:104px; overflow-x:clip; }
   .sport-site .about-hero-actions { gap:10px; }
   .sport-site .about-hero-actions .db-btn { padding-inline:16px; }
 }
+
+/* A clearer brand mark inside the existing 88px navigation. */
+.sport-site .primary-brand img { width:72px; height:72px; flex-shrink:0; }
+
+/* Give the matte 3D mark a restrained physical hover response. */
+.sport-site .primary-brand img { transform-origin:50% 55%; transition:transform 280ms cubic-bezier(.2,.7,.2,1); }
+@media (hover:hover) and (pointer:fine) {
+  .sport-site .primary-brand:hover img { transform:perspective(400px) translateY(-2px) rotateY(-12deg) rotateZ(-3deg) scale(1.06); }
+}
+.sport-site .primary-brand:focus-visible img { transform:translateY(-2px) scale(1.06); }
+.sport-site .primary-brand:active img { transform:scale(.97); transition-duration:100ms; }
+@media (prefers-reduced-motion:reduce) {
+  .sport-site .primary-brand img { transition:none; }
+  .sport-site .primary-brand:hover img, .sport-site .primary-brand:focus-visible img, .sport-site .primary-brand:active img { transform:none; }
+}
+
+/* Athletic wordmark, paired with the existing shield. */
+.sport-site .primary-brand span { font-family:'Barlow Condensed','Arial Narrow',Impact,sans-serif; font-size:24px; font-weight:800; font-style:italic; letter-spacing:.015em; line-height:1; text-transform:uppercase; white-space:nowrap; }
+@media (max-width:359px) { .sport-site .primary-brand span { font-size:22px; } }
+
+/* Subtle raised button face; existing accessible colour pairs stay intact. */
+.sport-site :is(a.db-btn,button.db-btn,.db-btn-primary,.db-btn-outline,a[class^="btn-"],a[class*=" btn-"],a.cta-btn,.consultation-btn,a.pricing-cta,.pricing-cta>a,.contact-option-cta,.btn-plan,.primary-book,.carousel-btn,button[type="submit"],#dbMobileBar a,.db-wa-fab,#dbw-cookie-accept,#dbw-cookie-decline):not(:disabled):not([aria-disabled="true"]) {
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.16),inset 0 -1px 0 rgba(0,0,0,.18),0 3px 0 rgba(0,0,0,.65),0 6px 12px rgba(0,0,0,.18);
+}
+@media (hover:hover) and (pointer:fine) {
+  .sport-site :is(a.db-btn,button.db-btn,.db-btn-primary,.db-btn-outline,a[class^="btn-"],a[class*=" btn-"],a.cta-btn,.consultation-btn,a.pricing-cta,.pricing-cta>a,.contact-option-cta,.btn-plan,.primary-book,.carousel-btn,button[type="submit"],#dbMobileBar a,.db-wa-fab,#dbw-cookie-accept,#dbw-cookie-decline):not(:disabled):not([aria-disabled="true"]):hover {
+    transform:translateY(calc(var(--button-y,0px) - 1px));
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.2),inset 0 -1px 0 rgba(0,0,0,.18),0 4px 0 rgba(0,0,0,.65),0 8px 16px rgba(0,0,0,.22);
+  }
+}
+.sport-site :is(a.db-btn,button.db-btn,.db-btn-primary,.db-btn-outline,a[class^="btn-"],a[class*=" btn-"],a.cta-btn,.consultation-btn,a.pricing-cta,.pricing-cta>a,.contact-option-cta,.btn-plan,.primary-book,.carousel-btn,button[type="submit"],#dbMobileBar a,.db-wa-fab,#dbw-cookie-accept,#dbw-cookie-decline):not(:disabled):not([aria-disabled="true"]):active {
+  transform:translateY(calc(var(--button-y,0px) + 2px));
+  box-shadow:inset 0 1px 2px rgba(0,0,0,.2),0 1px 0 rgba(0,0,0,.65);
+}
+@media (prefers-reduced-motion:reduce) {
+  .sport-site :is(a.db-btn,button.db-btn,.db-btn-primary,.db-btn-outline,a[class^="btn-"],a[class*=" btn-"],a.cta-btn,.consultation-btn,a.pricing-cta,.pricing-cta>a,.contact-option-cta,.btn-plan,.primary-book,.carousel-btn,button[type="submit"],#dbMobileBar a,.db-wa-fab,#dbw-cookie-accept,#dbw-cookie-decline):not(:disabled):not([aria-disabled="true"]) { transition:none; }
+  .sport-site :is(a.db-btn,button.db-btn,.db-btn-primary,.db-btn-outline,a[class^="btn-"],a[class*=" btn-"],a.cta-btn,.consultation-btn,a.pricing-cta,.pricing-cta>a,.contact-option-cta,.btn-plan,.primary-book,.carousel-btn,button[type="submit"],#dbMobileBar a,.db-wa-fab,#dbw-cookie-accept,#dbw-cookie-decline):not(:disabled):not([aria-disabled="true"]):hover, .sport-site :is(a.db-btn,button.db-btn,.db-btn-primary,.db-btn-outline,a[class^="btn-"],a[class*=" btn-"],a.cta-btn,.consultation-btn,a.pricing-cta,.pricing-cta>a,.contact-option-cta,.btn-plan,.primary-book,.carousel-btn,button[type="submit"],#dbMobileBar a,.db-wa-fab,#dbw-cookie-accept,#dbw-cookie-decline):not(:disabled):not([aria-disabled="true"]):active { transform:none!important; }
+}

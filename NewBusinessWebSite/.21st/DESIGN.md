@@ -101,3 +101,32 @@ Keep foreground headings, labels, images and actions clear of the 88px fixed nav
 Programs shows its title before page-number navigation. The workout generator uses the shared tool-header spacing, without a duplicate logo/back-link block; its hero and first form appear immediately. The macro hero also starts in its final position. Keep the user’s mobile Results reference, full-background homepage video and existing carousel layouts.
 
 Validated all 237 public routes at 9 viewport sizes (2133 opening layouts), followed by 168 changed-route/tool layouts and focused short-laptop checks. Tool lint/typecheck/build and 12 prerenders passed. Evidence is in the external opening-layouts folder. Latest shared static stylesheet version is 24; homepage version remains 23.
+
+Currency icons must use pounds sterling (£), including the homepage No Gym Fees icon.
+
+Homepage benefit icons: tree and sun for Outdoor Training; apple and leaf for Nutrition Support. Keep the same line weight, clear internal spacing and decorative aria-hidden treatment.
+
+Homepage benefit icons: coach/client figures for Personalised Coaching, and a checked progress clipboard for Real Accountability.
+
+
+## Know Your Numbers imagery
+
+User explicitly requested realistic generated photos instead of icons for all eight tools. Use the eight photo assets in pics/tools and their generation-briefs.json; built-in image_gen was used. These are fictional editorial still-life illustrations, not client photographs. Keep the original labels and calculator links, matching 3:2 image frames, four columns above 859px and two below, compact phone photos, visible keyboard focus and reduced-motion support. Optimized WebP files are 960×640. The homepage stylesheet is version 25.
+
+
+Header logo: 72×72px across shared website/tool navigation, while retaining the existing 88px navigation height. Use 160px/320px responsive WebP sources on static pages for sharp high-density rendering; tool navigation retains its high-resolution original. Keep menus within 320px screens.
+
+The homepage trust strip must keep all three full labels on one mobile line, with compact decorative icons beside their text. Do not wrap or clip the labels. Latest homepage stylesheet version is 27; shared static stylesheet version is 26.
+
+
+## 3D logo
+
+The user requested a 3D version of the existing shield logo. Use the transparent red enamel/black-metal version with silver bevelled D, raised B, muscular dumbbell arm, DB’s text and red star. The original logo.png remains intact. The full PNG and built-in image-generation prompt are in pics/branding; static pages use responsive logo-3d-160/320 WebP sources, and tools use public/logo-3d.webp. Headers remain 72px for the mark and 88px for the navigation. Visible footer/brand images also use the new artwork. Do not replace it with the old flat assets during regeneration.
+
+Latest logo refinement: use logo-3d-clean.png and logo-3d-clean-160/320.webp (tool public/logo-3d-clean.webp). The user rejected the fine perimeter lines around the earlier 3D badge; use the smooth single dark-metal rim while keeping the raised emblem details. Original and earlier 3D versions remain saved.
+
+Latest logo uses logo-3d-matte assets with no perimeter glare. Header logo hover gently lifts and tilts, with press/focus feedback and reduced-motion support. Do not add glow or shine.
+
+Header wordmark: bold italic uppercase Barlow Condensed 800, 24px and 22px below 360px. Keep all words on one line beside the matte 3D shield.
+
+Buttons use subtle raised faces: inset top edge, 3px dark base, soft shadow, 1px hover lift and 2px press-down. Keep current readable colour pairs, focus rings and reduced-motion support.

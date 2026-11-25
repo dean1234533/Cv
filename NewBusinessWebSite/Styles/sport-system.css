@@ -285,7 +285,7 @@ html:has(.sport-site) { scroll-padding-top:104px; }
 }
 /* Closing panels follow the approved photo-led homepage treatment. */
 .sport-site :is(.db-cta-band,.seo-final,.home-cta-section) {
-  background-image:linear-gradient(90deg,rgba(0,0,0,.94),rgba(0,0,0,.8) 55%,rgba(0,0,0,.4)),url('/pics/IMG_8096.JPG');
+  background-image:linear-gradient(90deg,rgba(0,0,0,.94),rgba(0,0,0,.8) 55%,rgba(0,0,0,.4)),url('/pics/IMG_7865%203.jpg');
   background-size:cover; background-position:center; color:#fff; text-align:left;
 }
 .sport-site :is(.db-cta-band,.seo-final) h2 { max-width:760px; color:#fff; }
@@ -388,5 +388,6 @@ html:has(.sport-site) { scroll-padding-top:104px; }
   .sport-site .about-hero-grid { gap:clamp(32px,5vw,80px); }
   .sport-site .about-hero-content { padding-bottom:24px; }
   .sport-site .about-hero-content h1 { font-size:clamp(3rem,min(6vw,9vh),5.7rem); }
-  .sport-site .about-hero-img-wrap img { height:auto; width:auto; max-width:100%; max-height:clamp(340px,calc(100vh - 150px),760px); object-fit:contain; margin-left:auto; margin-top:-56px; display:block; }
+  .sport-site .about-hero-img-wrap img { height:auto; width:auto; max-width:100%; max-height:clamp(340px,calc(100vh - 150px),760px); object-fit:contain; margin-left:auto; display:block; }
+  .sport-site .about-hero-img-wrap { margin-top:-56px; max-height:none; overflow:visible; }
 }

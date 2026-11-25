@@ -292,6 +292,12 @@ html:has(.sport-site) { scroll-padding-top:104px; }
 .sport-site :is(.db-cta-band .db-container,.db-cta-band-inner) { text-align:left; }
 .sport-site :is(.db-cta-band-actions,.seo-final .seo-actions,.db-cta-trust) { justify-content:flex-start; }
 .sport-site :is(.db-cta-band p,.seo-final>p:not(.seo-kicker),.db-cta-trust) { color:#ddd; }
+.sport-site .db-cta-band p { margin-left:0; margin-right:0; max-width:560px; font-size:1.05rem; color:#eee; }
+.sport-site .db-cta-band .eyebrow { color:#fff; border-left:3px solid var(--accent-text); padding-left:12px; }
+.sport-site .db-cta-trust { font-size:.9rem; color:#eee; gap:10px 24px; }
+@media(min-width:900px) {
+  .sport-site :is(.db-cta-band,.seo-final,.home-cta-section) { background-position:center 22%; padding-block:96px; }
+}
 
 /* Mobile photographs retain their complete frame rather than a desktop crop. */
 @media(max-width:859px) {
@@ -375,3 +381,12 @@ html:has(.sport-site) { scroll-padding-top:104px; }
 /* Keep centred desktop review controls in position during hover/press effects. */
 .sport-site .review-stage .carousel-btn { --button-y:-50%; }
 @media(max-width:767px) { .sport-site .review-stage .carousel-btn { --button-y:0px; } }
+
+/* About hero: fit the first screen on desktop so photo, buttons and text are not cut off on load. */
+@media(min-width:860px) {
+  .sport-site .about-hero { padding-top:calc(88px + 28px); }
+  .sport-site .about-hero-grid { gap:clamp(32px,5vw,80px); }
+  .sport-site .about-hero-content { padding-bottom:24px; }
+  .sport-site .about-hero-content h1 { font-size:clamp(3rem,min(6vw,9vh),5.7rem); }
+  .sport-site .about-hero-img-wrap img { height:clamp(300px,calc(100vh - 250px),590px); width:100%; object-fit:cover; object-position:center 20%; }
+}

@@ -401,12 +401,8 @@ html:has(.sport-site) { scroll-padding-top:104px; }
 }
 @media(max-width:480px) { .sport-site .db-cta-band-actions { align-items:stretch; } .sport-site .db-cta-band-actions .db-btn { justify-content:center; } }
 
-/* Mobile closing panels: darker, even overlay and larger, higher-contrast text so copy stays readable over the photo. */
+/* Mobile closing panels: larger, higher-contrast text (background unchanged). */
 @media(max-width:767px) {
-  .sport-site :is(.db-cta-band,.seo-final,.home-cta-section) {
-    background-image:linear-gradient(180deg,rgba(0,0,0,.9),rgba(0,0,0,.84)),url('/pics/IMG_7865%203.jpg');
-    background-position:center;
-  }
   .sport-site .db-cta-band h2 { font-size:clamp(2.2rem,10vw,3.1rem); line-height:1.04; text-wrap:balance; }
   .sport-site .db-cta-band .eyebrow { font-size:.75rem; letter-spacing:.14em; margin-bottom:4px; }
   .sport-site .db-cta-band p { font-size:1.05rem; line-height:1.65; color:#fff; text-shadow:0 1px 8px rgba(0,0,0,.6); }

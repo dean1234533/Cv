@@ -1,4 +1,4 @@
-import { installDropdownMotion } from './dropdown-motion.js?v=3';
+import { installDropdownMotion } from './dropdown-motion.js?v=4';
 
 (() => {
   const header = document.getElementById('primaryNav');

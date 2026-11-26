@@ -54,12 +54,12 @@ export function installDropdownMotion(details, panelSelector) {
     previousOverflow = panel.style.overflow;
     panel.style.overflow = 'hidden';
     animation = panel.animate([start, open ? expanded : hidden], {
-      duration: open ? 380 : 200, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'both',
+      duration: open ? 750 : 350, easing: 'cubic-bezier(.22,.8,.2,1)', fill: 'both',
     });
-    if (open && !collapse) {
+    if (open) {
       panel.querySelectorAll('a').forEach((a, i) => a.animate(
         [{ opacity: 0, transform: 'translateY(-8px)' }, { opacity: 1, transform: 'translateY(0)' }],
-        { duration: 260, delay: 60 + i * 35, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' }));
+        { duration: 500, delay: 150 + i * 70, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' }));
     }
     animation.onfinish = () => {
       if (!open) details.open = false;

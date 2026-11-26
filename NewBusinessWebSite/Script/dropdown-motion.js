@@ -38,6 +38,7 @@ export function installDropdownMotion(details, panelSelector) {
     const collapse = styles.position === 'static';
     const expanded = {
       opacity: '1', transform: 'translateY(0) scale(1)',
+      ...(collapse ? {} : { clipPath: 'inset(0 0 0% 0 round 8px)' }),
       ...(collapse ? {
         height: `${panel.getBoundingClientRect().height}px`,
         paddingTop: styles.paddingTop, paddingBottom: styles.paddingBottom,
@@ -45,15 +46,21 @@ export function installDropdownMotion(details, panelSelector) {
       } : {}),
     };
     const hidden = {
-      opacity: '0', transform: collapse ? 'translateY(-6px)' : 'translateY(-12px) scale(.96)',
+      opacity: '0', transform: collapse ? 'translateY(-6px)' : 'translateY(-14px) scale(.94)',
+      ...(collapse ? {} : { clipPath: 'inset(0 0 100% 0 round 8px)' }),
       ...(collapse ? { height: '0px', paddingTop: '0px', paddingBottom: '0px', marginTop: '0px', marginBottom: '0px' } : {}),
     };
-    const start = visible ? (collapse ? visible : { opacity: visible.opacity, transform: visible.transform }) : hidden;
+    const start = visible ? (collapse ? visible : { opacity: visible.opacity, transform: visible.transform, clipPath: 'inset(0 0 0% 0 round 8px)' }) : hidden;
     previousOverflow = panel.style.overflow;
     panel.style.overflow = 'hidden';
     animation = panel.animate([start, open ? expanded : hidden], {
-      duration: open ? 280 : 180, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'both',
+      duration: open ? 380 : 200, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'both',
     });
+    if (open && !collapse) {
+      panel.querySelectorAll('a').forEach((a, i) => a.animate(
+        [{ opacity: 0, transform: 'translateY(-8px)' }, { opacity: 1, transform: 'translateY(0)' }],
+        { duration: 260, delay: 60 + i * 35, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' }));
+    }
     animation.onfinish = () => {
       if (!open) details.open = false;
       closing = false;

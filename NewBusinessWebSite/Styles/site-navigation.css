@@ -48,15 +48,63 @@
 
 /* Phone menu: slow, clearly visible slide-down */
 @media(max-width:1099px) {
- .primary-links { opacity:1; transform:none; clip-path:inset(0 0 100% 0); transition:clip-path 1100ms cubic-bezier(.45,.05,.55,.95),visibility 0s linear 600ms; }
- .primary-links.is-open { clip-path:inset(0 0 0 0); transition:clip-path 1100ms cubic-bezier(.45,.05,.55,.95),visibility 0s; }
+ .primary-links { opacity:1; transform:none; clip-path:inset(0 0 100% 0); transition:clip-path 650ms cubic-bezier(.45,.05,.55,.95),visibility 0s linear 400ms; }
+ .primary-links.is-open { clip-path:inset(0 0 0 0); transition:clip-path 650ms cubic-bezier(.45,.05,.55,.95),visibility 0s; }
  .primary-links>a,.primary-links>.primary-dropdown { opacity:0; transform:translateY(-14px); transition:opacity 250ms ease,transform 250ms ease; }
- .primary-links.is-open>a,.primary-links.is-open>.primary-dropdown { opacity:1; transform:none; transition:opacity 650ms ease,transform 650ms ease; }
- .primary-links.is-open>:nth-child(1){transition-delay:.30s}
- .primary-links.is-open>:nth-child(2){transition-delay:.42s}
- .primary-links.is-open>:nth-child(3){transition-delay:.54s}
- .primary-links.is-open>:nth-child(4){transition-delay:.66s}
- .primary-links.is-open>:nth-child(5){transition-delay:.78s}
- .primary-links.is-open>:nth-child(6){transition-delay:.90s}
+ .primary-links.is-open>a,.primary-links.is-open>.primary-dropdown { opacity:1; transform:none; transition:opacity 400ms ease,transform 400ms ease; }
+ .primary-links.is-open>:nth-child(1){transition-delay:.15s}
+ .primary-links.is-open>:nth-child(2){transition-delay:.22s}
+ .primary-links.is-open>:nth-child(3){transition-delay:.29s}
+ .primary-links.is-open>:nth-child(4){transition-delay:.36s}
+ .primary-links.is-open>:nth-child(5){transition-delay:.43s}
+ .primary-links.is-open>:nth-child(6){transition-delay:.50s}
 }
 @media(prefers-reduced-motion:reduce) { .primary-links,.primary-links>* { transition:none!important; } }
+
+/* Desktop dropdowns must never run off screen: cap height to the viewport (scroll inside if needed)
+   and keep the right-hand "More" menu aligned to its button's right edge. */
+@media(min-width:1100px) {
+ .primary-dropdown-links { max-height:calc(100dvh - 120px); overflow-y:auto; overscroll-behavior:contain; max-width:calc(100vw - 32px); }
+ .primary-links > .primary-dropdown ~ .primary-dropdown > .primary-dropdown-links { left:auto; right:-20px; }
+}
+
+/* Phone menu: the panel scrolls, and has extra bottom room so the last links and the
+   Book button can be scrolled clear of Safari's bottom toolbar instead of hiding under it. */
+@media(max-width:1099px) {
+ .primary-nav .primary-links { max-height:calc(100dvh - 88px); overflow-y:auto; -webkit-overflow-scrolling:touch; overscroll-behavior:contain; padding-bottom:calc(120px + env(safe-area-inset-bottom)); }
+ .primary-nav .primary-links>a,.primary-nav .primary-dropdown summary { min-height:48px; padding-block:13px; }
+}
+
+/* Compact mobile rows, with natural-height submenus inside one scrollable panel. */
+@media(max-width:1099px) {
+ .primary-nav .primary-nav-inner .primary-links { gap:0; margin-left:0; }
+ .primary-nav .primary-nav-inner .primary-links>* { flex-shrink:0; }
+ .primary-nav .primary-nav-inner .primary-links>a,
+ .primary-nav .primary-nav-inner .primary-dropdown>summary { min-height:50px; padding-block:14px; font-size:15px; line-height:1.5; }
+ .primary-nav .primary-nav-inner .primary-links>.primary-book { margin-top:20px; padding:14px 18px; font-size:13px; }
+}
+
+/* Recessed navigation surface, keeping the existing header dimensions. */
+.primary-nav { box-shadow:inset 0 3px 9px rgba(0,0,0,.65),inset 0 -2px 5px rgba(0,0,0,.45); }
+@media(min-width:1100px) {
+ .primary-nav .primary-nav-inner .primary-links { gap:20px; padding:8px 12px; background:#0b0b0b; border-radius:3px; box-shadow:inset 0 3px 7px rgba(0,0,0,.85),inset 0 -1px 0 rgba(255,255,255,.07); }
+}
+@media(max-width:1099px) {
+ .primary-nav .primary-nav-inner .primary-links { background:#0c0c0c; box-shadow:inset 0 5px 12px rgba(0,0,0,.8),inset 3px 0 7px rgba(0,0,0,.35),inset -3px 0 7px rgba(0,0,0,.35); }
+ .primary-nav .primary-toggle { background:#0b0b0b; box-shadow:inset 0 3px 6px rgba(0,0,0,.85),inset 0 -1px 0 rgba(255,255,255,.07); }
+}
+
+/* Stronger recess: a visible charcoal surround and pressed-in black surfaces. */
+#primaryNav.primary-nav { background:#272727; box-shadow:inset 0 5px 10px rgba(0,0,0,.7),inset 0 -2px 0 #363636,0 2px 8px rgba(0,0,0,.35); }
+@media(min-width:1100px) {
+ .primary-nav .primary-nav-inner .primary-links { background:#080808; border-radius:4px; box-shadow:inset 0 5px 9px #000,inset 2px 0 5px #000,inset -2px 0 5px #000,0 0 0 2px #161616,0 2px 0 2px #484848; }
+}
+@media(max-width:1099px) {
+ .primary-nav .primary-nav-inner .primary-links { background:#272727; box-shadow:inset 0 7px 12px rgba(0,0,0,.8); }
+ .primary-nav .primary-nav-inner .primary-links>a:not(.primary-book),
+ .primary-nav .primary-nav-inner .primary-dropdown>summary { background:#101010; border:1px solid #090909; border-radius:3px; padding:12px 14px; margin-bottom:6px; box-shadow:inset 0 4px 6px rgba(0,0,0,.9),inset 0 -1px 0 rgba(255,255,255,.13),0 1px 0 #424242; }
+ .primary-nav .primary-toggle { background:#080808; box-shadow:inset 0 4px 7px #000,0 1px 0 #4a4a4a; }
+}
+
+/* Raised lettering with a solid extruded edge, retaining real accessible text. */
+.primary-nav .primary-brand>span { color:#fafaf5; text-shadow:.5px .5px 0 #c2c2bb,1px 1px 0 #9a9a94,1.5px 1.5px 0 #73736f,2px 2px 0 #4e4e4b,2.5px 2.5px 0 #333330,3px 3px 0 #151515,3px 5px 4px rgba(0,0,0,.75); }

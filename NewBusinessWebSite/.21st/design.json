@@ -279,6 +279,26 @@
       "date": "2026-11-26",
       "scope": "Navigation dropdown transitions",
       "choice": "Share native-details animation logic between static navigation and React tools menu. Open with 220ms fade/6px slide; close in 160ms; inline mobile submenus expand/collapse height. Add restrained link hover and mobile drawer transitions. Preserve reduced motion, Escape/focus return, inert closing panels, rapid-toggle cancellation, body scroll restoration and route-change closure. Static nav CSS/module references version 2; generator preserves module loading."
+    },
+    {
+      "date": "2026-11-26",
+      "scope": "Mobile menu screenshot correction",
+      "choice": "Remove inherited 24px desktop gaps on mobile; prevent direct flex children (including expanded details) from shrinking; use readable 15px links in compact 50px rows. Preserve existing menu animations, safe-area/Safari bottom room, desktop spacing and booking CTA. Shared nav stylesheet version 7. Verified 36 states across home/About, six viewport sizes and collapsed/More/Training menus: no overlaps, viewport overflow or unreachable booking CTA."
+    },
+    {
+      "date": "2026-11-26",
+      "scope": "Recessed navigation",
+      "choice": "User requested indented navigation. Add restrained inset shadows to the header, dark recessed desktop link tray, mobile panel and menu toggle; preserve 88px header, compact mobile rows, dropdown effects and readable text. Apply to static and tools navigation. Static nav stylesheet version 8. Verified 12 layouts across home/About/TDEE at 320/390/1100/1440px with no overlap or horizontal overflow; review and tools build pass."
+    },
+    {
+      "date": "2026-11-26",
+      "scope": "Stronger recessed navigation",
+      "choice": "User found the initial inset effect indistinguishable. Increase contrast with a #272727 charcoal surround, #080808 desktop tray and stronger pressed-in edge shadows. Mobile links have individual #101010 inset surfaces with 6px separation, preserving 50px touch targets and scroll reachability. Apply to static and tools navigation; stylesheet version 9."
+    },
+    {
+      "date": "2026-11-26",
+      "scope": "3D header wordmark",
+      "choice": "Keep DB\u2019s Workouts as accessible bold italic live text, adding a solid silver/charcoal extruded edge with a soft cast shadow. Match static and tools headers without resizing the lettering or changing the shield. Shared navigation CSS version 10. Eight layouts at 320/390/1100/1440px verified: no clipping/overflow; production tools build and CSS review pass."
     }
   ],
   "evidence": [

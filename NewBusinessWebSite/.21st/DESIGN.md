@@ -142,3 +142,11 @@ Validation evidence: external tools-premium audit/review/calculations files, sam
 Final tool QA (2026-11-26): 60 layouts across 12 routes at 320/390/768/1024/1440px, with no page overflow, clipped form controls, heading/header collisions, missing hero photos or directory badges. Populated TDEE metric text minimum contrast is 5.90:1; input keyboard focus has a solid 2px outline. Rechecked the outdoor generator after fixing its result-summary state reference. Final deterministic review: zero errors and warnings.
 
 Navigation dropdowns: shared Script/dropdown-motion.js animates native details (220ms open, 160ms close, fade/6px slide and mobile inline height). Static nav controller is an ES module, version 2. Keep reduced-motion instant changes, inert closing panels, Escape focus return, rapid-toggle handling and route-change closure. Verified desktop and mobile main menus and tools menu; lint/typecheck/build, 12 prerenders and deterministic review pass.
+
+Mobile menu spacing correction (IMG_2341 2.JPG): mobile rows must override inherited desktop gap to 0, and direct menu children must not flex-shrink when dropdowns expand. Use 15px links and 50px minimum rows, preserving existing motion and Safari bottom room. Shared stylesheet version 7. Validated 36 menu states across home/About and six viewport sizes (320–1024px), including short phone screens; no overlap/overflow and booking is reachable.
+
+Navigation now has a restrained recessed treatment: dark desktop link tray and soft inset shadows on the header/mobile panel/toggle, with unchanged header clearance and compact menu rows. Shared nav CSS version 8. Checked main, inner and tools navigation at 320/390/1100/1440px; no overlap/overflow, header remains 89px including border.
+
+User rejected the subtle recessed nav as looking unchanged. Current version 9 uses a visibly lighter charcoal surround, deep black desktop tray and individually recessed mobile links with 6px separation. Keep 50px rows and reachable booking action; main/tools layouts checked at 320/390/1100/1440px, build and deterministic review pass.
+
+The DB’s Workouts header text has silver/charcoal 3D extrusion and a soft cast shadow, preserving the approved italic Barlow Condensed and accessible live text. Applied to static/tool navigation; CSS version 10. Checked at 320/390/1100/1440px with no clipping or overflow.

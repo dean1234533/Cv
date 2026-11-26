@@ -1,0 +1,7 @@
+/* Keep photos stationary while the complete loop decodes. Layout and speed stay unchanged. */
+.gallery-strip[data-carousel-loading],
+.about-marquee[data-carousel-loading],
+.sport-site .training-scroll-inner[data-carousel-loading] {
+  animation-play-state:paused!important;
+  -webkit-animation-play-state:paused!important;
+}

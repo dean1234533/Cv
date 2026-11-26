@@ -5,6 +5,7 @@ import re
 import json
 from urllib.parse import unquote, urlsplit
 from html import unescape
+from lib.carousel_images import optimize_carousels
 
 ROOT = Path(__file__).resolve().parent
 EXCLUDED = {'index.html', 'instagram-posts.html', 'online_video_modal.html'}
@@ -178,7 +179,7 @@ def apply_page(path):
     text = re.sub(r'<section class="seo-proof seo-section"[^>]*>[\s\S]*?</section>', coach_portrait, text)
     style_version = '31'
     text = re.sub(r'(/Styles/sport-system\.css\?v=)\d+', lambda m: m[1] + style_version, text)
-    text = size_header_logo(label_comparison_tables(fix_image_dimensions(clean_arrows(text))))
+    text = optimize_carousels(size_header_logo(label_comparison_tables(fix_image_dimensions(clean_arrows(text)))))
     text = re.sub(r'(<a\b[^>]*class="mb-call"[^>]*>)[^<]*(</a>)', r'\1Call Dean\2', text)
     text = re.sub(r'(<a\b[^>]*class="mb-book"[^>]*>)[^<]*(</a>)', r'\1Book a call\2', text)
 

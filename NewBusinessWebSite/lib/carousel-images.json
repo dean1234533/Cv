@@ -1,0 +1,266 @@
+[
+  {
+    "original": "IMG_7853 3.jpg",
+    "master": "/pics/optimized/training-7853.webp",
+    "width": 640,
+    "height": 360,
+    "variants": [
+      {
+        "url": "/pics/optimized/carousel/training-7853-320.webp",
+        "width": 320,
+        "bytes": 11158
+      },
+      {
+        "url": "/pics/optimized/carousel/training-7853-480.webp",
+        "width": 480,
+        "bytes": 22600
+      },
+      {
+        "url": "/pics/optimized/training-7853.webp",
+        "width": 640,
+        "bytes": 33452
+      }
+    ],
+    "original_bytes": 114320
+  },
+  {
+    "original": "IMG_7860 3.jpg",
+    "master": "/pics/optimized/training-7860.webp",
+    "width": 640,
+    "height": 360,
+    "variants": [
+      {
+        "url": "/pics/optimized/carousel/training-7860-320.webp",
+        "width": 320,
+        "bytes": 15314
+      },
+      {
+        "url": "/pics/optimized/carousel/training-7860-480.webp",
+        "width": 480,
+        "bytes": 31350
+      },
+      {
+        "url": "/pics/optimized/training-7860.webp",
+        "width": 640,
+        "bytes": 47634
+      }
+    ],
+    "original_bytes": 416173
+  },
+  {
+    "original": "IMG_7856 3.jpg",
+    "master": "/pics/optimized/training-7856.webp",
+    "width": 640,
+    "height": 360,
+    "variants": [
+      {
+        "url": "/pics/optimized/carousel/training-7856-320.webp",
+        "width": 320,
+        "bytes": 16480
+      },
+      {
+        "url": "/pics/optimized/carousel/training-7856-480.webp",
+        "width": 480,
+        "bytes": 36256
+      },
+      {
+        "url": "/pics/optimized/training-7856.webp",
+        "width": 640,
+        "bytes": 56834
+      }
+    ],
+    "original_bytes": 194838
+  },
+  {
+    "original": "IMG_7858 3.jpg",
+    "master": "/pics/optimized/training-7858.webp",
+    "width": 640,
+    "height": 360,
+    "variants": [
+      {
+        "url": "/pics/optimized/carousel/training-7858-320.webp",
+        "width": 320,
+        "bytes": 12368
+      },
+      {
+        "url": "/pics/optimized/carousel/training-7858-480.webp",
+        "width": 480,
+        "bytes": 25546
+      },
+      {
+        "url": "/pics/optimized/training-7858.webp",
+        "width": 640,
+        "bytes": 39360
+      }
+    ],
+    "original_bytes": 146256
+  },
+  {
+    "original": "IMG_7859 3.jpg",
+    "master": "/pics/optimized/training-7859.webp",
+    "width": 640,
+    "height": 360,
+    "variants": [
+      {
+        "url": "/pics/optimized/carousel/training-7859-320.webp",
+        "width": 320,
+        "bytes": 14338
+      },
+      {
+        "url": "/pics/optimized/carousel/training-7859-480.webp",
+        "width": 480,
+        "bytes": 30802
+      },
+      {
+        "url": "/pics/optimized/training-7859.webp",
+        "width": 640,
+        "bytes": 48352
+      }
+    ],
+    "original_bytes": 153521
+  },
+  {
+    "original": "IMG_7883 2.jpg",
+    "master": "/pics/optimized/training-7883.webp",
+    "width": 585,
+    "height": 329,
+    "variants": [
+      {
+        "url": "/pics/optimized/carousel/training-7883-320.webp",
+        "width": 320,
+        "bytes": 9624
+      },
+      {
+        "url": "/pics/optimized/carousel/training-7883-480.webp",
+        "width": 480,
+        "bytes": 17140
+      },
+      {
+        "url": "/pics/optimized/training-7883.webp",
+        "width": 585,
+        "bytes": 22030
+      }
+    ],
+    "original_bytes": 44816
+  },
+  {
+    "original": "IMG_7889 2.jpg",
+    "master": "/pics/optimized/training-7889.webp",
+    "width": 585,
+    "height": 329,
+    "variants": [
+      {
+        "url": "/pics/optimized/carousel/training-7889-320.webp",
+        "width": 320,
+        "bytes": 8690
+      },
+      {
+        "url": "/pics/optimized/carousel/training-7889-480.webp",
+        "width": 480,
+        "bytes": 14120
+      },
+      {
+        "url": "/pics/optimized/training-7889.webp",
+        "width": 585,
+        "bytes": 17362
+      }
+    ],
+    "original_bytes": 37199
+  },
+  {
+    "original": "IMG_7933.jpg",
+    "master": "/pics/optimized/training-7933.webp",
+    "width": 585,
+    "height": 329,
+    "variants": [
+      {
+        "url": "/pics/optimized/carousel/training-7933-320.webp",
+        "width": 320,
+        "bytes": 10432
+      },
+      {
+        "url": "/pics/optimized/carousel/training-7933-480.webp",
+        "width": 480,
+        "bytes": 17294
+      },
+      {
+        "url": "/pics/optimized/training-7933.webp",
+        "width": 585,
+        "bytes": 21056
+      }
+    ],
+    "original_bytes": 44231
+  },
+  {
+    "original": "IMG_8096.JPG",
+    "master": "/pics/optimized/training-8096.webp",
+    "width": 640,
+    "height": 360,
+    "variants": [
+      {
+        "url": "/pics/optimized/carousel/training-8096-320.webp",
+        "width": 320,
+        "bytes": 12324
+      },
+      {
+        "url": "/pics/optimized/carousel/training-8096-480.webp",
+        "width": 480,
+        "bytes": 20514
+      },
+      {
+        "url": "/pics/optimized/training-8096.webp",
+        "width": 640,
+        "bytes": 26508
+      }
+    ],
+    "original_bytes": 182629
+  },
+  {
+    "original": "IMG_7911_SnapseedCopy.jpg",
+    "master": "/pics/optimized/carousel/training-7911-640.webp",
+    "width": 640,
+    "height": 360,
+    "variants": [
+      {
+        "url": "/pics/optimized/carousel/training-7911-320.webp",
+        "width": 320,
+        "bytes": 12274
+      },
+      {
+        "url": "/pics/optimized/carousel/training-7911-480.webp",
+        "width": 480,
+        "bytes": 20584
+      },
+      {
+        "url": "/pics/optimized/carousel/training-7911-640.webp",
+        "width": 640,
+        "bytes": 34970
+      }
+    ],
+    "original_bytes": 42595
+  },
+  {
+    "original": "IMG_8710 2.JPG",
+    "master": "/pics/optimized/carousel/training-8710-640.webp",
+    "width": 640,
+    "height": 360,
+    "variants": [
+      {
+        "url": "/pics/optimized/carousel/training-8710-320.webp",
+        "width": 320,
+        "bytes": 7698
+      },
+      {
+        "url": "/pics/optimized/carousel/training-8710-480.webp",
+        "width": 480,
+        "bytes": 11956
+      },
+      {
+        "url": "/pics/optimized/carousel/training-8710-640.webp",
+        "width": 640,
+        "bytes": 19176
+      }
+    ],
+    "original_bytes": 11771
+  }
+]

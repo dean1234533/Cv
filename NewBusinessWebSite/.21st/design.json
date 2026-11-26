@@ -314,6 +314,11 @@
       "date": "2026-11-26",
       "scope": "Mobile menu bottom gap",
       "choice": "User flagged excess blank space below booking CTA. Replace the 120px toolbar allowance with 20px plus env(safe-area-inset-bottom). Preserve panel scrolling and touch targets. Shared nav CSS version 13. Verified 24 menu states across home/About and four device sizes; bottom gap 21px including border, no overflow and CTA reachable."
+    },
+    {
+      "date": "2026-11-26",
+      "scope": "Photo-carousel loading",
+      "choice": "Fix Home/About/Results photo strips: use responsive 320/480px WebP variants and optimized master fallbacks; fetch all strip photos eagerly at low priority instead of waiting for off-screen transformed items to be lazy-loaded. Pause animation only until all photos decode, retaining original order, compact mobile dimensions, manual hover pause, reduced motion and original lightbox destinations. lib/carousel_images.py keeps regenerated pages aligned. Home gallery mobile payload 312588\u2192215622 bytes; About 1079629\u2192193092; Results 1120508\u2192194760. Local Fast 4G mobile test loaded all nine Home photos before scrolling, last image response at 1057ms."
     }
   ],
   "evidence": [

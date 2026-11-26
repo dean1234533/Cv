@@ -318,5 +318,101 @@
   "pics/optimized/logo-3d-matte-320.webp": [
     320,
     320
+  ],
+  "pics/optimized/carousel/training-7853-320.webp": [
+    320,
+    180
+  ],
+  "pics/optimized/carousel/training-7853-480.webp": [
+    480,
+    270
+  ],
+  "pics/optimized/carousel/training-7860-320.webp": [
+    320,
+    180
+  ],
+  "pics/optimized/carousel/training-7860-480.webp": [
+    480,
+    270
+  ],
+  "pics/optimized/carousel/training-7856-320.webp": [
+    320,
+    180
+  ],
+  "pics/optimized/carousel/training-7856-480.webp": [
+    480,
+    270
+  ],
+  "pics/optimized/carousel/training-7858-320.webp": [
+    320,
+    180
+  ],
+  "pics/optimized/carousel/training-7858-480.webp": [
+    480,
+    270
+  ],
+  "pics/optimized/carousel/training-7859-320.webp": [
+    320,
+    180
+  ],
+  "pics/optimized/carousel/training-7859-480.webp": [
+    480,
+    270
+  ],
+  "pics/optimized/carousel/training-7883-320.webp": [
+    320,
+    180
+  ],
+  "pics/optimized/carousel/training-7883-480.webp": [
+    480,
+    270
+  ],
+  "pics/optimized/carousel/training-7889-320.webp": [
+    320,
+    180
+  ],
+  "pics/optimized/carousel/training-7889-480.webp": [
+    480,
+    270
+  ],
+  "pics/optimized/carousel/training-7933-320.webp": [
+    320,
+    180
+  ],
+  "pics/optimized/carousel/training-7933-480.webp": [
+    480,
+    270
+  ],
+  "pics/optimized/carousel/training-8096-320.webp": [
+    320,
+    180
+  ],
+  "pics/optimized/carousel/training-8096-480.webp": [
+    480,
+    270
+  ],
+  "pics/optimized/carousel/training-7911-320.webp": [
+    320,
+    180
+  ],
+  "pics/optimized/carousel/training-7911-480.webp": [
+    480,
+    270
+  ],
+  "pics/optimized/carousel/training-7911-640.webp": [
+    640,
+    360
+  ],
+  "pics/optimized/carousel/training-8710-320.webp": [
+    320,
+    180
+  ],
+  "pics/optimized/carousel/training-8710-480.webp": [
+    480,
+    270
+  ],
+  "pics/optimized/carousel/training-8710-640.webp": [
+    640,
+    360
   ]
 }

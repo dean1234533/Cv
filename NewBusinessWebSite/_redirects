@@ -8,6 +8,12 @@
 # Old blog_post URL (underscore) → new blog-post (hyphen)
 /blog_post                  /blog-post                  301
 
+# Legacy homepage/blog URLs reported as 404s in Google Search Console.
+/home                       /                           301
+/home/                      /                           301
+/pt-blog                    /blog-post                  301
+/pt-blog/                   /blog-post                  301
+
 # Capital-letter old URLs → lowercase canonical (301 so Google stops crawling the capital versions)
 /Active-Living-1            /active-living-1            301
 /Active-Living-2            /active-living-2            301
@@ -45,6 +51,7 @@
 # Old URLs with spaces (encoded) → clean canonical URLs
 /Privacy%20Policy.html      /privacy-policy             301
 /Terms%20and%20conditions.html /terms-and-conditions    301
+/Terms%20and%20conditions.html/ /terms-and-conditions   301
 
 # Pair sessions replace the incorrectly advertised group-training service.
 /small-group-personal-training-east-london /pair-personal-training-east-london 301

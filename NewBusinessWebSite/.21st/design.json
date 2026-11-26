@@ -274,6 +274,11 @@
       "date": "2026-11-25",
       "scope": "Premium fitness tools, all 12 routes",
       "choice": "Reuse approved sports tokens and existing compressed tool/training photographs. Shared compact ToolHero; spacious charcoal form workspaces; warm off-white result summaries with large tabular figures and plain explanations; remove decorative arbitrary metric progress bars. Photo-led tool directory with search/filter preserved. Align and compact mobile fields, retain raised CTAs, keyboard focus, validation and reduced motion. No promotional badges. Existing formulae, pricing/booking links and SEO metadata preserved. New ToolHero and tool-visuals helpers keep every route consistent."
+    },
+    {
+      "date": "2026-11-26",
+      "scope": "Navigation dropdown transitions",
+      "choice": "Share native-details animation logic between static navigation and React tools menu. Open with 220ms fade/6px slide; close in 160ms; inline mobile submenus expand/collapse height. Add restrained link hover and mobile drawer transitions. Preserve reduced motion, Escape/focus return, inert closing panels, rapid-toggle cancellation, body scroll restoration and route-change closure. Static nav CSS/module references version 2; generator preserves module loading."
     }
   ],
   "evidence": [

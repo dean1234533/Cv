@@ -305,3 +305,10 @@
 }
 
 .sport-tools .tool-plan-main { padding-top:0; }
+
+/* Match the main navigation dropdown response. */
+.sport-tools .tools-mobile-menu summary { transition:background-color 160ms ease,border-color 160ms ease; }
+.sport-tools .tools-mobile-menu[open] summary { background:#252525; border-color:#a6a69f; }
+.sport-tools .tools-mobile-menu nav { transform-origin:top center; }
+.sport-tools .tools-mobile-menu nav a { transition:background-color 160ms ease,padding-inline 160ms ease; }
+@media(hover:hover) and (pointer:fine) { .sport-tools .tools-mobile-menu nav a:not(.tools-nav-book):hover { background:#202020; padding-inline:8px; } }

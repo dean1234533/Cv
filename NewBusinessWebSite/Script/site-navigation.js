@@ -1,3 +1,5 @@
+import { installDropdownMotion } from './dropdown-motion.js?v=2';
+
 (() => {
   const header = document.getElementById('primaryNav');
   if (!header || header.dataset.initialized) return;
@@ -6,8 +8,9 @@
   const panel = document.getElementById('navigationPanel');
   const mobile = matchMedia('(max-width: 1099px)');
   const dropdowns = [...header.querySelectorAll('details')];
+  const menus = new Map(dropdowns.map(item => [item, installDropdownMotion(item, '.primary-dropdown-links')]));
   let previousOverflow = null;
-  function closeDropdowns() { dropdowns.forEach(item => { item.open = false; }); }
+  function closeDropdowns() { menus.forEach(menu => menu.setOpen(false)); }
   function setOpen(open, restoreFocus = false) {
     toggle.setAttribute('aria-expanded', String(open));
     toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
@@ -25,7 +28,7 @@
   }
   toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
   dropdowns.forEach(item => item.querySelector('summary').addEventListener('click', () => {
-    dropdowns.filter(other => other !== item).forEach(other => { other.open = false; });
+    dropdowns.filter(other => other !== item).forEach(other => menus.get(other).setOpen(false));
   }));
   header.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
   document.addEventListener('click', event => { if (!header.contains(event.target)) setOpen(false); });
@@ -34,7 +37,7 @@
       if (toggle.getAttribute('aria-expanded') === 'true') setOpen(false, true);
       else {
         const open = dropdowns.find(item => item.open);
-        if (open) { open.open = false; open.querySelector('summary').focus(); }
+        if (open) { menus.get(open).setOpen(false); open.querySelector('summary').focus(); }
       }
     }
     if (event.key === 'Tab' && mobile.matches && toggle.getAttribute('aria-expanded') === 'true') {

@@ -48,6 +48,6 @@ import { installDropdownMotion } from './dropdown-motion.js?v=5';
     }
   });
   mobile.addEventListener('change', () => setOpen(false));
-  window.addEventListener('pageshow', () => setOpen(false));
+  window.addEventListener('pageshow', event => { if (event.persisted) setOpen(false); });
   setOpen(false);
 })();

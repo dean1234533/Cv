@@ -3,7 +3,7 @@
 from pathlib import Path
 import re
 import json
-from urllib.parse import unquote, urlsplit
+from urllib.parse import unquote, urlsplit, parse_qs
 from html import unescape
 from lib.carousel_images import optimize_carousels
 
@@ -11,6 +11,43 @@ ROOT = Path(__file__).resolve().parent
 EXCLUDED = {'index.html', 'instagram-posts.html', 'online_video_modal.html'}
 DIMENSIONS = json.loads((ROOT / 'lib/image-dimensions.json').read_text())
 FONT = 'https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap'
+
+
+def prepare_map_loading(markup):
+    # These are the final Google embed URLs verified from the existing redirects.
+    embeds = {
+        'Stratford, London E15': 'https://www.google.com/maps/embed?origin=mfe&pb=!1m3!2m1!1sStratford,+London+E15!6i11',
+        'Barley Lane Park, Goodmayes, Ilford RM6 4RE': 'https://www.google.com/maps/embed?origin=mfe&pb=!1m3!2m1!1sBarley+Lane+Park,+Goodmayes,+Ilford+RM6+4RE!6i12',
+    }
+    found = False
+
+    def iframe(match):
+        nonlocal found
+        tag = match[0]
+        source = re.search(r'\bsrc="([^"]+)"', tag)
+        if not source:
+            return tag
+        url = urlsplit(unescape(source[1]))
+        if url.hostname not in ('maps.google.com', 'www.google.com') or not url.path.startswith('/maps'):
+            return tag
+        found = True
+        query = parse_qs(url.query).get('q', [''])[0]
+        if query in embeds:
+            tag = tag[:source.start(1)] + embeds[query].replace('&', '&amp;') + tag[source.end(1):]
+        if re.search(r'\bloading="[^"]*"', tag):
+            tag = re.sub(r'\bloading="[^"]*"', 'loading="eager"', tag)
+        else:
+            tag = tag[:-1] + ' loading="eager">'
+        return tag
+
+    markup = re.sub(r'<iframe\b[^>]*>', iframe, markup)
+    if found:
+        markup = markup.replace('<link rel="preconnect" href="https://maps.google.com">\n', '')
+        for host in ('https://www.google.com', 'https://maps.gstatic.com'):
+            tag = f'<link rel="preconnect" href="{host}">'
+            if tag not in markup:
+                markup = markup.replace('</head>', tag + '\n</head>', 1)
+    return markup
 
 
 def clean_arrows(markup):
@@ -179,7 +216,7 @@ def apply_page(path):
     text = re.sub(r'<section class="seo-proof seo-section"[^>]*>[\s\S]*?</section>', coach_portrait, text)
     style_version = '31'
     text = re.sub(r'(/Styles/sport-system\.css\?v=)\d+', lambda m: m[1] + style_version, text)
-    text = optimize_carousels(size_header_logo(label_comparison_tables(fix_image_dimensions(clean_arrows(text)))))
+    text = prepare_map_loading(optimize_carousels(size_header_logo(label_comparison_tables(fix_image_dimensions(clean_arrows(text))))))
     text = re.sub(r'(<a\b[^>]*class="mb-call"[^>]*>)[^<]*(</a>)', r'\1Call Dean\2', text)
     text = re.sub(r'(<a\b[^>]*class="mb-book"[^>]*>)[^<]*(</a>)', r'\1Book a call\2', text)
 

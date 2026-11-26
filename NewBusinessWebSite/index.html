@@ -38,11 +38,13 @@
   <script defer src="/Script/cookie-consent.js?v=2"></script>
 
 <link rel="stylesheet" href="/Styles/site-navigation.css?v=13">
-<script type="module" src="/Script/site-navigation.js?v=6"></script>
+<script type="module" src="/Script/site-navigation.js?v=7"></script>
 <link rel="stylesheet" href="/Styles/icons.css?v=2">
 <link rel="stylesheet" href="/Styles/homepage-sport.css?v=30">
 <link rel="stylesheet" href="/Styles/carousel-images.css?v=1">
 <script defer src="/Script/carousel-images.js?v=1"></script>
+<link rel="preconnect" href="https://www.google.com">
+<link rel="preconnect" href="https://maps.gstatic.com">
 </head>
 <body class="home-sport">
 <a class="skip-link" href="#main">Skip to content</a>
@@ -760,8 +762,8 @@
     </div>
     <div class="map-embed">
       <iframe
-        src="https://maps.google.com/maps?q=Stratford,+London+E15&amp;z=11&amp;output=embed"
-        width="1200" height="450" loading="lazy"
+        src="https://www.google.com/maps/embed?origin=mfe&amp;pb=!1m3!2m1!1sStratford,+London+E15!6i11"
+        width="1200" height="450" loading="eager"
         referrerpolicy="no-referrer-when-downgrade"
         title="Map showing DB's Workouts outdoor personal training area in East London"></iframe>
     </div>
@@ -1214,7 +1216,8 @@ document.getElementById('leadMagnetForm').addEventListener('submit', function (e
   }
   v.addEventListener('playing', function () { v.classList.add('is-playing'); });
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { v.autoplay = false; return; }
-  if (document.readyState === 'complete') load(); else window.addEventListener('load', load);
+  // External maps must not hold up the background video.
+  if (document.readyState !== 'loading') load(); else document.addEventListener('DOMContentLoaded', load, { once: true });
   var timer;
   window.addEventListener('resize', function () { clearTimeout(timer); timer = setTimeout(load, 300); });
 })();

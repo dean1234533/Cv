@@ -56,7 +56,7 @@ def apply_navigation(html, path='/'):
     html = re.sub(r'<script\b[^>]*>.*?</script>', clean_script, html, flags=re.S)
     html = re.sub(r'<script[^>]*src="/Script/boxing.js[^\"]*"[^>]*></script>', '', html)
     if '/Styles/site-navigation.css' not in html:
-        html = html.replace('</head>', '<link rel="stylesheet" href="/Styles/site-navigation.css?v=13">\n<script type="module" src="/Script/site-navigation.js?v=6"></script>\n</head>', 1)
+        html = html.replace('</head>', '<link rel="stylesheet" href="/Styles/site-navigation.css?v=13">\n<script type="module" src="/Script/site-navigation.js?v=7"></script>\n</head>', 1)
     return html
 
 

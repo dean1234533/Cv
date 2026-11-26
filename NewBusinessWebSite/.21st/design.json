@@ -299,6 +299,21 @@
       "date": "2026-11-26",
       "scope": "3D header wordmark",
       "choice": "Keep DB\u2019s Workouts as accessible bold italic live text, adding a solid silver/charcoal extruded edge with a soft cast shadow. Match static and tools headers without resizing the lettering or changing the shield. Shared navigation CSS version 10. Eight layouts at 320/390/1100/1440px verified: no clipping/overflow; production tools build and CSS review pass."
+    },
+    {
+      "date": "2026-11-26",
+      "scope": "Engraved header wordmark",
+      "choice": "User replaced raised 3D DB\u2019s Workouts lettering with an inset/engraved treatment. Remove the diagonal extrusion and cast shadow; use readable silver-grey faces, a dark upper cut and a restrained light lower bevel. Preserve approved font, dimensions and live text. Static CSS version 11."
+    },
+    {
+      "date": "2026-11-26",
+      "scope": "Deeply engraved wordmark",
+      "choice": "User still could not see the text indentation. Replace the outside text shadows with an SVG filter that draws dark cut shadows and a bright lower bevel inside the live text glyphs. Silver face retained for readability. Inline zero-size absolute filter definitions shared by static navigation generator and React tools component, exactly one per page. Static CSS version 12; 224 pages verified, generator idempotent, eight main/tools layouts pass, lint/typecheck/build/prerenders pass."
+    },
+    {
+      "date": "2026-11-26",
+      "scope": "Mobile menu bottom gap",
+      "choice": "User flagged excess blank space below booking CTA. Replace the 120px toolbar allowance with 20px plus env(safe-area-inset-bottom). Preserve panel scrolling and touch targets. Shared nav CSS version 13. Verified 24 menu states across home/About and four device sizes; bottom gap 21px including border, no overflow and CTA reachable."
     }
   ],
   "evidence": [

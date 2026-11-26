@@ -1,3 +1,4 @@
+WORDMARK_INSET = '<svg class="wordmark-inset-defs" xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" focusable="false"><defs><filter id="db-wordmark-cut" x="-10%" y="-25%" width="120%" height="160%" color-interpolation-filters="sRGB"><feOffset in="SourceAlpha" dx="0.6" dy="1.6" result="cut-offset"/><feGaussianBlur in="cut-offset" stdDeviation="0.35" result="cut-blur"/><feComposite in="SourceAlpha" in2="cut-blur" operator="out" result="cut-edge"/><feFlood flood-color="#000000" flood-opacity="0.95"/><feComposite in2="cut-edge" operator="in" result="cut-shadow"/><feComposite in="cut-shadow" in2="SourceGraphic" operator="over" result="cut-face"/><feOffset in="SourceAlpha" dx="-0.4" dy="-0.9" result="bevel-offset"/><feComposite in="SourceAlpha" in2="bevel-offset" operator="out" result="bevel-edge"/><feFlood flood-color="#ffffff" flood-opacity="0.8"/><feComposite in2="bevel-edge" operator="in" result="bevel-light"/><feComposite in="bevel-light" in2="cut-face" operator="over"/></filter></defs></svg>\n'
 """Render one static navigation across the public site and its generators."""
 from pathlib import Path
 from html import escape
@@ -24,7 +25,7 @@ def navigation(path='/'):
         return f'<a href="{href}"{current}>{escape(label)}</a>'
     def disclosure(label, links):
         return '<details class="primary-dropdown"><summary>' + label + '<span aria-hidden="true">⌄</span></summary><div class="primary-dropdown-links">' + ''.join(link(*x) for x in links) + '</div></details>'
-    return '''<header class="primary-nav" id="primaryNav">
+    return WORDMARK_INSET + '''<header class="primary-nav" id="primaryNav">
 <div class="primary-nav-inner">
 <a class="primary-brand" href="/" aria-label="DB's Workouts home"><img src="/pics/optimized/logo-160.webp" alt="" width="56" height="56" decoding="async"><span>DB's Workouts</span></a>
 <button class="primary-toggle" id="navigationToggle" type="button" aria-label="Open navigation" aria-controls="navigationPanel" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -33,6 +34,8 @@ def navigation(path='/'):
 
 
 def apply_navigation(html, path='/'):
+    # A regenerated header must keep exactly one copy of the wordmark filter.
+    html = re.sub(r'<svg\b[^>]*class="wordmark-inset-defs"[^>]*>.*?</svg>\s*', '', html, flags=re.S)
     patterns = [r'<header\b[^>]*class="site-nav"[^>]*>.*?</header>', r'<nav\b[^>]*class="db-nav"[^>]*>.*?</nav>', r'<header\b[^>]*class="primary-nav"[^>]*>.*?</header>']
     found = False
     for pattern in patterns:
@@ -53,7 +56,7 @@ def apply_navigation(html, path='/'):
     html = re.sub(r'<script\b[^>]*>.*?</script>', clean_script, html, flags=re.S)
     html = re.sub(r'<script[^>]*src="/Script/boxing.js[^\"]*"[^>]*></script>', '', html)
     if '/Styles/site-navigation.css' not in html:
-        html = html.replace('</head>', '<link rel="stylesheet" href="/Styles/site-navigation.css?v=10">\n<script type="module" src="/Script/site-navigation.js?v=6"></script>\n</head>', 1)
+        html = html.replace('</head>', '<link rel="stylesheet" href="/Styles/site-navigation.css?v=13">\n<script type="module" src="/Script/site-navigation.js?v=6"></script>\n</head>', 1)
     return html
 
 

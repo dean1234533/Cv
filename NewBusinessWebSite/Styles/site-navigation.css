@@ -68,10 +68,9 @@
  .primary-links > .primary-dropdown ~ .primary-dropdown > .primary-dropdown-links { left:auto; right:-20px; }
 }
 
-/* Phone menu: the panel scrolls, and has extra bottom room so the last links and the
-   Book button can be scrolled clear of Safari's bottom toolbar instead of hiding under it. */
+/* Keep a compact bottom inset plus the device safe area inside the scrolling menu. */
 @media(max-width:1099px) {
- .primary-nav .primary-links { max-height:calc(100dvh - 88px); overflow-y:auto; -webkit-overflow-scrolling:touch; overscroll-behavior:contain; padding-bottom:calc(120px + env(safe-area-inset-bottom)); }
+ .primary-nav .primary-links { max-height:calc(100dvh - 88px); overflow-y:auto; -webkit-overflow-scrolling:touch; overscroll-behavior:contain; padding-bottom:calc(20px + env(safe-area-inset-bottom)); }
  .primary-nav .primary-links>a,.primary-nav .primary-dropdown summary { min-height:48px; padding-block:13px; }
 }
 
@@ -106,5 +105,7 @@
  .primary-nav .primary-toggle { background:#080808; box-shadow:inset 0 4px 7px #000,0 1px 0 #4a4a4a; }
 }
 
-/* Raised lettering with a solid extruded edge, retaining real accessible text. */
-.primary-nav .primary-brand>span { color:#fafaf5; text-shadow:.5px .5px 0 #c2c2bb,1px 1px 0 #9a9a94,1.5px 1.5px 0 #73736f,2px 2px 0 #4e4e4b,2.5px 2.5px 0 #333330,3px 3px 0 #151515,3px 5px 4px rgba(0,0,0,.75); }
+/* Engraved lettering: dark upper edge and a restrained lower bevel. */
+.primary-nav .primary-brand>span { color:#c9c9bf; text-shadow:none; filter:url(#db-wordmark-cut); }
+
+.wordmark-inset-defs { position:absolute; pointer-events:none; overflow:hidden; }

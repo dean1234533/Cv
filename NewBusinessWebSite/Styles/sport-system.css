@@ -614,7 +614,7 @@ html:has(.sport-site) { scroll-padding-top:104px; overflow-x:clip; }
 }
 
 /* iPad / tablet (701-1099px): hero photos show their whole frame instead of a tall crop. */
-@media(min-width:701px) and (max-width:1099px) {
+@media(min-width:701px) and (max-width:1099px), (min-width:1100px) and (max-width:1400px) and (pointer:coarse) {
   .sport-site :is(.seo-hero-photo,.boxing-hero-photo) { height:auto; }
   .sport-site :is(.seo-hero-photo,.boxing-hero-photo) img { display:block; width:100%; height:auto; object-fit:cover; }
   .sport-site :is(.seo-hero-grid,.boxing-hero-grid):not(:has(.trainer-hero-photo,.massage-hero-photo)) { grid-template-columns:minmax(0,1fr); gap:36px; }

@@ -176,7 +176,7 @@ def apply_page(path):
     def coach_portrait(match):
         return re.sub(r'<img\b[^>]*src="/pics/optimized/hero-dean.webp"[^>]*>', '<img src="/pics/optimized/dean-portrait.webp" alt="Dean Burt, your DB’s Workouts personal trainer" width="599" height="800" loading="lazy" decoding="async">', match[0], count=1)
     text = re.sub(r'<section class="seo-proof seo-section"[^>]*>[\s\S]*?</section>', coach_portrait, text)
-    style_version = '26'
+    style_version = '31'
     text = re.sub(r'(/Styles/sport-system\.css\?v=)\d+', lambda m: m[1] + style_version, text)
     text = size_header_logo(label_comparison_tables(fix_image_dimensions(clean_arrows(text))))
     text = re.sub(r'(<a\b[^>]*class="mb-call"[^>]*>)[^<]*(</a>)', r'\1Call Dean\2', text)

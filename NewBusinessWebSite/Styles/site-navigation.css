@@ -45,3 +45,18 @@
  .primary-links.is-open { opacity:1; transform:translateY(0); transition-delay:0s; }
 }
 @media(prefers-reduced-motion:reduce) { .primary-dropdown-links a,.primary-links { transition:none!important; } }
+
+/* Phone menu: slow, clearly visible slide-down */
+@media(max-width:1099px) {
+ .primary-links { opacity:1; transform:none; clip-path:inset(0 0 100% 0); transition:clip-path 1100ms cubic-bezier(.45,.05,.55,.95),visibility 0s linear 600ms; }
+ .primary-links.is-open { clip-path:inset(0 0 0 0); transition:clip-path 1100ms cubic-bezier(.45,.05,.55,.95),visibility 0s; }
+ .primary-links>a,.primary-links>.primary-dropdown { opacity:0; transform:translateY(-14px); transition:opacity 250ms ease,transform 250ms ease; }
+ .primary-links.is-open>a,.primary-links.is-open>.primary-dropdown { opacity:1; transform:none; transition:opacity 650ms ease,transform 650ms ease; }
+ .primary-links.is-open>:nth-child(1){transition-delay:.30s}
+ .primary-links.is-open>:nth-child(2){transition-delay:.42s}
+ .primary-links.is-open>:nth-child(3){transition-delay:.54s}
+ .primary-links.is-open>:nth-child(4){transition-delay:.66s}
+ .primary-links.is-open>:nth-child(5){transition-delay:.78s}
+ .primary-links.is-open>:nth-child(6){transition-delay:.90s}
+}
+@media(prefers-reduced-motion:reduce) { .primary-links,.primary-links>* { transition:none!important; } }

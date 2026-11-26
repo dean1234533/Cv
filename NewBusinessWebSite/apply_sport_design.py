@@ -121,7 +121,7 @@ def apply_page(path):
     text = re.sub(r'<body\b[^>]*>', body, text, count=1, flags=re.I)
     if 'id="sport-fonts"' not in text:
         text = re.sub(r'<link\b[^>]*href=["\']https://fonts\.googleapis\.com/css[^>]*>\s*', '', text)
-        text = text.replace('</head>', f'<link id="sport-fonts" rel="stylesheet" href="{FONT}">\n<link id="sport-design" rel="stylesheet" href="/Styles/sport-system.css?v=29">\n</head>', 1)
+        text = text.replace('</head>', f'<link id="sport-fonts" rel="stylesheet" href="{FONT}">\n<link id="sport-design" rel="stylesheet" href="/Styles/sport-system.css?v=30">\n</head>', 1)
     # Main-page headers each own their photograph; location templates keep theirs.
     main_header_images = {
         'active-living-3.html': (

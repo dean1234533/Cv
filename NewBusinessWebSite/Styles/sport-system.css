@@ -612,3 +612,10 @@ html:has(.sport-site) { scroll-padding-top:104px; overflow-x:clip; }
   .sport-site :is(a.db-btn,button.db-btn,.db-btn-primary,.db-btn-outline,a[class^="btn-"],a[class*=" btn-"],a.cta-btn,.consultation-btn,a.pricing-cta,.pricing-cta>a,.contact-option-cta,.btn-plan,.primary-book,.carousel-btn,button[type="submit"],#dbMobileBar a,.db-wa-fab,#dbw-cookie-accept,#dbw-cookie-decline):not(:disabled):not([aria-disabled="true"]) { transition:none; }
   .sport-site :is(a.db-btn,button.db-btn,.db-btn-primary,.db-btn-outline,a[class^="btn-"],a[class*=" btn-"],a.cta-btn,.consultation-btn,a.pricing-cta,.pricing-cta>a,.contact-option-cta,.btn-plan,.primary-book,.carousel-btn,button[type="submit"],#dbMobileBar a,.db-wa-fab,#dbw-cookie-accept,#dbw-cookie-decline):not(:disabled):not([aria-disabled="true"]):hover, .sport-site :is(a.db-btn,button.db-btn,.db-btn-primary,.db-btn-outline,a[class^="btn-"],a[class*=" btn-"],a.cta-btn,.consultation-btn,a.pricing-cta,.pricing-cta>a,.contact-option-cta,.btn-plan,.primary-book,.carousel-btn,button[type="submit"],#dbMobileBar a,.db-wa-fab,#dbw-cookie-accept,#dbw-cookie-decline):not(:disabled):not([aria-disabled="true"]):active { transform:none!important; }
 }
+
+/* iPad / tablet (701-1099px): hero photos show their whole frame instead of a tall crop. */
+@media(min-width:701px) and (max-width:1099px) {
+  .sport-site :is(.seo-hero-photo,.boxing-hero-photo) { height:auto; }
+  .sport-site :is(.seo-hero-photo,.boxing-hero-photo) img { display:block; width:100%; height:auto; object-fit:cover; }
+  .sport-site :is(.seo-hero-grid,.boxing-hero-grid):not(:has(.trainer-hero-photo,.massage-hero-photo)) { grid-template-columns:minmax(0,1fr); gap:36px; }
+}

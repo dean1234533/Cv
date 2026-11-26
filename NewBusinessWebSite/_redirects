@@ -20,14 +20,14 @@
 /Terms-and-conditions       /terms-and-conditions       301
 
 # Previously removed pages — send to closest relevant page to fix 404s
-/smart-life-app             /ai-plans                   301
+/smart-life-app             https://app.dbworkouts.co.uk/                   301
 /smart-app                 https://app.dbworkouts.co.uk/ 301
 /smart-app.html            https://app.dbworkouts.co.uk/ 301
 /clothing                   /about                      301
 /DeanTBStudio               /blog-post                  301
 /deantbstudio               /blog-post                  301
 /shop                       /blog-post                  301
-/smart-life                 /ai-plans                   301
+/smart-life                 https://app.dbworkouts.co.uk/                   301
 /plans                      /pricing                    301
 /services                   /pricing                    301
 /fitness-tools              /tools                      301

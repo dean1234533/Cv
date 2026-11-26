@@ -2,20 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <!-- Core pages -->
-  <url><loc>https://dbworkouts.co.uk/</loc><lastmod>2026-11-03</lastmod><changefreq>weekly</changefreq><priority>1.00</priority></url>
-  <url><loc>https://dbworkouts.co.uk/about</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
-  <url><loc>https://dbworkouts.co.uk/pricing</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
-  <url><loc>https://dbworkouts.co.uk/testimonials</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://dbworkouts.co.uk/contact</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
+  <url><loc>https://dbworkouts.co.uk/</loc><lastmod>2026-11-26</lastmod><changefreq>weekly</changefreq><priority>1.00</priority></url>
+  <url><loc>https://dbworkouts.co.uk/about</loc><lastmod>2026-11-26</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
+  <url><loc>https://dbworkouts.co.uk/pricing</loc><lastmod>2026-11-26</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
+  <url><loc>https://dbworkouts.co.uk/testimonials</loc><lastmod>2026-11-26</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://dbworkouts.co.uk/contact</loc><lastmod>2026-11-26</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
   <url><loc>https://dbworkouts.co.uk/refer-a-friend</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.60</priority></url>
-  <url><loc>https://dbworkouts.co.uk/blog-post</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.70</priority></url>
-  <url><loc>https://dbworkouts.co.uk/free-workout-plan</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
+  <url><loc>https://dbworkouts.co.uk/blog-post</loc><lastmod>2026-11-26</lastmod><changefreq>monthly</changefreq><priority>0.70</priority></url>
+  <url><loc>https://dbworkouts.co.uk/free-workout-plan</loc><lastmod>2026-11-26</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
 
   <!-- Content pages -->
   <url><loc>https://dbworkouts.co.uk/blog</loc><lastmod>2026-11-03</lastmod><changefreq>weekly</changefreq><priority>0.70</priority></url>
   <url><loc>https://dbworkouts.co.uk/programs</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
   <url><loc>https://dbworkouts.co.uk/workouts</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.70</priority></url>
-  <url><loc>https://dbworkouts.co.uk/nutrition</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.70</priority></url>
+  <url><loc>https://dbworkouts.co.uk/nutrition</loc><lastmod>2026-11-26</lastmod><changefreq>monthly</changefreq><priority>0.70</priority></url>
   <url><loc>https://dbworkouts.co.uk/park-guide</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.70</priority></url>
   <url><loc>https://dbworkouts.co.uk/active-living-1</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
   <url><loc>https://dbworkouts.co.uk/active-living-2</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
@@ -24,7 +24,7 @@
   <!-- Local landing pages — original -->
   <url><loc>https://dbworkouts.co.uk/personal-trainer-stratford</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
   <url><loc>https://dbworkouts.co.uk/outdoor-pt-walthamstow</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
-  <url><loc>https://dbworkouts.co.uk/east-london-park-training</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
+  <url><loc>https://dbworkouts.co.uk/east-london-park-training</loc><lastmod>2026-11-26</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
   <url><loc>https://dbworkouts.co.uk/personal-trainer-ilford</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
   <url><loc>https://dbworkouts.co.uk/personal-trainer-goodmayes</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
   <url><loc>https://dbworkouts.co.uk/personal-trainer-wanstead</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
@@ -63,21 +63,21 @@
   <url><loc>https://dbworkouts.co.uk/personal-trainer-clapton</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
 
   <!-- Legal -->
-  <url><loc>https://dbworkouts.co.uk/privacy-policy</loc><lastmod>2026-11-10</lastmod><changefreq>yearly</changefreq><priority>0.20</priority></url>
+  <url><loc>https://dbworkouts.co.uk/privacy-policy</loc><lastmod>2026-11-26</lastmod><changefreq>yearly</changefreq><priority>0.20</priority></url>
 
   <!-- Fitness Tools Hub -->
-  <url><loc>https://dbworkouts.co.uk/tools</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://dbworkouts.co.uk/tools/macro-calculator</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
-  <url><loc>https://dbworkouts.co.uk/tools/tdee-calculator</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
-  <url><loc>https://dbworkouts.co.uk/tools/protein-calculator</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
-  <url><loc>https://dbworkouts.co.uk/tools/bmi-calculator</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
-  <url><loc>https://dbworkouts.co.uk/tools/body-fat-calculator</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
-  <url><loc>https://dbworkouts.co.uk/tools/water-intake-calculator</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
-  <url><loc>https://dbworkouts.co.uk/tools/one-rep-max-calculator</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
-  <url><loc>https://dbworkouts.co.uk/tools/running-pace-calculator</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
-  <url><loc>https://dbworkouts.co.uk/tools/calorie-burn-calculator</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
-  <url><loc>https://dbworkouts.co.uk/tools/outdoor-workout-generator</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
-  <url><loc>https://dbworkouts.co.uk/tools/workout-plan-generator</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://dbworkouts.co.uk/tools</loc><lastmod>2026-11-26</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://dbworkouts.co.uk/tools/macro-calculator</loc><lastmod>2026-11-26</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
+  <url><loc>https://dbworkouts.co.uk/tools/tdee-calculator</loc><lastmod>2026-11-26</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
+  <url><loc>https://dbworkouts.co.uk/tools/protein-calculator</loc><lastmod>2026-11-26</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
+  <url><loc>https://dbworkouts.co.uk/tools/bmi-calculator</loc><lastmod>2026-11-26</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
+  <url><loc>https://dbworkouts.co.uk/tools/body-fat-calculator</loc><lastmod>2026-11-26</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
+  <url><loc>https://dbworkouts.co.uk/tools/water-intake-calculator</loc><lastmod>2026-11-26</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
+  <url><loc>https://dbworkouts.co.uk/tools/one-rep-max-calculator</loc><lastmod>2026-11-26</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
+  <url><loc>https://dbworkouts.co.uk/tools/running-pace-calculator</loc><lastmod>2026-11-26</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
+  <url><loc>https://dbworkouts.co.uk/tools/calorie-burn-calculator</loc><lastmod>2026-11-26</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
+  <url><loc>https://dbworkouts.co.uk/tools/outdoor-workout-generator</loc><lastmod>2026-11-26</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
+  <url><loc>https://dbworkouts.co.uk/tools/workout-plan-generator</loc><lastmod>2026-11-26</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
 
   <url><loc>https://dbworkouts.co.uk/boxing-fitness-east-london</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://dbworkouts.co.uk/weight-loss-personal-trainer-east-london</loc><lastmod>2026-11-03</lastmod></url>
@@ -228,4 +228,5 @@
   <url><loc>https://dbworkouts.co.uk/female-personal-trainer-bethnal-green</loc><lastmod>2026-11-08</lastmod></url>
   <url><loc>https://dbworkouts.co.uk/mobile-sports-massage-hoxton</loc><lastmod>2026-11-08</lastmod></url>
   <url><loc>https://dbworkouts.co.uk/female-personal-trainer-hoxton</loc><lastmod>2026-11-08</lastmod></url>
+  <url><loc>https://dbworkouts.co.uk/7-day-fat-loss-guide</loc><lastmod>2026-11-26</lastmod></url>
 </urlset>

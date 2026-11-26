@@ -72,8 +72,50 @@ function withContent(html, { title, description }, slug) {
   return html.replace('<div id="root"></div>', block);
 }
 
+function withSchema(html, seo, slug, pages) {
+  const publisher = {
+    "@type": "Organization",
+    name: "DB's Workouts",
+    url: "https://dbworkouts.co.uk/",
+    logo: "https://dbworkouts.co.uk/logo.png",
+  };
+  const schema = slug ? {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "@id": `${seo.canonical}#application`,
+    name: seo.title.split(/\s[|\u2013-]\s/)[0].trim(),
+    description: seo.description,
+    url: seo.canonical,
+    applicationCategory: "HealthApplication",
+    operatingSystem: "Any",
+    publisher,
+    offers: { "@type": "Offer", price: "0", priceCurrency: "GBP" },
+  } : {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${seo.canonical}#webpage`,
+    name: "Fitness Tools",
+    description: seo.description,
+    url: seo.canonical,
+    publisher,
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: pages.filter(page => page.seo.canonical !== seo.canonical).map((page, index) => ({
+        "@type": "ListItem", position: index + 1,
+        name: page.seo.title.split(/\s[|\u2013-]\s/)[0].trim(),
+        url: page.seo.canonical,
+      })),
+    },
+  };
+  // The runtime SEO hook replaces this same marked node with the page's full schema.
+  // Crawlers without JavaScript still get the correct tool, never the macro template.
+  return html.replace(/\s*<script\b[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/g, "")
+    .replace("</head>", `<script type="application/ld+json" data-page-schema="true">${JSON.stringify(schema).replace(/</g, "\\u003c")}</script>\n</head>`);
+}
+
 const written = [];
 const skipped = [];
+const pages = [];
 
 for (const file of readdirSync(pagesDir).filter((name) => name.endsWith(".jsx"))) {
   const seo = readPageSeo(file);
@@ -81,21 +123,22 @@ for (const file of readdirSync(pagesDir).filter((name) => name.endsWith(".jsx"))
     skipped.push(file);
     continue;
   }
+  pages.push({ file, seo });
+}
+
+for (const { seo } of pages) {
 
   const pathname = new URL(seo.canonical).pathname.replace(/\/+$/, "");
   const slug = pathname.replace(/^\/tools\/?/, "");
 
   if (!slug) {
     // Hub page (/tools): the root index.html is what /tools serves.
-    writeFileSync(indexPath, withContent(withSeo(template, seo), seo, ""));
+    writeFileSync(indexPath, withSchema(withContent(withSeo(template, seo), seo, ""), seo, "", pages));
     written.push("index.html (hub)");
     continue;
   }
 
-  // index.html bakes in JSON-LD for the macro calculator (WebApplication and a macro FAQ).
-  // That is wrong for every other tool, and each page adds its own JSON-LD at runtime via
-  // usePageSeo, so drop all the baked-in blocks from the per-tool copies.
-  const html = withContent(withSeo(template, seo), seo, slug).replace(/\s*<script type="application\/ld\+json">[\s\S]*?<\/script>/g, "");
+  const html = withSchema(withContent(withSeo(template, seo), seo, slug), seo, slug, pages);
   writeFileSync(path.join(distDir, `${slug}.html`), html);
   written.push(`${slug}.html`);
 }

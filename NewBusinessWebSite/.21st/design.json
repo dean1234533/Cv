@@ -324,6 +324,11 @@
       "date": "2026-11-26",
       "scope": "Google Maps loading",
       "choice": "Start Home/Contact Google maps eagerly rather than waiting for scroll; preconnect Google and Maps static resources. Replace the old maps.google.com redirect URLs with the exact final Google embed addresses verified in browser, preserving Stratford z11 and Barley Lane Park z12. prepare_map_loading keeps regeneration idempotent. Start hero video at DOM readiness so external iframe load cannot delay it; only close nav on persisted pageshow (BFCache restore), since initial setup already closes it. Main navigation module version 7. Both direct embeds return HTTP 200 without a redirect."
+    },
+    {
+      "date": "2026-11-26",
+      "scope": "Complete technical SEO audit",
+      "choice": "Audited 225 static and 12 built tools pages; 214 indexable routes, 23 deliberate exclusions. Correct broken schema logos/favicon/social assets, fill missing share tags, distinguish free-plan landing title/schema from its application, align stale experience copy with approved 7+ years, add guide to sitemap, update verified correction dates and shorten two app redirects. Tools now emit route-specific static JSON-LD replaced cleanly by runtime page schema. Remove self-serving LocalBusiness aggregate ratings per Google rules while retaining visible reviews. Final local audit reports zero issues; all 214 live URLs return 200, matching canonicals, one H1 and no indexing blocks. No deployment or Search Console verification performed."
     }
   ],
   "evidence": [

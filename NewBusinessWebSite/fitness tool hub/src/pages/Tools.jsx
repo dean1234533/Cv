@@ -1,6 +1,8 @@
+import { getToolPhoto } from "@/lib/tool-visuals";
+import ToolHero from "@/components/ToolHero";
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { HeartPulse, Lock, Search } from "lucide-react";
+import { Search } from "lucide-react";
 
 import CTA from "@/components/sections/CTA";
 import Footer from "@/components/sections/Footer";
@@ -38,25 +40,10 @@ const schema = {
 };
 
 function ToolCard({ tool }) {
-  const Icon = tool.icon;
   const content = (
     <>
-      <div className="flex items-start justify-between gap-4">
-        <div className="db-icon-box flex h-11 w-11 items-center justify-center rounded-xl border border-zinc-800 bg-black">
-          <Icon className="h-5 w-5 text-[#B30018]" aria-hidden="true" />
-        </div>
-        {tool.active ? (
-          <span className="rounded-full bg-[#B30018] px-2.5 py-1 text-[10px] font-black uppercase tracking-wide text-white">
-            Live
-          </span>
-        ) : (
-          <span className="inline-flex items-center gap-1 rounded-full border border-zinc-800 px-2.5 py-1 text-[10px] font-black uppercase tracking-wide text-zinc-500">
-            <Lock className="h-3 w-3" aria-hidden="true" />
-            Locked
-          </span>
-        )}
-      </div>
-      <div className="mt-5">
+      <img className="tool-card-photo" src={getToolPhoto(tool.id)} alt="" width="960" height="640" loading="lazy" decoding="async" />
+      <div className="tool-card-copy">
         <h2 className="text-lg font-black text-white">{tool.name}</h2>
         <p className="mt-2 text-sm leading-6 text-zinc-400">{tool.description}</p>
       </div>
@@ -74,10 +61,10 @@ function ToolCard({ tool }) {
   return (
     <Link
       to={tool.href}
-      className="group rounded-2xl border border-zinc-800 bg-zinc-900/70 p-5 transition-colors hover:border-[#B30018]/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B30018]"
+      className="tool-directory-card group rounded-2xl border border-zinc-800 bg-zinc-900/70 p-5 transition-colors hover:border-[#B30018]/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B30018]"
     >
       {content}
-      <span className="mt-5 inline-flex text-sm font-bold text-[#D0182E] transition-colors group-hover:text-white">
+      <span className="tool-card-link mt-5 inline-flex text-sm font-bold text-[#D0182E] transition-colors group-hover:text-white">
         Open tool
       </span>
     </Link>
@@ -106,23 +93,9 @@ export default function Tools() {
 
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-100">
-      <header className="mx-auto max-w-6xl px-4 pb-8 pt-8 sm:pt-12">
+      <ToolHero title={"Fitness Tools Hub"} description={"Simple calculators for smarter training, nutrition and progress tracking. Each tool is added only when it is ready to use."} tool="tools" />
 
-        <div className="mt-12 max-w-3xl">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#B30018]/30 bg-[#B30018]/10 px-3 py-1.5 text-xs font-bold text-[#F0F8FF]">
-            <HeartPulse className="h-3.5 w-3.5 text-[#B30018]" aria-hidden="true" />
-            Free tools from DB's Workouts
-          </div>
-          <h1 className="text-4xl font-black leading-tight tracking-tight text-white sm:text-6xl">
-            Fitness Tools Hub
-          </h1>
-          <p className="mt-4 max-w-2xl text-base leading-7 text-zinc-400">
-            Simple calculators for smarter training, nutrition and progress tracking. Each tool is added only when it is ready to use.
-          </p>
-        </div>
-      </header>
-
-      <main className="mx-auto max-w-6xl px-4 pb-14">
+      <main className="tool-main tool-directory mx-auto max-w-6xl px-4 pb-14">
         <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center">
           <div className="relative flex-1">
             <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-500" aria-hidden="true" />
@@ -132,7 +105,7 @@ export default function Tools() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               aria-label="Search fitness tools"
-              className="h-11 w-full rounded-lg border border-zinc-800 bg-zinc-900 pl-9 pr-3 text-sm font-semibold text-white outline-none transition-colors placeholder:text-zinc-600 focus:border-[#B30018] focus:ring-2 focus:ring-[#B30018]/30"
+              className="h-11 w-full rounded-lg border border-zinc-800 bg-zinc-900 pl-9 pr-3 text-sm font-semibold text-white transition-colors placeholder:text-zinc-600 focus:border-[#B30018] focus:ring-2 focus:ring-[#B30018]/30"
             />
           </div>
           <div className="flex gap-2 overflow-x-auto pb-1 sm:pb-0" role="group" aria-label="Filter by category">

@@ -2,7 +2,6 @@
 // Each known tool has a prerendered /tools/<slug>.html with its own title, description and
 // canonical, so crawlers that do not run JavaScript see the right head tags. Anything else
 // falls back to the SPA shell (/tools/index.html). Static files (assets, images, etc.) pass through.
-import { addToolBadgeCarousel } from "../../lib/tool-badge-carousel.js";
 
 async function loadToolPage(context, url) {
   const slug = url.pathname.replace(/^\/tools\/?/, "").replace(/\/+$/, "");
@@ -28,7 +27,7 @@ export async function onRequest(context) {
     const response = await context.env.ASSETS.fetch(url.toString());
     html = await response.text();
   }
-  return new Response(addToolBadgeCarousel(html), {
+  return new Response(html, {
     headers: { "Content-Type": "text/html;charset=UTF-8" },
   });
 }

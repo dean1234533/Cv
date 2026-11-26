@@ -56,8 +56,8 @@ export default function CalculatorWizard({ data, onChange, onCalculate, isCalcul
   };
 
   return (
-    <section id="calculator" className="mx-auto max-w-2xl px-4 pb-12">
-      <div className="rounded-2xl border border-zinc-800 bg-zinc-950/80 p-4 shadow-2xl shadow-black/20 sm:p-6">
+    <section id="calculator" className="tool-macro-wizard mx-auto max-w-2xl px-4 pb-12">
+      <div className="tool-form-panel rounded-2xl border border-zinc-800 bg-zinc-950/80 p-4 shadow-2xl shadow-black/20 sm:p-6">
         <div className="mb-6 grid grid-cols-3 gap-2">
           {["Details", "Goals", "Summary"].map((label, index) => (
             <div key={label} className={`rounded-full px-3 py-2 text-center text-xs font-bold ${step === index ? "bg-white text-zinc-950" : index < step ? "bg-[#B30018] text-white" : "bg-zinc-900 text-zinc-500"}`}>
@@ -74,7 +74,7 @@ export default function CalculatorWizard({ data, onChange, onCalculate, isCalcul
               </div>
               <div className="grid gap-4 sm:grid-cols-2">
                 <Field label="Age" error={data.age && !ageValid ? "Enter 16 to 90." : ""}>
-                  <Input type="number" min="16" max="90" value={data.age || ""} onChange={(e) => onChange({ age: Number(e.target.value) })} className="bg-zinc-900 border-zinc-800 text-white" />
+                  <Input aria-label="Age" type="number" min="16" max="90" value={data.age || ""} onChange={(e) => onChange({ age: Number(e.target.value) })} className="bg-zinc-900 border-zinc-800 text-white" />
                 </Field>
                 <Field label="Sex">
                   <div className="grid grid-cols-2 gap-2">
@@ -82,10 +82,10 @@ export default function CalculatorWizard({ data, onChange, onCalculate, isCalcul
                   </div>
                 </Field>
                 <Field label="Height (cm)" error={data.height_cm && !heightValid ? "Enter 120 to 230 cm." : ""}>
-                  <Input type="number" min="120" max="230" value={data.height_cm || ""} onChange={(e) => onChange({ height_cm: Number(e.target.value) })} className="bg-zinc-900 border-zinc-800 text-white" />
+                  <Input aria-label="Height (cm)" type="number" min="120" max="230" value={data.height_cm || ""} onChange={(e) => onChange({ height_cm: Number(e.target.value) })} className="bg-zinc-900 border-zinc-800 text-white" />
                 </Field>
                 <Field label="Weight (kg)" error={data.weight_kg && !weightValid ? "Enter 35 to 250 kg." : ""}>
-                  <Input type="number" min="35" max="250" value={data.weight_kg || ""} onChange={(e) => onChange({ weight_kg: Number(e.target.value) })} className="bg-zinc-900 border-zinc-800 text-white" />
+                  <Input aria-label="Weight (kg)" type="number" min="35" max="250" value={data.weight_kg || ""} onChange={(e) => onChange({ weight_kg: Number(e.target.value) })} className="bg-zinc-900 border-zinc-800 text-white" />
                 </Field>
               </div>
               <Button disabled={!stepOneValid} onClick={() => setStep(1)} className="w-full bg-[#B30018] py-6 text-white hover:bg-[#940014]">Continue </Button>

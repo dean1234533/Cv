@@ -1,4 +1,5 @@
 // @ts-nocheck
+import ToolHero from "@/components/ToolHero";
 import React, { useEffect, useMemo, useState } from "react";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { Copy, Download, Map, Printer, RefreshCw, Share2, Timer, Zap } from "lucide-react";
@@ -341,25 +342,11 @@ export default function OutdoorWorkoutGenerator() {
 
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-100">
-      <header className="mx-auto max-w-5xl px-4 pb-8 pt-8 sm:pt-12">
+      <ToolHero title={"Outdoor Workout Generator"} description={"Generate outdoor workouts with warm up, sets, reps, rest, finisher, cooldown and calories burned."} tool="outdoor-workout-generator" />
 
-        <div className="mt-12 max-w-3xl">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#B30018]/30 bg-[#B30018]/10 px-3 py-1.5 text-xs font-bold text-[#F0F8FF]">
-            <Zap className="h-3.5 w-3.5 text-[#B30018]" aria-hidden="true" />
-            Personalised outdoor sessions
-          </div>
-          <h1 className="text-4xl font-black leading-tight tracking-tight text-white sm:text-6xl">
-            Outdoor Workout Generator
-          </h1>
-          <p className="mt-4 max-w-2xl text-base leading-7 text-zinc-400">
-            Generate outdoor workouts with warm up, sets, reps, rest, finisher, cooldown and calories burned.
-          </p>
-        </div>
-      </header>
-
-      <main className="mx-auto max-w-5xl px-4 pb-14">
-        <section className="grid gap-4 lg:grid-cols-[0.85fr_1.15fr]">
-          <form onSubmit={handleGenerate} className="rounded-2xl border border-zinc-800 bg-zinc-950/80 p-4 shadow-2xl shadow-black/20 sm:p-6">
+      <main className="tool-main mx-auto max-w-5xl px-4 pb-14">
+        <section className="tool-workspace grid gap-4 lg:grid-cols-[0.85fr_1.15fr]">
+          <form onSubmit={handleGenerate} className="tool-form-panel rounded-2xl border border-zinc-800 bg-zinc-950/80 p-4 shadow-2xl shadow-black/20 sm:p-6">
             <div className="mb-6">
               <h2 className="text-2xl font-black text-white">Build Your Workout</h2>
               <p className="mt-1 text-sm text-zinc-500">Choose your goal, level, time, kit and location.</p>
@@ -413,9 +400,9 @@ export default function OutdoorWorkoutGenerator() {
             {status && <p className="mt-3 text-center text-xs font-bold text-zinc-500">{status}</p>}
           </form>
 
-          <section className="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-4 sm:p-6">
+          <section className="tool-results-panel rounded-2xl border border-zinc-800 bg-zinc-900/40 p-4 sm:p-6" aria-live="polite" aria-atomic="false">
             <h2 className="text-2xl font-black text-white">Workout Results</h2>
-            <p className="mt-1 text-sm text-zinc-500">Your personalised outdoor session will appear here.</p>
+            <p className="mt-1 text-sm text-zinc-500">{workout ? "Your personalised breakdown." : "Your personalised outdoor session will appear here."}</p>
             {workout ? (
               <div className="mt-5 grid gap-3 sm:grid-cols-2">
                 {resultCards.map((card) => (
@@ -423,7 +410,7 @@ export default function OutdoorWorkoutGenerator() {
                 ))}
               </div>
             ) : (
-              <div className="mt-5 rounded-xl border border-dashed border-zinc-800 bg-black/30 p-5 text-sm leading-6 text-zinc-500">
+              <div className="tool-result-empty">
                 Complete the form to generate a workout.
               </div>
             )}

@@ -119,7 +119,7 @@ export default function Home() {
     <div className="min-h-screen bg-zinc-950 text-zinc-100">
       <Hero onStart={handleStart} />
 
-      <main ref={calculatorRef} className="scroll-mt-6">
+      <main ref={calculatorRef} className="tool-macro-main scroll-mt-6">
         <CalculatorWizard
           data={data}
           onChange={onChange}

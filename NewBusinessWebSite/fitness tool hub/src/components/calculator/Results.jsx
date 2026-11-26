@@ -23,7 +23,7 @@ export default function Results({ data, results }) {
     <section className="mx-auto max-w-5xl px-4 pb-12">
       <div className="mb-5 text-center">
         <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#B30018]">Results</p>
-        <h2 className="mt-2 text-3xl font-black text-white">Your Premium Training Dashboard</h2>
+        <h2 className="mt-2 text-3xl font-black text-white">Your Training Breakdown</h2>
       </div>
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {cards.map((card) => <ResultCard key={card.label} {...card} />)}

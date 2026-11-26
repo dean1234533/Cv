@@ -259,6 +259,21 @@
       "date": "2026-11-25",
       "scope": "Subtle 3D buttons",
       "choice": "Boxed actions use a restrained inset top edge, 3px dark base and soft shadow. Hover lifts 1px; active depresses 2px and reduces the base to 1px. Preserve explicit readable colours, square shapes, focus outlines, layout and reduced-motion support across main, SEO and tools pages."
+    },
+    {
+      "date": "2026-11-25",
+      "scope": "Tools badges removed",
+      "choice": "Remove directory badge carousels and promotional header/trust/status pills across all 12 tool routes. Remove server badge injection and badge-carousel CSS/JS includes. Preserve calculator data labels, progress controls, tool names, metadata, links and calculations."
+    },
+    {
+      "date": "2026-11-25",
+      "scope": "Website image compression",
+      "choice": "Processed all 97 published raster source assets (main site and tools public assets). 56 reduced, total 58,847,393 to 46,765,835 bytes (20.5% saving). Preserve dimensions, filenames and links. PNG/WebP optimized losslessly with exact RGBA checks; JPEG quality ceiling 85 and progressive encoding. Original backups and detailed report on external drive under dbworkouts-site-redesign/image-compression-20261125. Excluded archived projects and social exports."
+    },
+    {
+      "date": "2026-11-25",
+      "scope": "Premium fitness tools, all 12 routes",
+      "choice": "Reuse approved sports tokens and existing compressed tool/training photographs. Shared compact ToolHero; spacious charcoal form workspaces; warm off-white result summaries with large tabular figures and plain explanations; remove decorative arbitrary metric progress bars. Photo-led tool directory with search/filter preserved. Align and compact mobile fields, retain raised CTAs, keyboard focus, validation and reduced motion. No promotional badges. Existing formulae, pricing/booking links and SEO metadata preserved. New ToolHero and tool-visuals helpers keep every route consistent."
     }
   ],
   "evidence": [

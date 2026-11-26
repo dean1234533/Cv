@@ -1,7 +1,8 @@
 // @ts-nocheck
+import ToolHero from "@/components/ToolHero";
 import React, { useMemo, useState } from "react";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
-import { Beef, Calculator, Flame, HeartPulse, Scale, Target, TrendingUp, Zap } from "lucide-react";
+import { Beef, Calculator, Flame, HeartPulse, Scale, Target, TrendingUp } from "lucide-react";
 import { track } from "@/lib/analytics";
 
 import ResultCard from "@/components/calculator/ResultCard";
@@ -127,7 +128,7 @@ function NumberInput(props) {
   return (
     <input
       type="number"
-      className="h-11 w-full rounded-lg border border-zinc-800 bg-zinc-900 px-3 text-sm font-semibold text-white outline-none transition-colors focus:border-[#B30018] focus:ring-2 focus:ring-[#B30018]/30"
+      className="h-11 w-full rounded-lg border border-zinc-800 bg-zinc-900 px-3 text-sm font-semibold text-white transition-colors focus:border-[#B30018] focus:ring-2 focus:ring-[#B30018]/30"
       {...props}
     />
   );
@@ -183,25 +184,11 @@ export default function TDEECalculator() {
 
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-100">
-      <header className="mx-auto max-w-5xl px-4 pb-8 pt-8 sm:pt-12">
+      <ToolHero title={"TDEE Calculator"} description={"Estimate your daily calorie burn, maintenance target, fat loss calories, muscle gain calories and protein in under a minute."} tool="tdee-calculator" />
 
-        <div className="mt-12 max-w-3xl">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#B30018]/30 bg-[#B30018]/10 px-3 py-1.5 text-xs font-bold text-[#F0F8FF]">
-            <Zap className="h-3.5 w-3.5 text-[#B30018]" aria-hidden="true" />
-            Free calorie target calculator
-          </div>
-          <h1 className="text-4xl font-black leading-tight tracking-tight text-white sm:text-6xl">
-            TDEE Calculator
-          </h1>
-          <p className="mt-4 max-w-2xl text-base leading-7 text-zinc-400">
-            Estimate your daily calorie burn, maintenance target, fat loss calories, muscle gain calories and protein in under a minute.
-          </p>
-        </div>
-      </header>
-
-      <main className="mx-auto max-w-5xl px-4 pb-14">
-        <section className="grid gap-4 lg:grid-cols-[0.85fr_1.15fr]">
-          <form onSubmit={handleSubmit} className="rounded-2xl border border-zinc-800 bg-zinc-950/80 p-4 shadow-2xl shadow-black/20 sm:p-6">
+      <main className="tool-main mx-auto max-w-5xl px-4 pb-14">
+        <section className="tool-workspace grid gap-4 lg:grid-cols-[0.85fr_1.15fr]">
+          <form onSubmit={handleSubmit} className="tool-form-panel rounded-2xl border border-zinc-800 bg-zinc-950/80 p-4 shadow-2xl shadow-black/20 sm:p-6">
             <div className="mb-6">
               <h2 className="text-2xl font-black text-white">Your Details</h2>
               <p className="mt-1 text-sm text-zinc-500">Enter your stats and choose the activity level that best matches your week.</p>
@@ -246,9 +233,9 @@ export default function TDEECalculator() {
             </button>
           </form>
 
-          <section className="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-4 sm:p-6">
+          <section className="tool-results-panel rounded-2xl border border-zinc-800 bg-zinc-900/40 p-4 sm:p-6" aria-live="polite" aria-atomic="false">
             <h2 className="text-2xl font-black text-white">Results</h2>
-            <p className="mt-1 text-sm text-zinc-500">Your calorie and protein targets will appear here.</p>
+            <p className="mt-1 text-sm text-zinc-500">{results ? "Your personalised breakdown." : "Your calorie and protein targets will appear here."}</p>
             {results ? (
               <div className="mt-5 grid gap-3 sm:grid-cols-2">
                 {resultCards.map((card) => (
@@ -256,7 +243,7 @@ export default function TDEECalculator() {
                 ))}
               </div>
             ) : (
-              <div className="mt-5 rounded-xl border border-dashed border-zinc-800 bg-black/30 p-5 text-sm leading-6 text-zinc-500">
+              <div className="tool-result-empty">
                 Complete the form to see your BMR, TDEE, calorie targets and protein recommendation.
               </div>
             )}

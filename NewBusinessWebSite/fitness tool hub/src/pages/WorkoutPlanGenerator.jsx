@@ -1,4 +1,5 @@
 // @ts-nocheck
+import ToolHero from "@/components/ToolHero";
 import React, { useState, useRef } from "react";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { motion, AnimatePresence } from "framer-motion";
@@ -78,6 +79,7 @@ function ChoiceBtn({ selected, onClick, children }) {
   return (
     <button
       type="button"
+      aria-pressed={selected}
       onClick={onClick}
       className={`rounded-xl border px-3 py-3 text-sm font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B30018] ${
         selected
@@ -90,10 +92,11 @@ function ChoiceBtn({ selected, onClick, children }) {
   );
 }
 
-function NumInput({ value, onChange, placeholder, error }) {
+function NumInput({ label, value, onChange, placeholder, error }) {
   return (
     <input
       type="number"
+      aria-label={label}
       value={value}
       onChange={e => onChange(e.target.value)}
       placeholder={placeholder}
@@ -134,7 +137,7 @@ function InputForm({ onGenerate }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-7">
+    <form onSubmit={handleSubmit} className="tool-form-panel space-y-7">
       {/* Goal */}
       <Field label="Your Goal" error={errors.goal}>
         <div className="grid grid-cols-2 gap-2">
@@ -161,13 +164,13 @@ function InputForm({ onGenerate }) {
       {/* Age / Weight / Height */}
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
         <Field label="Age" error={errors.age}>
-          <NumInput value={form.age} onChange={v => set("age", v)} placeholder="25" error={errors.age} />
+          <NumInput label="Age" value={form.age} onChange={v => set("age", v)} placeholder="25" error={errors.age} />
         </Field>
         <Field label="Weight (kg)" error={errors.weight}>
-          <NumInput value={form.weight} onChange={v => set("weight", v)} placeholder="75" error={errors.weight} />
+          <NumInput label="Weight (kg)" value={form.weight} onChange={v => set("weight", v)} placeholder="75" error={errors.weight} />
         </Field>
         <Field label="Height (cm)" error={errors.height}>
-          <NumInput value={form.height} onChange={v => set("height", v)} placeholder="175" error={errors.height} />
+          <NumInput label="Height (cm)" value={form.height} onChange={v => set("height", v)} placeholder="175" error={errors.height} />
         </Field>
       </div>
 
@@ -222,13 +225,6 @@ function InputForm({ onGenerate }) {
 
 // ─── WORKOUT PLAN ──────────────────────────────────────────────────────────────
 
-const typeColors = {
-  compound:  "bg-blue-900/40 text-blue-400",
-  isolation: "bg-violet-900/40 text-violet-400",
-  cardio:    "bg-orange-900/40 text-orange-400",
-  power:     "bg-red-900/40 text-red-400",
-  stability: "bg-teal-900/40 text-teal-400",
-};
 
 function WorkoutPlan({ data }) {
   const { days, restDays, injuryNote } = data;
@@ -268,7 +264,7 @@ function WorkoutPlan({ data }) {
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 flex-wrap">
                     <span className="font-semibold text-sm text-white">{ex.name}</span>
-                    <span className={`text-[10px] px-2 py-0.5 rounded-full font-medium ${typeColors[ex.type] || "bg-zinc-800 text-zinc-400"}`}>
+                    <span className="text-xs font-medium text-zinc-400">
                       {ex.type}
                     </span>
                   </div>
@@ -461,61 +457,10 @@ export default function WorkoutPlanGenerator() {
     <div className="min-h-screen bg-zinc-950 text-zinc-100">
 
       {/* ── Hero ── */}
-      <header className="tools-workout-hero relative overflow-hidden border-b border-zinc-800/60">
-        {/* Red glow accent */}
-        <div className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-full max-w-xl h-[400px] rounded-full bg-[#B30018]/15 blur-[120px]" />
-
-        <div className="relative mx-auto max-w-2xl px-4 text-center">
-
-          {/* Badge */}
-          <motion.div
-            initial={false}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 rounded-full border border-[#B30018]/30 bg-[#B30018]/10 px-4 py-1.5 text-xs font-bold text-[#F0F8FF] mb-6"
-          >
-            <Dumbbell className="h-3.5 w-3.5 text-[#B30018]" />
-            Free Plan Generator — No Login Required
-          </motion.div>
-
-          {/* Heading */}
-          <motion.h1
-            initial={false}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.08 }}
-            className="text-4xl sm:text-6xl font-black leading-tight tracking-tight text-white"
-          >
-            Your Free Workout &amp;<br />
-            <span className="text-[#B30018]">Nutrition Plan</span>
-          </motion.h1>
-
-          <motion.p
-            initial={false}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.18 }}
-            className="mt-5 text-base leading-7 text-zinc-400 max-w-md mx-auto"
-          >
-            Fill in your details and get a personalised weekly training schedule and daily nutrition blueprint — instantly, for free.
-          </motion.p>
-
-          {/* Trust badges */}
-          <motion.div
-            initial={false}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.28 }}
-            className="mt-6 flex flex-wrap justify-center gap-2"
-          >
-            {["No login", "Instant results", "Created by a REPs PT"].map(b => (
-              <span key={b} className="inline-flex items-center gap-1.5 rounded-full border border-zinc-800 bg-zinc-900/80 px-3 py-1 text-xs font-semibold text-zinc-400">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#B30018]" />
-                {b}
-              </span>
-            ))}
-          </motion.div>
-        </div>
-      </header>
+      <ToolHero title="Your Free Workout & Nutrition Plan" description="Fill in your details and get a personalised weekly training schedule and daily nutrition blueprint — instantly, for free." tool="workout-plan-generator" />
 
       {/* ── Content ── */}
-      <main className="mx-auto max-w-2xl px-4 py-10 space-y-6">
+      <main className="tool-main tool-plan-main mx-auto max-w-2xl px-4 py-10 space-y-6">
 
         {/* Form / summary */}
         <AnimatePresence mode="wait">
@@ -525,7 +470,7 @@ export default function WorkoutPlanGenerator() {
               initial={false}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -16 }}
-              className="rounded-3xl border border-zinc-800 bg-zinc-900/60 p-6 sm:p-8 shadow-2xl shadow-black/40"
+              className="tool-plan-form-wrapper"
             >
               <InputForm onGenerate={handleGenerate} />
             </motion.div>

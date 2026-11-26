@@ -130,3 +130,13 @@ Latest logo uses logo-3d-matte assets with no perimeter glare. Header logo hover
 Header wordmark: bold italic uppercase Barlow Condensed 800, 24px and 22px below 360px. Keep all words on one line beside the matte 3D shield.
 
 Buttons use subtle raised faces: inset top edge, 3px dark base, soft shadow, 1px hover lift and 2px press-down. Keep current readable colour pairs, focus rings and reduced-motion support.
+
+Tool pages must not display promotional/directory badges or badge carousels. Remove server injection as well as source markup; calculator data labels and progress controls remain functional. All 12 routes checked; lint/typecheck/build and prerenders pass.
+
+## Premium tool pages
+
+All 12 routes share the existing charcoal/red/ivory sports identity through ToolHero and tool-visuals.js. Use the approved compressed still-life and training photography, with compact side images on phones. Forms have deliberate spacing, 50px inputs and visible selection/focus states. Ivory results panels use large figures, units and useful explanations, without arbitrary decorative progress bars. Long calculator forms no longer stretch empty results panels. The tool hub has consistent photo cards; keep search and category filters. Keep promotional/directory badges removed, use plain exercise-type metadata, retain genuine data charts and wizard progress. Preserve calculator formulae, validation, metadata, booking and download functionality.
+
+Validation evidence: external tools-premium audit/review/calculations files, sample calculations for all nine standalone tools plus the macro wizard and workout/nutrition generator; directory search/filter and invalid-input checks; lint, typecheck, production build and 12 prerenders. 21st catalogue was unavailable without sign-in, so reuse the approved project primitives and imagery.
+
+Final tool QA (2026-11-26): 60 layouts across 12 routes at 320/390/768/1024/1440px, with no page overflow, clipped form controls, heading/header collisions, missing hero photos or directory badges. Populated TDEE metric text minimum contrast is 5.90:1; input keyboard focus has a solid 2px outline. Rechecked the outdoor generator after fixing its result-summary state reference. Final deterministic review: zero errors and warnings.
